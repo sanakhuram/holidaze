@@ -1,8 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  turbopack: {
-    root: __dirname, // ensures the root is THIS project folder
+// next.config.ts
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: 'https', hostname: '**' }, 
+    ],
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
