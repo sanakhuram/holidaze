@@ -14,7 +14,6 @@ export default function Navbar() {
     return (
         <nav className="sticky top-0 z-50 bg-gradient-to-r from-coffee to-wine text-amber-600 shadow-md shadow-amber-900/40">
             <div className="container mx-auto flex items-center justify-between p-4">
-                {/* Brand */}
                 <Link href={"/" as Route} className="flex items-center gap-2 font-bold text-xl">
                     <Image
                         src="/logo.png"
@@ -27,7 +26,6 @@ export default function Navbar() {
                     <span>Holidaze</span>
                 </Link>
 
-                {/* Desktop links */}
                 <div className="hidden md:flex items-center gap-6">
                     <Link href={"/venues" as Route} className="inline-flex items-center gap-1 hover:underline">
                         <MapPinned className="h-4 w-4" />
@@ -45,7 +43,6 @@ export default function Navbar() {
                     </Link>
                 </div>
 
-                {/* Mobile toggle */}
                 <button
                     type="button"
                     onClick={() => setOpen((v) => !v)}
@@ -58,7 +55,6 @@ export default function Navbar() {
                 </button>
             </div>
 
-            {/* Mobile menu */}
             {open && (
                 <div
                     id="mobile-menu"
