@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
 import { poppins } from "./fonts";
-import { Toaster } from "react-hot-toast";
+import ToastProvider from "./components/ToastProvider";
 
 export const metadata: Metadata = {
   title: "Holidaze | Accommodation Booking",
@@ -19,7 +19,7 @@ export default function RootLayout({ children
     <html lang="en">
       <body className={`${poppins.variable} ${poppins.variable} min-h-screen flex flex-col bg-background text-foreground`}>
         <Navbar/>
-          <Toaster position="top-right" />
+          <ToastProvider/>
         <main className="flex-1">{children}</main>
         <Footer/>
         </body>
