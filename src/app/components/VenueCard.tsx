@@ -6,6 +6,7 @@ import { useState } from "react";
 import type { Venue } from "../lib/types";
 import { Star, Users, CircleDollarSign } from "lucide-react";
 import SafeImage from "./SafeImage";
+import type { Route } from "next";
 
 const PLACEHOLDER = "/placeholder.jpg";
 
@@ -16,8 +17,7 @@ export default function VenueCard({ venue }: { venue: Venue }) {
   const rating = typeof venue.rating === "number" ? venue.rating : 0;
 
   return (
-    <Link
-      href={`/venues/${venue.id}`}
+    <Link href={`/venues/${String(venue.id)}` as Route}
       className="group block rounded-md shadow-xl transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
     >
       <div className="relative h-48 w-full overflow-hidden">

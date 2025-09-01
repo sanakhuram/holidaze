@@ -23,9 +23,9 @@ export default function VenuesPage() {
         setLoading(true);
         setErr(null);
 
-        const res = await getVenues(page, limit);
-        const items = (res as any)?.data ?? [];
-        const m = (res as any)?.meta;
+        const res: { data: Venue[]; meta?: PaginationMeta } = await getVenues(page, limit);
+        const items = res?.data ?? [];
+        const m = res?.meta;
 
         if (mounted) {
           setVenues(items);
@@ -70,7 +70,7 @@ export default function VenuesPage() {
 
   return (
     <>
-      <div className="grid gap-4 p-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
         {venues.map((v) => (
           <VenueCard key={v.id} venue={v} />
         ))}
