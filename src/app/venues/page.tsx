@@ -1,59 +1,12 @@
-// src/app/venues/page.tsx
 "use client";
 
-import { useEffect, useState } from "react";
+import { Search, Users, Star } from "lucide-react";
 import VenueCard from "../components/VenueCard";
-import PaginationControls, { type PaginationMeta } from "../components/PaginationControls";
-import { getVenues } from "../lib/api";
-import type { Venue } from "../lib/types";
+import PaginationControls from "../components/PaginationControls";
+import { useVenueSearch } from "@/hooks/useVenueSearch";
 
 export default function VenuesPage() {
-  const [venues, setVenues] = useState<Venue[]>([]);
-  const [meta, setMeta] = useState<PaginationMeta | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [err, setErr] = useState<string | null>(null);
-  const [page, setPage] = useState(1);
-  const limit = 24; 
-
-  useEffect(() => {
-    let mounted = true;
-
-    (async () => {
-      try {
-        setLoading(true);
-        setErr(null);
-
-        const res: { data: Venue[]; meta?: PaginationMeta } = await getVenues(page, limit);
-        const items = res?.data ?? [];
-        const m = res?.meta;
-
-        if (mounted) {
-          setVenues(items);
-          if (m) {
-            setMeta({
-              currentPage: m.currentPage,
-              pageCount: m.pageCount,
-              isFirstPage: m.isFirstPage,
-              isLastPage: m.isLastPage,
-            });
-          } else {
-            setMeta({
-              currentPage: page,
-              pageCount: items.length < limit ? page : page + 1, 
-              isFirstPage: page === 1,
-              isLastPage: items.length < limit,
-            });
-          }
-        }
-      } catch (e) {
-        if (mounted) setErr(e instanceof Error ? e.message : "Failed to load");
-      } finally {
-        if (mounted) setLoading(false);
-      }
-    })();
-
-    return () => { mounted = false; };
-  }, [page, limit]);
+  const { venues, meta, loading, error, q, setQ, setPage, filters, setFilters } = useVenueSearch(24);
 
   if (loading) {
     return (
@@ -65,17 +18,70 @@ export default function VenuesPage() {
     );
   }
 
-  if (err) return <p className="p-6 text-red-500">Error: {err}</p>;
+  if (error) return <p className="p-6 text-red-500">Error: {error}</p>;
   if (!venues.length) return <p className="p-6">No venues found.</p>;
 
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
+      {/* 🔍 Search & filters */}
+      <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 mb-8 px-4">
+        {/* Search */}
+        <div className="flex items-center gap-2 w-full sm:w-1/2 lg:w-1/3">
+          <Search className="w-5 h-5 text-amber-600 shrink-0" />
+          <input
+            type="text"
+            placeholder="Search venues..."
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-600"
+          />
+        </div>
+
+        {/* Guests */}
+        <div className="flex items-center gap-2 w-full sm:w-auto">
+          <Users className="w-5 h-5 text-amber-600 shrink-0" />
+          <input
+            type="number"
+            min={1}
+            placeholder="Guests"
+            value={filters.guests ?? ""}
+            onChange={(e) => {
+              const val = e.target.value ? Number(e.target.value) : undefined;
+              setFilters({ ...filters, guests: val });
+            }}
+            className="w-24 rounded-md border border-neutral-300 px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-600"
+          />
+        </div>
+
+        {/* Min Rating */}
+        <div className="flex items-center gap-2 w-full sm:w-auto">
+          <Star className="w-5 h-5 text-amber-600 shrink-0" />
+          <select
+            value={filters.minRating ?? ""}
+            onChange={(e) => {
+              const val = e.target.value ? Number(e.target.value) : undefined;
+              setFilters({ ...filters, minRating: val });
+            }}
+            className="rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-600"
+          >
+            <option value="">Rating</option>
+            <option value="1">1+</option>
+            <option value="2">2+</option>
+            <option value="3">3+</option>
+            <option value="4">4+</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+      </div>
+
+      {/* Venues grid */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full px-4">
         {venues.map((v) => (
           <VenueCard key={v.id} venue={v} />
         ))}
       </div>
 
+      {/* Pagination */}
       {meta && (
         <PaginationControls
           className="mb-10"

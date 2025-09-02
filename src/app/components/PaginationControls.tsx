@@ -4,8 +4,8 @@
 export type PaginationMeta = {
   currentPage: number;
   pageCount: number;
-  isFirstPage: boolean;
-  isLastPage: boolean;
+  isFirstPage?: boolean; 
+  isLastPage?: boolean;  
 };
 
 export default function PaginationControls({
@@ -17,24 +17,29 @@ export default function PaginationControls({
   onPageChange: (page: number) => void;
   className?: string;
 }) {
+  const isFirst = meta.isFirstPage ?? meta.currentPage <= 1;
+  const isLast  = meta.isLastPage  ?? meta.currentPage >= meta.pageCount;
+
   const prev = () => onPageChange(Math.max(1, meta.currentPage - 1));
   const next = () => onPageChange(Math.min(meta.pageCount, meta.currentPage + 1));
 
   return (
     <div className={`mt-8 flex items-center justify-center gap-3 ${className}`}>
       <button
-        disabled={meta.isFirstPage}
+        disabled={isFirst}
         onClick={prev}
         className="rounded-full border px-4 py-2 disabled:opacity-40"
         aria-label="Previous page"
       >
         Prev
       </button>
+
       <span className="text-sm text-brand-brown/80">
         Page {meta.currentPage} / {meta.pageCount}
       </span>
+
       <button
-        disabled={meta.isLastPage}
+        disabled={isLast}
         onClick={next}
         className="rounded-full border px-4 py-2 disabled:opacity-40"
         aria-label="Next page"
