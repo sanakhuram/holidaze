@@ -23,9 +23,8 @@ export default function VenuesPage() {
 
   return (
     <>
-      {/* 🔍 Search & filters */}
+
       <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 mb-8 px-4">
-        {/* Search */}
         <div className="flex items-center gap-2 w-full sm:w-1/2 lg:w-1/3">
           <Search className="w-5 h-5 text-amber-600 shrink-0" />
           <input
@@ -37,7 +36,6 @@ export default function VenuesPage() {
           />
         </div>
 
-        {/* Guests */}
         <div className="flex items-center gap-2 w-full sm:w-auto">
           <Users className="w-5 h-5 text-amber-600 shrink-0" />
           <input
@@ -53,7 +51,6 @@ export default function VenuesPage() {
           />
         </div>
 
-        {/* Min Rating */}
         <div className="flex items-center gap-2 w-full sm:w-auto">
           <Star className="w-5 h-5 text-amber-600 shrink-0" />
           <select
@@ -74,14 +71,12 @@ export default function VenuesPage() {
         </div>
       </div>
 
-      {/* Venues grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full px-4">
         {venues.map((v) => (
           <VenueCard key={v.id} venue={v} />
         ))}
       </div>
 
-      {/* Pagination */}
       {meta && (
         <PaginationControls
           className="mb-10"
