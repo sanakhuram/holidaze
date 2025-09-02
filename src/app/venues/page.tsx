@@ -24,8 +24,8 @@ export default function VenuesPage() {
         setErr(null);
 
         const res = await getVenues(page, limit);
-        const items = (res as any)?.data ?? [];
-        const m = (res as any)?.meta;
+        type VenuesResponse = { data: Venue[]; meta?: PaginationMeta };
+        const { data: items = [], meta: m } = res as VenuesResponse;
 
         if (mounted) {
           setVenues(items);
