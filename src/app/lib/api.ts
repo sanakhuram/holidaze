@@ -1,35 +1,57 @@
 // src/app/lib/api.ts
-import type { Paged, Venue, VenueWithExtras, Profile } from "./types";
+import { API_BASE, API_KEY } from "@/app/lib/config";
+import type { Paged, Venue, VenueWithExtras, Profile } from "../lib/types";
 
-const BASE = process.env.NEXT_PUBLIC_API_BASE;
-const API_KEY = process.env.NOROFF_API_KEY;
-
-if (!BASE) {
+if (!API_BASE) {
   throw new Error("Missing NEXT_PUBLIC_API_BASE");
 }
 
-export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
-  const headers = new Headers(init.headers);
-  if (API_KEY) headers.set("X-Noroff-API-Key", API_KEY);
-  headers.set("Accept", "application/json");
+type UpstreamError = { message?: string; errors?: Array<{ message?: string }> };
 
-  const res = await fetch(`${BASE}${path}`, { ...init, headers, cache: "no-store" });
+function extractErrorMessage(data: unknown): string | null {
+  if (data && typeof data === "object") {
+    const d = data as UpstreamError;
+    return d.errors?.[0]?.message ?? d.message ?? null;
+  }
+  return null;
+}
+
+async function readJsonSafe(res: Response): Promise<unknown> {
+  const ct = res.headers.get("content-type") ?? "";
+  if (!ct.includes("application/json")) return null;
+  try {
+    return await res.json();
+  } catch {
+    return null;
+  }
+}
+
+function buildHeaders(init?: HeadersInit): Headers {
+  const headers = new Headers(init);
+  if (!headers.has("Accept")) headers.set("Accept", "application/json");
+  if (API_KEY && !headers.has("X-Noroff-API-Key")) {
+    headers.set("X-Noroff-API-Key", API_KEY);
+  }
+  return headers;
+}
+
+export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
+  const headers = buildHeaders(init.headers);
+
+  const res = await fetch(`${API_BASE}${path}`, {
+    ...init,
+    headers,
+    cache: "no-store",
+  });
 
   if (!res.ok) {
-    const ct = res.headers.get("content-type") ?? "";
-    let detail = "";
-    try {
-      if (ct.includes("application/json")) {
-        const j = await res.json();
-        detail = j?.errors?.[0]?.message ?? j?.message ?? "";
-      } else {
-        detail = await res.text();
-      }
-    } catch {}
-    throw new Error(`${res.status} ${res.statusText}${detail ? ` — ${detail}` : ""}`);
+    const payload = await readJsonSafe(res);
+    const detail = extractErrorMessage(payload) ?? (await res.text().catch(() => ""));
+    const suffix = detail ? ` — ${detail}` : "";
+    throw new Error(`${res.status} ${res.statusText}${suffix}`);
   }
 
-  return res.json() as Promise<T>;
+  return (await res.json()) as T;
 }
 
 function qs(params: Record<string, string | number | boolean | null | undefined>) {
@@ -55,7 +77,8 @@ export function getVenues(page = 1, limit = 24, search?: string) {
   return api<Paged<Venue>>(`${path}?${query}`);
 }
 
-export const searchVenues = (q: string, page = 1, limit = 24) => getVenues(page, limit, q);
+export const searchVenues = (q: string, page = 1, limit = 24) =>
+  getVenues(page, limit, q);
 
 export const getVenueById = (id: string) =>
   api<{ data: VenueWithExtras }>(
