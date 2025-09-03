@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { VenueWithExtras } from "@/app/lib/types";
-import { MapPin, Star, Users } from "lucide-react";
+import { MapPin, Star, User, Users } from "lucide-react";
 import Amenities from "./bookings/Amenities";
 import CalendarRange from "./bookings/CalenderRange";
 import MapCard from "./bookings/MapCard";
@@ -128,6 +128,10 @@ export default function BookingSection({ venue }: { venue: VenueWithExtras }) {
                                 venue.location?.country ||
                                 "Location"}
                         </span>
+                    </div>
+                    <div className="flex items-center gap-1 text-sm text-neutral-700">
+                        <User className="h-4 w-4 text-yellow-500" />
+                        <span>{typeof venue.owner === "object" && venue.owner !== null ? venue.owner.name ?? "Owner" : venue.owner ?? "Owner"}</span>
                     </div>
 
                     <div className="mt-1 text-sm text-neutral-700">
