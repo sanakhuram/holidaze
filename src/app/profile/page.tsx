@@ -6,6 +6,7 @@ import BookingsList from "./BookingList";
 import VenuesList from "./VenueList";
 import EditProfileButton from "./EditProfileButton";
 import CreateVenueButton from "./CreateVenueButton";
+import VenueManagerToggle from "./VenueManagerToggle";
 
 export const dynamic = "force-dynamic";
 
@@ -20,7 +21,6 @@ function Img({
 }) {
   return <img src={src ?? ""} alt={alt ?? ""} className={className} />;
 }
-
 export default async function ProfilePage() {
   const jar = await cookies();
   const token = jar.get("noroff_token")?.value;
@@ -66,7 +66,6 @@ export default async function ProfilePage() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 pb-10 pt-2">
-
       <div className="relative h-52 w-full overflow-hidden rounded-sm shadow-lg">
         <Img
           src={bannerUrl}
@@ -76,12 +75,18 @@ export default async function ProfilePage() {
       </div>
 
       <div className="relative -mt-12 flex flex-col items-start gap-3">
-        <div className="h-24 w-24 overflow-hidden rounded-2xl ring-4 ring-wine shadow-lg">
-          <Img
-            src={avatarUrl}
-            alt={profile.avatar?.alt ?? `${profile.name} avatar`}
-            className="h-full w-full object-cover"
-          />
+      
+        <div className="flex items-end gap-3">
+          <div className="h-24 w-24 overflow-hidden rounded-2xl ring-4 ring-wine shadow-lg">
+            <Img
+              src={avatarUrl}
+              alt={profile.avatar?.alt ?? `${profile.name} avatar`}
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="pb-1">
+            <VenueManagerToggle initial={!!profile.venueManager} />
+          </div>
         </div>
 
         <h1 className="flex items-center gap-2 text-2xl font-bold text-coffee">

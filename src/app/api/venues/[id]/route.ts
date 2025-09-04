@@ -7,7 +7,6 @@ import { z } from "zod";
 const BASE = process.env.NOROFF_API_URL ?? "https://v2.api.noroff.dev";
 const API_KEY = process.env.NOROFF_API_KEY;
 
-// helpers
 const strip = <T extends object>(o: T) =>
   Object.fromEntries(Object.entries(o).filter(([, v]) => v != null)) as Partial<T>;
 
@@ -96,10 +95,9 @@ export async function PUT(req: Request, ctx: RouteCtx) {
   return NextResponse.json(data, { status: 200 });
 }
 
-// DELETE /api/venues/:id
 export async function DELETE(_req: Request, ctx: RouteCtx) {
-  const { id } = await ctx.params; // await params
-  const jar = await cookies(); // await cookies()
+  const { id } = await ctx.params; 
+  const jar = await cookies(); 
   const token = jar.get("noroff_token")?.value;
   if (!token) return NextResponse.json({ message: "Not authenticated" }, { status: 401 });
 

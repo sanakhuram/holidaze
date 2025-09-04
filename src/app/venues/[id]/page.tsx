@@ -2,20 +2,21 @@
 import { getVenueById } from "@/app/lib/api";
 import type { VenueWithExtras } from "@/app/lib/types";
 import { notFound } from "next/navigation";
-
 import MediaGallery from "../../components/MediaGallery";
-import BookingSection from "@/app/components/BookingSection";
+import BookingSection from "../../components/BookingSection";
 
-type Props = { params: { id: string } };
+type PageProps = {
+  params: Promise<{ id: string }>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+};
 
-export default async function VenueDetailPage({ params }: Props) {
-  let data: VenueWithExtras;
-  try {
-    const res = await getVenueById(params.id);
-    data = res.data;
-  } catch {
-    notFound();
-  }
+export default async function VenueDetailPage(props: PageProps) {
+  const { id } = await props.params;
+
+  const res = await getVenueById(id).catch(() => null);
+  if (!res?.data) notFound();
+
+  const data = res.data as VenueWithExtras;
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-8">
@@ -30,4 +31,14 @@ export default async function VenueDetailPage({ params }: Props) {
       </div>
     </section>
   );
+}
+
+export async function generateMetadata(
+  props: Pick<PageProps, "params">
+) {
+  const { id } = await props.params;
+  return {
+    title: `Venue ${id} • Holidaze`,
+    description: `Details and booking for venue ${id}`,
+  };
 }
