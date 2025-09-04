@@ -2,78 +2,83 @@
 export type Media = { url: string; alt?: string };
 
 export type Owner = {
-    name: string;
-    email: string;
-    avatar?: string | null;
+  name: string;
+  email: string;
+  avatar?: string | null;
 };
 
 export type Venue = {
-    id: string;
-    name: string;
-    description: string;
-    media: Media[];
-    price: number;
-    maxGuests: number;
-    rating: number;
-    created: string;
-    updated: string;
-    meta?: { wifi?: boolean; parking?: boolean; breakfast?: boolean; pets?: boolean };
-    location?: {
-        address?: string; city?: string; zip?: string; country?: string;
-        continent?: string; lat?: number; lng?: number
-    };
+  id: string;
+  name: string;
+  description: string;
+  media: Media[];
+  price: number;
+  maxGuests: number;
+  rating: number;
+  created: string;
+  updated: string;
+  meta?: { wifi?: boolean; parking?: boolean; breakfast?: boolean; pets?: boolean };
+  location?: {
+    address?: string;
+    city?: string;
+    zip?: string;
+    country?: string;
+    continent?: string;
+    lat?: number;
+    lng?: number;
+  };
 
-    owner?: Owner;
+  owner?: Owner;
 };
 
 export type Booking = {
-    id: string;
-    dateFrom: string;
-    dateTo: string;
-    guests: number;
-    created: string;
-    updated: string;
+  id: string;
+  dateFrom: string;
+  dateTo: string;
+  guests: number;
+  created: string;
+  updated: string;
 };
 
 export type Paged<T> = {
-    data: T[];
-    meta: {
-        isFirstPage: boolean;
-        isLastPage: boolean;
-        currentPage: number;
-        previousPage: number | null;
-        nextPage: number | null;
-        pageCount: number;
-        totalCount: number;
-    };
+  data: T[];
+  meta: {
+    isFirstPage: boolean;
+    isLastPage: boolean;
+    currentPage: number;
+    previousPage: number | null;
+    nextPage: number | null;
+    pageCount: number;
+    totalCount: number;
+  };
 };
 
 export type Profile = {
-    name: string;
-    email?: string;
-    bio?: string;
-    avatar?: { url?: string; alt?: string } | null;
-    banner?: { url?: string; alt?: string } | null;
-    venueManager?: boolean;
-    venues?: Venue[];
-    bookings?: BookingWithVenue[];
-    _count?: { venues?: number; bookings?: number };
+  name: string;
+  email?: string;
+  bio?: string;
+  avatar?: { url?: string; alt?: string } | null;
+  banner?: { url?: string; alt?: string } | null;
+  venueManager?: boolean;
+  venues?: Venue[];
+  bookings?: BookingWithVenue[];
+  _count?: { venues?: number; bookings?: number };
 };
 
 export type BookingWithVenue = Booking & {
-    venue?: Pick<Venue, "id" | "name" | "media" | "location" | "price" | "maxGuests"> | null;
+  venue?: Pick<Venue, "id" | "name" | "media" | "location" | "price" | "maxGuests"> | null;
 };
 
 export type VenueWithExtras = Venue & {
-    owner?: Owner;
-    bookings?: Booking[];
+  owner?: Owner;
+  bookings?: Booking[];
 };
 
 export type PaginationMeta = {
-    currentPage: number;
-    pageCount: number;
-    totalCount: number;
-    nextPage?: number | null;
-    previousPage?: number | null;
-    pageSize?: number;
+  currentPage: number;
+  pageCount: number;
+  totalCount: number;
+  nextPage?: number | null;
+  previousPage?: number | null;
+  pageSize?: number;
 };

@@ -77,8 +77,7 @@ export function getVenues(page = 1, limit = 24, search?: string) {
   return api<Paged<Venue>>(`${path}?${query}`);
 }
 
-export const searchVenues = (q: string, page = 1, limit = 24) =>
-  getVenues(page, limit, q);
+export const searchVenues = (q: string, page = 1, limit = 24) => getVenues(page, limit, q);
 
 export const getVenueById = (id: string) =>
   api<{ data: VenueWithExtras }>(

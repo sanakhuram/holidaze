@@ -2,9 +2,7 @@
 import { Wifi, Car, Coffee, Dog } from "lucide-react";
 import IconCircle from "../ui/IconCircle";
 
-type Meta =
-  | { wifi?: boolean; parking?: boolean; breakfast?: boolean; pets?: boolean }
-  | undefined;
+type Meta = { wifi?: boolean; parking?: boolean; breakfast?: boolean; pets?: boolean } | undefined;
 
 export default function Amenities({ meta }: { meta: Meta }) {
   const A = meta || {};

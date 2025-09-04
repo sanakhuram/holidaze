@@ -7,8 +7,8 @@
   --coffee: #241a19;
   --wine: #722633;
   --brand-gradient: linear-gradient(90deg, var(--coffee) 0%, var(--wine) 100%);
-  --coffee-rgb: 36 26 25;   
-  --wine-rgb:   114 38 51;  
+  --coffee-rgb: 36 26 25;
+  --wine-rgb: 114 38 51;
 }
 
 @theme inline {
@@ -26,14 +26,14 @@
     --foreground: #362d18;
     --coffee: #241a19;
     --coffee-rgb: 36 26 25;
-    --wine-rgb:   114 38 51;
+    --wine-rgb: 114 38 51;
   }
 }
 /* Calendar container */
 .rdp {
   --rdp-cell-size: 40px;
-  --rdp-accent-color: #fbbf24; 
-  --rdp-background-color: #fffaf0; 
+  --rdp-accent-color: #fbbf24;
+  --rdp-background-color: #fffaf0;
   margin: 0;
   padding: 0.5rem;
   border: 1px solid #fbbf24;
@@ -43,21 +43,76 @@
 }
 
 button.rdp-day_selected,
-.rdp-selected, 
-.rdp-day_button{
+.rdp-selected,
+.rdp-day_button {
   background-color: #fbbf24;
   color: #442b2b;
   border-radius: 0.5rem;
 }
 
-.rdp-range_start .rdp-day_button{
+.rdp-range_start .rdp-day_button {
   background-color: orangered;
   border: yellow;
 }
-.rdp-range_end .rdp-day_button{
+.rdp-range_end .rdp-day_button {
   background-color: orangered;
   border: var(--coffee);
 }
-svg.rdp-chevron{
+svg.rdp-chevron {
   fill: #241a19;
+}
+.modal-scroll {
+  max-height: calc(85vh - 60px);
+  overflow-y: auto;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: color-mix(in oklab, var(--background) 92%, var(--coffee) 8%);
+  border-radius: 9999px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--coffee) 0%, var(--wine) 100%);
+  border-radius: 9999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--coffee) 85%, white 15%) 0%,
+    color-mix(in oklab, var(--wine) 85%, white 15%) 100%
+  );
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--coffee) 85%, black 15%) 0%,
+    color-mix(in oklab, var(--wine) 85%, black 15%) 100%
+  );
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--wine) color-mix(in oklab, var(--background) 92%, var(--coffee) 8%);
+}
+
+@media (prefers-color-scheme: dark) {
+  *::-webkit-scrollbar-track {
+    background: color-mix(in oklab, var(--background) 88%, var(--coffee) 12%);
+  }
+  html {
+    scrollbar-color: var(--coffee) color-mix(in oklab, var(--background) 88%, var(--coffee) 12%);
+  }
 }

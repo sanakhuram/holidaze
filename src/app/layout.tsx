@@ -12,20 +12,23 @@ export const metadata: Metadata = {
     "Holidaze is a modern accommodation booking platform where users can find, book, and manage holiday venues. Venue managers can also create and manage their listings with ease.",
 };
 
-export default function RootLayout({ children
+export default function RootLayout({
+  children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${poppins.variable} min-h-screen flex flex-col bg-background text-foreground`}>
+      <body
+        className={`${poppins.variable} ${poppins.variable} min-h-screen flex flex-col bg-background text-foreground`}
+      >
         <AuthModalProvider>
-        <Navbar/>
-          <ToastProvider/>
-        <main className="flex-1">{children}</main>
-        <Footer/>
+          <Navbar />
+          <ToastProvider />
+          <main className="flex-1">{children}</main>
+          <Footer />
         </AuthModalProvider>
-        </body>
+      </body>
     </html>
   );
 }

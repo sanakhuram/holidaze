@@ -10,9 +10,12 @@ export async function GET() {
 
   let user: unknown = null;
   if (raw) {
-    try { user = JSON.parse(raw); } catch { /* ignore */ }
+    try {
+      user = JSON.parse(raw);
+    } catch {
+      /* ignore */
+    }
   }
 
   return NextResponse.json({ authenticated: !!token, user });
 }
-

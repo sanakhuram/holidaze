@@ -19,7 +19,9 @@ export default function AuthModal({
   mode?: "login" | "register";
 }) {
   const [mode, setMode] = useState<"login" | "register">(externalMode ?? "login");
-  useEffect(() => { if (externalMode) setMode(externalMode); }, [externalMode]);
+  useEffect(() => {
+    if (externalMode) setMode(externalMode);
+  }, [externalMode]);
 
   const router = useRouter();
   const { refresh } = useSession();
@@ -52,7 +54,9 @@ export default function AuthModal({
     if (!open) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = prev; };
+    return () => {
+      document.body.style.overflow = prev;
+    };
   }, [open]);
 
   useEffect(() => {
@@ -85,7 +89,7 @@ export default function AuthModal({
         body: JSON.stringify({ email: loginEmail, password: loginPassword }),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data?.error ?? "Login failed"); 
+      if (!res.ok) throw new Error(data?.error ?? "Login failed");
       await afterAuth("login");
     } catch (e: unknown) {
       const msg = getMsg(e, "Login failed");
@@ -101,19 +105,27 @@ export default function AuthModal({
     setLoading(true);
     setErr(null);
     try {
-      const payload = { name: regName, email: regEmail, password: regPassword, venueManager: regVenueManager };
+      const payload = {
+        name: regName,
+        email: regEmail,
+        password: regPassword,
+        venueManager: regVenueManager,
+      };
       const r = await fetch("/auth/register", {
-        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload),
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
       const rd = await r.json();
-      if (!r.ok) throw new Error(rd?.error ?? "Register failed"); 
+      if (!r.ok) throw new Error(rd?.error ?? "Register failed");
 
       const l = await fetch("/auth/login", {
-        method: "POST", headers: { "Content-Type": "application/json" },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: regEmail, password: regPassword }),
       });
       const ld = await l.json();
-      if (!l.ok) throw new Error(ld?.error ?? "Auto-login failed"); 
+      if (!l.ok) throw new Error(ld?.error ?? "Auto-login failed");
 
       await afterAuth("register");
     } catch (e: unknown) {
@@ -129,8 +141,7 @@ export default function AuthModal({
     setRegVenueManager(checked);
     void (checked
       ? toast.success("Venue Manager enabled 🚀")
-      : toast("Venue Manager disabled", { icon: "⚠️" })
-    );
+      : toast("Venue Manager disabled", { icon: "⚠️" }));
   };
 
   if (!open) return null;

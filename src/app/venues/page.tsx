@@ -51,7 +51,6 @@ export default function VenuesPage() {
 
       <div className={`${CONTAINER} m-8`}>
         <div className="grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-3 items-center">
-
           <div className="flex items-center gap-2 sm:col-span-2 lg:col-span-1">
             <Search className="w-5 h-5 text-amber-600 shrink-0" />
             <input

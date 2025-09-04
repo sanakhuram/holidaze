@@ -25,4 +25,3 @@ export async function getSession() {
   const r = await fetch("/auth/session", { method: "GET", cache: "no-store" });
   return r.json() as Promise<{ authenticated: boolean; user: User | null }>;
 }
-

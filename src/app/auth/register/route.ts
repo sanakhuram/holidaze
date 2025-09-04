@@ -4,7 +4,10 @@ import { API_BASE, API_KEY } from "@/app/lib/config";
 
 const RegisterSchema = z.object({
   name: z.string().min(3, "Name must be at least 3 characters"),
-  email: z.string().email("Invalid email").regex(/@stud\.noroff\.no$/i, "Use your stud.noroff.no email"),
+  email: z
+    .string()
+    .email("Invalid email")
+    .regex(/@stud\.noroff\.no$/i, "Use your stud.noroff.no email"),
   password: z.string().min(8, "Password must be at least 8 characters"),
   avatar: z.object({ url: z.string().url().optional(), alt: z.string().optional() }).optional(),
   venueManager: z.boolean().optional(),
@@ -22,7 +25,11 @@ function extractApiError(data: unknown): string | null {
 async function readJsonSafe(res: Response): Promise<unknown> {
   const ct = res.headers.get("content-type") ?? "";
   if (!ct.includes("application/json")) return null;
-  try { return await res.json(); } catch { return null; }
+  try {
+    return await res.json();
+  } catch {
+    return null;
+  }
 }
 
 export async function POST(req: Request) {

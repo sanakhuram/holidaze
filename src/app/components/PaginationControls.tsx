@@ -4,8 +4,8 @@
 export type PaginationMeta = {
   currentPage: number;
   pageCount: number;
-  isFirstPage?: boolean; 
-  isLastPage?: boolean;  
+  isFirstPage?: boolean;
+  isLastPage?: boolean;
 };
 
 export default function PaginationControls({
@@ -18,7 +18,7 @@ export default function PaginationControls({
   className?: string;
 }) {
   const isFirst = meta.isFirstPage ?? meta.currentPage <= 1;
-  const isLast  = meta.isLastPage  ?? meta.currentPage >= meta.pageCount;
+  const isLast = meta.isLastPage ?? meta.currentPage >= meta.pageCount;
 
   const prev = () => onPageChange(Math.max(1, meta.currentPage - 1));
   const next = () => onPageChange(Math.min(meta.pageCount, meta.currentPage + 1));

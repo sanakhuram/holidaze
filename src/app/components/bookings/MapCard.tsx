@@ -15,7 +15,11 @@ export default function MapCard({
 }) {
   const src = hasCoords
     ? (() => {
-        const p = 0.02, L = (lng as number) - p, R = (lng as number) + p, B = (lat as number) - p, T = (lat as number) + p;
+        const p = 0.02,
+          L = (lng as number) - p,
+          R = (lng as number) + p,
+          B = (lat as number) - p,
+          T = (lat as number) + p;
         const qs = new URLSearchParams({
           layer: "mapnik",
           marker: `${lat},${lng}`,

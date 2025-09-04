@@ -17,7 +17,8 @@ export default function VenueCard({ venue }: { venue: Venue }) {
   const rating = typeof venue.rating === "number" ? venue.rating : 0;
 
   return (
-    <Link href={`/venues/${String(venue.id)}` as Route}
+    <Link
+      href={`/venues/${String(venue.id)}` as Route}
       className="group block rounded-md shadow-xl transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
     >
       <div className="relative h-48 w-full overflow-hidden">
@@ -31,9 +32,7 @@ export default function VenueCard({ venue }: { venue: Venue }) {
       <div className="border-t" />
       <div className="rounded-md bg-background px-4 py-4 sm:px-5 sm:py-5">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="truncate text-base font-semibold text-wine sm:text-lg">
-            {venue.name}
-          </h3>
+          <h3 className="truncate text-base font-semibold text-wine sm:text-lg">{venue.name}</h3>
           <span
             className="inline-flex items-center gap-1 text-yellow-700"
             aria-label={`Rating ${rating}`}
