@@ -3,7 +3,7 @@
 "use client";
 
 import { createContext, useContext, useState, useMemo } from "react";
-import AuthModal from "../components/AuthModal";
+import AuthModal from "../components/auth/AuthModal";
 
 type AuthMode = "login" | "register";
 

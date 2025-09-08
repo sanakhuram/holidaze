@@ -3,8 +3,8 @@
 
 import { useEffect, useRef } from "react";
 import BrandGradientPanel from "@/app/components/ui/BrandGradientPanel";
-import LoginForm from "./auth/LoginForm";
-import RegisterForm from "./auth/RegisterForm";
+import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 
 export default function AuthModal({
   open,

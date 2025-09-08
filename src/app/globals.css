@@ -67,35 +67,34 @@ svg.rdp-chevron {
 }
 
 *::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+  width: 6px;  
+  height: 6px; 
 }
 
 *::-webkit-scrollbar-track {
-  background: color-mix(in oklab, var(--background) 92%, var(--coffee) 8%);
-  border-radius: 9999px;
+  background: transparent; 
+  margin: 4px;     
 }
 
 *::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--coffee) 0%, var(--wine) 100%);
+  background: linear-gradient(180deg, var(--wine), var(--coffee));
   border-radius: 9999px;
-  border: 3px solid transparent;
-  background-clip: content-box;
+  transition: background 0.3s ease, width 0.3s ease;
 }
 
 *::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(
     180deg,
-    color-mix(in oklab, var(--coffee) 85%, white 15%) 0%,
-    color-mix(in oklab, var(--wine) 85%, white 15%) 100%
+    color-mix(in oklab, var(--wine) 80%, white 20%),
+    color-mix(in oklab, var(--coffee) 80%, white 20%)
   );
 }
 
 *::-webkit-scrollbar-thumb:active {
   background: linear-gradient(
     180deg,
-    color-mix(in oklab, var(--coffee) 85%, black 15%) 0%,
-    color-mix(in oklab, var(--wine) 85%, black 15%) 100%
+    color-mix(in oklab, var(--wine) 85%, black 15%),
+    color-mix(in oklab, var(--coffee) 85%, black 15%)
   );
 }
 
@@ -105,14 +104,6 @@ svg.rdp-chevron {
 
 html {
   scrollbar-width: thin;
-  scrollbar-color: var(--wine) color-mix(in oklab, var(--background) 92%, var(--coffee) 8%);
+  scrollbar-color: var(--wine) transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  *::-webkit-scrollbar-track {
-    background: color-mix(in oklab, var(--background) 88%, var(--coffee) 12%);
-  }
-  html {
-    scrollbar-color: var(--coffee) color-mix(in oklab, var(--background) 88%, var(--coffee) 12%);
-  }
-}

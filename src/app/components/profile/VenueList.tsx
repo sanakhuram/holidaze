@@ -1,7 +1,7 @@
 "use client";
 
 import type { Venue } from "@/app/lib/types";
-import VenueManageCard from "../components/venue/VenueManagerCard";
+import VenueManageCard from "../venue/VenueManagerCard";
 
 export default function VenuesList({ venues }: { venues: Venue[] }) {
   if (!venues?.length) {

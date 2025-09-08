@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import { useRouter } from "next/navigation";
 import type { BookingWithVenue } from "@/app/lib/types";
-import BookingCard from "../components/bookings/BookingCard";
+import BookingCard from "../bookings/BookingCard";
 
 export default function BookingsList({ bookings }: { bookings: BookingWithVenue[] }) {
   const router = useRouter();

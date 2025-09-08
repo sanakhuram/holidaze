@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import ProfileEditModal from "../components/ProfileEditModal";
+import ProfileEditModal from "./ProfileEditModal";
 import type { Profile } from "@/app/lib/types";
 
 export default function EditProfileButton({ profile }: { profile: Profile }) {

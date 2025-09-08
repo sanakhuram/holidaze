@@ -2,11 +2,11 @@
 import { cookies } from "next/headers";
 import { getProfileByName } from "../lib/api";
 import type { Profile } from "../lib/types";
-import BookingsList from "./BookingList";
-import VenuesList from "./VenueList";
-import EditProfileButton from "./EditProfileButton";
-import CreateVenueButton from "./CreateVenueButton";
-import VenueManagerToggle from "./VenueManagerToggle";
+import BookingsList from "../components/profile/BookingList";
+import VenuesList from "../components/profile/VenueList";
+import EditProfileButton from "../components/profile/EditProfileButton";
+import CreateVenueButton from "../components/profile/CreateVenueButton";
+import VenueManagerToggle from "../components/profile/VenueManagerToggle";
 
 export const dynamic = "force-dynamic";
 

@@ -2,8 +2,8 @@
 import { getVenueById } from "@/app/lib/api";
 import type { VenueWithExtras } from "@/app/lib/types";
 import { notFound } from "next/navigation";
-import MediaGallery from "../../components/MediaGallery";
-import BookingSection from "../../components/BookingSection";
+import MediaGallery from "../../components/bookings/MediaGallery";
+import BookingSection from "../../components/bookings/BookingSection";
 
 type PageProps = {
   params: Promise<{ id: string }>;
@@ -33,9 +33,7 @@ export default async function VenueDetailPage(props: PageProps) {
   );
 }
 
-export async function generateMetadata(
-  props: Pick<PageProps, "params">
-) {
+export async function generateMetadata(props: Pick<PageProps, "params">) {
   const { id } = await props.params;
   return {
     title: `Venue ${id} • Holidaze`,

@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import VenueCard from "../components/VenueCard";
+import VenueCard from "../components/venue/VenueCard";
 import BackgroundSection from "../components/ui/BackgroundSection";
 import PaginationControls from "../components/PaginationControls";
 import { getVenues } from "../lib/api";
 import { isPinnedOwner } from "../lib/pin";
 import type { Venue } from "@/app/lib/types";
 import { useVenueSearch } from "@/hooks/useVenueSearch";
+import HorizontalScroller from "../components/ui/Scroll";
 
 const CONTAINER = "mx-auto w-full max-w-6xl px-4";
 
@@ -31,20 +32,21 @@ export default function VenuesPage() {
 
   return (
     <>
-      {pinned.length > 0 && (
-        <BackgroundSection bg="/images/featured-bg.jpg" dim={0.6}>
-          <div className={CONTAINER}>
-            <h2 className="mb-6 text-2xl font-semibold text-amber-400 drop-shadow">
-              Nordic Gems
-            </h2>
-            <div className="grid grid-cols-4 gap-6">
-              {pinned.map((v) => (
-                <VenueCard key={v.id} venue={v} />
-              ))}
-            </div>
+{pinned.length > 0 && (
+  <BackgroundSection bg="/images/featured-bg.jpg" dim={0.6}>
+    <div className={CONTAINER}>
+      <h2 className="mb-6 text-2xl font-semibold text-amber-400 drop-shadow">Nordic Gems</h2>
+      <HorizontalScroller>
+        {pinned.map((v) => (
+          <div key={v.id} className="min-w-[250px] max-w-[280px] snap-start">
+            <VenueCard venue={v} />
           </div>
-        </BackgroundSection>
-      )}
+        ))}
+      </HorizontalScroller>
+    </div>
+  </BackgroundSection>
+)}
+
 
       <div className={`${CONTAINER} my-8`}>
         <input
@@ -57,18 +59,14 @@ export default function VenuesPage() {
       </div>
 
       <div className={CONTAINER}>
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
           {others.map((v) => (
             <VenueCard key={v.id} venue={v} />
           ))}
         </div>
 
         {meta && (
-          <PaginationControls
-            meta={meta}
-            onPageChange={(n) => setPage(n)}
-            className="mb-10"
-          />
+          <PaginationControls meta={meta} onPageChange={(n) => setPage(n)} className="mb-10" />
         )}
       </div>
     </>

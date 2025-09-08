@@ -3,9 +3,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import type { Venue } from "../lib/types";
+import type { Venue } from "../../lib/types";
 import { Star, Users, CircleDollarSign } from "lucide-react";
-import SafeImage from "./SafeImage";
+import SafeImage from "../SafeImage";
 import type { Route } from "next";
 
 const PLACEHOLDER = "/placeholder.jpg";
