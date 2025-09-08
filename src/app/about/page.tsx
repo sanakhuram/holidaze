@@ -16,8 +16,18 @@ export default function AboutUs({
   const side = Math.max(d - 0.15, 0);
 
   return (
-    <section aria-labelledby="about-title" className="relative  overflow-hidden">
-      <Image src={imgSrc} alt="" fill priority sizes="100vw" className="object-cover" />
+    <section
+      aria-labelledby="about-title"
+      className="relative overflow-hidden min-h-screen flex items-center"
+    >
+      <Image
+        src={imgSrc}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
 
       <div
         className="absolute inset-0"
@@ -35,9 +45,8 @@ export default function AboutUs({
         aria-hidden
       />
 
-      {/* Content */}
-      <div className="relative z-10">
-        <div className="mx-auto max-w-5xl px-6 py-14 md:py-20">
+      <div className="relative z-10 w-full">
+        <div className="mx-auto max-w-5xl px-6 text-left">
           {headingLevel === "h1" ? (
             <h1
               id="about-title"
@@ -59,15 +68,17 @@ export default function AboutUs({
           </h3>
 
           <p className="mt-5 max-w-3xl text-base md:text-lg leading-relaxed text-white/90">
-            Holidaze Venues keeps travel straightforward: clear venue details, fast pages, and
-            booking that just works. Hosts get easy tools to list and manage; guests get trustworthy
-            info and a <span className="font-semibold">Nordic Gems</span> spotlight to find
+            Holidaze Venues keeps travel straightforward: clear venue details,
+            fast pages, and booking that just works. Hosts get easy tools to
+            list and manage; guests get trustworthy info and a{" "}
+            <span className="font-semibold">Nordic Gems</span> spotlight to find
             standouts.
           </p>
 
           <p className="mt-3 max-w-3xl text-white/85 leading-relaxed">
-            We focus on the basics done right—reliable search, honest content, and responsive
-            layouts—while building for what’s next with smarter filters and smoother flows.
+            We focus on the basics done right—reliable search, honest content,
+            and responsive layouts—while building for what’s next with smarter
+            filters and smoother flows.
           </p>
 
           <ul className="mt-6 grid gap-2 sm:grid-cols-2 max-w-3xl">
@@ -92,8 +103,6 @@ export default function AboutUs({
           </ul>
         </div>
       </div>
-
-      <div className="invisible h-[360px] md:h-[480px]" aria-hidden />
     </section>
   );
 }
