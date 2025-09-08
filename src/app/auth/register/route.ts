@@ -9,22 +9,23 @@ const RegisterSchema = z.object({
     .email("Invalid email")
     .regex(/@stud\.noroff\.no$/i, "Use your stud.noroff.no email"),
   password: z.string().min(8, "Password must be at least 8 characters"),
-  avatar: z.object({ url: z.string().url().optional(), alt: z.string().optional() }).optional(),
+  avatar: z
+    .object({
+      url: z.string().url().optional(),
+      alt: z.string().optional(),
+    })
+    .optional(),
   venueManager: z.boolean().optional(),
 });
 
-type Upstream = { errors?: Array<{ message?: string }>; message?: string };
+type Upstream = { errors?: { message?: string }[]; message?: string };
 
-function extractApiError(data: unknown): string | null {
-  if (data && typeof data === "object") {
-    const d = data as Upstream;
-    return d.errors?.[0]?.message ?? d.message ?? null;
-  }
-  return null;
+function errorResponse(message: string, status = 400) {
+  return NextResponse.json({ error: message }, { status });
 }
-async function readJsonSafe(res: Response): Promise<unknown> {
-  const ct = res.headers.get("content-type") ?? "";
-  if (!ct.includes("application/json")) return null;
+
+async function readJsonSafe(res: Response) {
+  if (!res.headers.get("content-type")?.includes("application/json")) return null;
   try {
     return await res.json();
   } catch {
@@ -34,8 +35,7 @@ async function readJsonSafe(res: Response): Promise<unknown> {
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
-    const parsed = RegisterSchema.parse(body);
+    const parsed = RegisterSchema.parse(await req.json());
 
     const upstream = await fetch(`${API_BASE}/auth/register`, {
       method: "POST",
@@ -47,24 +47,17 @@ export async function POST(req: Request) {
       cache: "no-store",
     });
 
-    const payload = await readJsonSafe(upstream);
+    const payload = (await readJsonSafe(upstream)) as Upstream | null;
 
     if (!upstream.ok) {
-      return NextResponse.json(
-        { error: extractApiError(payload) ?? "Registration failed" },
-        { status: upstream.status }
-      );
+      const msg = payload?.errors?.[0]?.message ?? payload?.message ?? "Registration failed";
+      return errorResponse(msg, upstream.status);
     }
 
     return NextResponse.json({ data: { ok: true } }, { status: 201 });
-  } catch (err: unknown) {
-    if (err instanceof ZodError) {
-      const first = err.issues[0]?.message ?? "Invalid input";
-      return NextResponse.json({ error: first }, { status: 400 });
-    }
-    if (err instanceof Error) {
-      return NextResponse.json({ error: err.message }, { status: 400 });
-    }
-    return NextResponse.json({ error: "Unexpected error" }, { status: 400 });
+  } catch (err) {
+    if (err instanceof ZodError) return errorResponse(err.issues[0]?.message ?? "Invalid input", 400);
+    if (err instanceof Error) return errorResponse(err.message, 400);
+    return errorResponse("Unexpected error", 400);
   }
 }

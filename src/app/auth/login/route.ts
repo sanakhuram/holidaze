@@ -24,17 +24,12 @@ type Upstream = {
   message?: string;
 };
 
-function extractApiError(data: unknown): string | null {
-  if (data && typeof data === "object") {
-    const d = data as Upstream;
-    return d.errors?.[0]?.message ?? d.message ?? null;
-  }
-  return null;
+function errorResponse(message: string, status = 400) {
+  return NextResponse.json({ error: message }, { status, headers: { Vary: "Cookie" } });
 }
 
-async function readJsonSafe(res: Response): Promise<unknown> {
-  const ct = res.headers.get("content-type") ?? "";
-  if (!ct.includes("application/json")) return null;
+async function readJsonSafe(res: Response) {
+  if (!res.headers.get("content-type")?.includes("application/json")) return null;
   try {
     return await res.json();
   } catch {
@@ -44,8 +39,7 @@ async function readJsonSafe(res: Response): Promise<unknown> {
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
-    const { email, password } = LoginSchema.parse(body);
+    const { email, password } = LoginSchema.parse(await req.json());
 
     const upstream = await fetch(`${API_BASE}/auth/login`, {
       method: "POST",
@@ -59,65 +53,29 @@ export async function POST(req: Request) {
 
     const payload = (await readJsonSafe(upstream)) as Upstream | null;
 
-    if (!upstream.ok) {
-      return NextResponse.json(
-        { error: extractApiError(payload) ?? "Login failed" },
-        { status: upstream.status, headers: { Vary: "Cookie" } }
-      );
-    }
+    if (!upstream.ok) return errorResponse(payload?.errors?.[0]?.message ?? payload?.message ?? "Login failed", upstream.status);
 
-    const token = payload?.data?.accessToken;
-    if (!token) {
-      return NextResponse.json(
-        { error: "Login succeeded but no token was returned" },
-        { status: 502, headers: { Vary: "Cookie" } }
-      );
-    }
+    const { accessToken, name, email: userEmail, avatar, venueManager } = payload?.data ?? {};
+    if (!accessToken) return errorResponse("Login succeeded but no token was returned", 502);
 
-    const p = payload?.data ?? {};
-    const user = {
-      name: p.name ?? null,
-      email: p.email ?? null,
-      avatar: p.avatar ?? null,
-      venueManager: !!p.venueManager,
+    const user = { name, email: userEmail, avatar, venueManager: !!venueManager };
+
+    const res = NextResponse.json({ data: { ok: true } }, { headers: { Vary: "Cookie" } });
+
+    const baseCookie = {
+      secure: isProd,
+      sameSite: "lax" as const,
+      path: "/",
+      maxAge: 60 * 60 * 24 * 7,
     };
 
-    const res = NextResponse.json(
-      { data: { ok: true } },
-      { status: 200, headers: { Vary: "Cookie" } }
-    );
-
-    res.cookies.set(COOKIE_TOKEN, token, {
-      httpOnly: true,
-      secure: isProd,
-      sameSite: "lax",
-      path: "/",
-      maxAge: 60 * 60 * 24 * 7,
-    });
-
-    res.cookies.set(COOKIE_USER, JSON.stringify(user), {
-      httpOnly: false,
-      secure: isProd,
-      sameSite: "lax",
-      path: "/",
-      maxAge: 60 * 60 * 24 * 7,
-    });
+    res.cookies.set(COOKIE_TOKEN, accessToken, { ...baseCookie, httpOnly: true });
+    res.cookies.set(COOKIE_USER, JSON.stringify(user), { ...baseCookie, httpOnly: false });
 
     return res;
-  } catch (err: unknown) {
-    if (err instanceof ZodError) {
-      const first = err.issues[0]?.message ?? "Invalid input";
-      return NextResponse.json({ error: first }, { status: 400, headers: { Vary: "Cookie" } });
-    }
-    if (err instanceof Error) {
-      return NextResponse.json(
-        { error: err.message },
-        { status: 400, headers: { Vary: "Cookie" } }
-      );
-    }
-    return NextResponse.json(
-      { error: "Unexpected error" },
-      { status: 400, headers: { Vary: "Cookie" } }
-    );
+  } catch (err) {
+    if (err instanceof ZodError) return errorResponse(err.issues[0]?.message ?? "Invalid input", 400);
+    if (err instanceof Error) return errorResponse(err.message, 400);
+    return errorResponse("Unexpected error", 400);
   }
 }

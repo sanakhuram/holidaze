@@ -1,13 +1,7 @@
 // src/app/api/bookings/[id]/route.ts
 import { NextResponse } from "next/server";
-import { cookies } from "next/headers";
 import { z } from "zod";
-
-const BASE = process.env.NOROFF_API_URL ?? "https://v2.api.noroff.dev";
-const API_KEY = process.env.NOROFF_API_KEY;
-
-const strip = <T extends object>(o: T) =>
-  Object.fromEntries(Object.entries(o).filter(([, v]) => v != null)) as Partial<T>;
+import { noroffFetch } from "../../_utils/noroff";
 
 const DateStr = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Use YYYY-MM-DD");
 const UpdateSchema = z
@@ -23,62 +17,53 @@ const UpdateSchema = z
 type RouteCtx = { params: Promise<{ id: string }> };
 
 export async function DELETE(_req: Request, ctx: RouteCtx) {
-  const { id } = await ctx.params; 
-  const jar = await cookies(); 
-  const token = jar.get("noroff_token")?.value;
-  if (!token) return NextResponse.json({ message: "Not authenticated" }, { status: 401 });
+  try {
+    const { id } = await ctx.params;
+    const { resp, data } = await noroffFetch(`/holidaze/bookings/${encodeURIComponent(id)}`, {
+      method: "DELETE",
+    });
 
-  const resp = await fetch(`${BASE}/holidaze/bookings/${encodeURIComponent(id)}`, {
-    method: "DELETE",
-    headers: {
-      ...(API_KEY ? { "X-Noroff-API-Key": API_KEY } : {}),
-      Authorization: `Bearer ${token}`,
-      Accept: "application/json",
-    },
-    cache: "no-store",
-  });
-
-  if (resp.status === 204) return new NextResponse(null, { status: 204 });
-
-  const data = await resp.json().catch(() => ({}));
-  return NextResponse.json(
-    { message: data?.message || "Cancel failed", errors: data?.errors ?? [] },
-    { status: resp.status }
-  );
+    if (resp.status === 204) return new NextResponse(null, { status: 204 });
+    return NextResponse.json(
+      { 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        message: (data && typeof data === "object" && "message" in data ? (data as any).message : "Cancel failed"), 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        errors: (data && typeof data === "object" && "errors" in data ? (data as any).errors : []) 
+      },
+      { status: resp.status }
+    );
+  } catch (e: unknown) {
+    return NextResponse.json({ message: e instanceof Error ? e.message : "Unknown error" }, { status: 401 });
+  }
 }
 
 export async function PUT(req: Request, ctx: RouteCtx) {
-  const { id } = await ctx.params; 
-  const jar = await cookies(); 
-  const token = jar.get("noroff_token")?.value;
-  if (!token) return NextResponse.json({ message: "Not authenticated" }, { status: 401 });
+  try {
+    const { id } = await ctx.params;
+    const raw = (await req.json().catch(() => ({}))) as unknown;
 
-  const raw = (await req.json().catch(() => ({}))) as unknown;
-  const parsed = UpdateSchema.safeParse(raw);
-  if (!parsed.success) {
-    return NextResponse.json(
-      {
-        message: "Invalid input",
-        errors: parsed.error.issues.map((i) => ({ path: i.path.join("."), message: i.message })),
-      },
-      { status: 400 }
-    );
+    const parsed = UpdateSchema.safeParse(raw);
+    if (!parsed.success) {
+      return NextResponse.json(
+        {
+          message: "Invalid input",
+          errors: parsed.error.issues.map((i) => ({
+            path: i.path.join("."),
+            message: i.message,
+          })),
+        },
+        { status: 400 }
+      );
+    }
+
+    const { resp, data } = await noroffFetch(`/holidaze/bookings/${encodeURIComponent(id)}`, {
+      method: "PUT",
+      json: parsed.data,
+    });
+
+    return NextResponse.json(data, { status: resp.status });
+  } catch (e: unknown) {
+    return NextResponse.json({ message: e instanceof Error ? e.message : "Unknown error" }, { status: 401 });
   }
-
-  const payload = strip(parsed.data);
-
-  const resp = await fetch(`${BASE}/holidaze/bookings/${encodeURIComponent(id)}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      ...(API_KEY ? { "X-Noroff-API-Key": API_KEY } : {}),
-      Authorization: `Bearer ${token}`,
-      Accept: "application/json",
-    },
-    body: JSON.stringify(payload),
-    cache: "no-store",
-  });
-
-  const data = await resp.json().catch(() => ({}));
-  return NextResponse.json(data, { status: resp.status });
 }

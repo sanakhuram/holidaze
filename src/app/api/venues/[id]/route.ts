@@ -38,10 +38,9 @@ const UpdateSchema = z.object({
 
 type RouteCtx = { params: Promise<{ id: string }> };
 
-// PUT /api/venues/:id
 export async function PUT(req: Request, ctx: RouteCtx) {
-  const { id } = await ctx.params; // await params
-  const jar = await cookies(); // await cookies()
+  const { id } = await ctx.params;
+  const jar = await cookies(); 
   const token = jar.get("noroff_token")?.value;
   if (!token) return NextResponse.json({ message: "Not authenticated" }, { status: 401 });
 
