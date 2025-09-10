@@ -9,7 +9,13 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import type { Route } from "next";
 
-export default function VenueManageCard({ venue }: { venue: Venue }) {
+export default function VenueManageCard({
+  venue,
+  readonly = false,
+}: {
+  venue: Venue;
+  readonly?: boolean;
+}) {
   const router = useRouter();
   const img = venue.media?.[0]?.url ?? null;
   const alt = venue.media?.[0]?.alt ?? venue.name ?? "Venue";
@@ -29,10 +35,12 @@ export default function VenueManageCard({ venue }: { venue: Venue }) {
           />
         </Link>
 
-        <div className="flex items-start gap-2">
-          <EditVenueButton venue={venue} />
-          <DeleteVenueButton id={venue.id} onDeleted={() => router.refresh()} />
-        </div>
+        {!readonly && (
+          <div className="flex items-start gap-2">
+            <EditVenueButton venue={venue} />
+            <DeleteVenueButton id={venue.id} onDeleted={() => router.refresh()} />
+          </div>
+        )}
       </div>
 
       <div className="mt-3 min-w-0">

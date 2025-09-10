@@ -92,12 +92,12 @@ export default async function ProfileDetailPage({ params }: PageProps) {
       <section className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
         <div className="rounded-2xl border border-amber-500 p-5">
           <h2 className="mb-3 text-lg font-semibold">Venues</h2>
-          <VenuesList venues={profile.venues ?? []} />
+          <VenuesList venues={profile.venues ?? []} readonly />
         </div>
 
         <div className="rounded-2xl border border-amber-500 p-5">
           <h2 className="mb-3 text-lg font-semibold text-left">Bookings</h2>
-          <BookingsList bookings={profile.bookings ?? []} />
+          <BookingsList bookings={profile.bookings ?? []} readonly />
         </div>
       </section>
     </main>

@@ -1,4 +1,3 @@
-// src/app/components/bookings/BookingCard.tsx
 "use client";
 
 import { Pencil, Trash2, Users } from "lucide-react";
@@ -11,10 +10,12 @@ export default function BookingCard({
   b,
   onCancelled,
   onEdited,
+  readonly = false,
 }: {
   b: BookingWithVenue;
   onCancelled?: () => void;
   onEdited?: () => void;
+  readonly?: boolean;
 }) {
   const v = b.venue ?? undefined;
   const img = v?.media?.[0]?.url ?? null;
@@ -29,19 +30,21 @@ export default function BookingCard({
           <SafeImage src={img} alt={alt} className="h-full w-full object-cover" />
         </div>
 
-        <div className="flex items-start gap-2">
-          <EditBookingButton booking={b} onEdited={onEdited}>
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-amber-400 bg-coffee/40 hover:bg-coffee/60">
-              <Pencil className="h-4 w-4 text-amber-400" />
-            </span>
-          </EditBookingButton>
+        {!readonly && (
+          <div className="flex items-start gap-2">
+            <EditBookingButton booking={b} onEdited={onEdited}>
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-amber-400 bg-coffee/40 hover:bg-coffee/60">
+                <Pencil className="h-4 w-4 text-amber-400" />
+              </span>
+            </EditBookingButton>
 
-          <CancelBookingButton bookingId={b.id} onCancelled={onCancelled}>
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-rose-400 bg-rose-500/10 hover:bg-rose-500/20">
-              <Trash2 className="h-4 w-4 text-red-500" />
-            </span>
-          </CancelBookingButton>
-        </div>
+            <CancelBookingButton bookingId={b.id} onCancelled={onCancelled}>
+              <span className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-rose-400 bg-rose-500/10 hover:bg-rose-500/20">
+                <Trash2 className="h-4 w-4 text-red-500" />
+              </span>
+            </CancelBookingButton>
+          </div>
+        )}
       </div>
 
       <div className="mt-3 flex justify-between items-end">

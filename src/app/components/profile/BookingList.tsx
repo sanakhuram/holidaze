@@ -5,7 +5,13 @@ import { useRouter } from "next/navigation";
 import type { BookingWithVenue } from "@/app/lib/types";
 import BookingCard from "../bookings/BookingCard";
 
-export default function BookingsList({ bookings }: { bookings: BookingWithVenue[] }) {
+export default function BookingsList({
+  bookings,
+  readonly = false,
+}: {
+  bookings: BookingWithVenue[];
+  readonly?: boolean;
+}) {
   const router = useRouter();
   const now = Date.now();
 
@@ -13,7 +19,10 @@ export default function BookingsList({ bookings }: { bookings: BookingWithVenue[
     () =>
       (bookings || [])
         .filter((b) => new Date(b.dateFrom).getTime() >= now)
-        .sort((a, b) => new Date(a.dateFrom).getTime() - new Date(b.dateFrom).getTime()),
+        .sort(
+          (a, b) =>
+            new Date(a.dateFrom).getTime() - new Date(b.dateFrom).getTime()
+        ),
     [bookings, now]
   );
 
@@ -24,7 +33,12 @@ export default function BookingsList({ bookings }: { bookings: BookingWithVenue[
   return (
     <div className="space-y-4">
       {upcoming.map((b) => (
-        <BookingCard key={b.id} b={b} onCancelled={() => router.refresh()} />
+        <BookingCard
+          key={b.id}
+          b={b}
+          readonly={readonly}
+          onCancelled={() => router.refresh()}
+        />
       ))}
     </div>
   );
