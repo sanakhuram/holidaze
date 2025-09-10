@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import type { VenueWithExtras } from "@/app/lib/types";
 import { MapPin, Star, User, Users } from "lucide-react";
 import Amenities from "./Amenities";
@@ -92,6 +93,7 @@ export default function BookingSection({ venue }: { venue: VenueWithExtras }) {
       setSubmitting(false);
     }
   }
+
   return (
     <section className="rounded-sm border border-amber-500 p-5 shadow-sm md:p-6">
       <h2 className="mb-4 text-center text-xl font-semibold text-wine md:mb-6">Book Now</h2>
@@ -120,14 +122,18 @@ export default function BookingSection({ venue }: { venue: VenueWithExtras }) {
                 "Location"}
             </span>
           </div>
-          <div className="flex items-center gap-1 text-sm text-neutral-700">
-            <User className="h-4 w-4 text-yellow-500" />
-            <span>
-              {typeof venue.owner === "object" && venue.owner !== null
-                ? (venue.owner.name ?? "Owner")
-                : (venue.owner ?? "Owner")}
-            </span>
-          </div>
+
+          {venue.owner?.name && (
+            <div className="flex items-center gap-1 text-sm text-neutral-700">
+              <User className="h-4 w-4 text-yellow-900" />
+              <Link
+                href={`/profiles/${venue.owner.name}`}
+                className="text-coffee font-medium hover:underline"
+              >
+                {venue.owner.name}
+              </Link>
+            </div>
+          )}
 
           <div className="mt-1 text-sm text-neutral-700">Max guests: {venue.maxGuests}</div>
 

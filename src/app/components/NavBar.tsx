@@ -38,8 +38,8 @@ export default function Navbar() {
             alt="Holidaze Logo"
             width={40}
             height={40}
+            style={{ height: "auto", width: "auto" }}
             className="rounded-full"
-            priority
           />
           <span>Holidaze</span>
           <span className="sr-only">Home</span>

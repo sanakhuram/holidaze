@@ -3,7 +3,7 @@
 
 :root {
   --background: #FDF2EA;
-  --foreground: #554c36;
+  --foreground: #272318;
   --coffee: #241a19;
   --wine: #722633;
   --brand-gradient: linear-gradient(90deg, var(--coffee) 0%, var(--wine) 100%);

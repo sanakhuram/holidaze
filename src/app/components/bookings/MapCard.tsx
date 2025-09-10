@@ -31,7 +31,7 @@ export default function MapCard({
 
   return (
     <div className="mt-6">
-      <div className="mb-2 flex items-center gap-2 text-amber-200/80">
+      <div className="mb-2 flex items-center gap-2 text-amber-800 font-bold">
         <MapPin className="h-4 w-4" />
         <span className="text-sm">{label}</span>
       </div>

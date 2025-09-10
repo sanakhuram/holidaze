@@ -9,13 +9,13 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-r from-coffee to-wine text-amber-600 pt-12 pb-8 px-6">
       <div className="container mx-auto grid gap-10 md:grid-cols-4">
-        {/* Brand */}
         <div className="flex flex-col items-start">
           <Image
             src="/logo.png"
             alt="Holidaze Logo"
             width={95}
             height={95}
+            style={{ height: "auto", width: "auto" }}
             className="rounded-full mb-4"
             priority
           />

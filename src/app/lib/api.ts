@@ -86,7 +86,8 @@ export const getVenueById = (id: string) =>
 
 export async function getProfileByName(name: string, token: string) {
   return api<{ data: Profile }>(
-    `/holidaze/profiles/${encodeURIComponent(name)}?_venues=true&_bookings=true`,
+    `/holidaze/profiles/${encodeURIComponent(name)}?_venues=true&_bookings=true&_venueBookings=true`,
     { headers: { Authorization: `Bearer ${token}` } }
   ).then((r) => r.data);
 }
+

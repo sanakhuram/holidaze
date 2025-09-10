@@ -7,6 +7,7 @@ export type Owner = {
   avatar?: string | null;
 };
 
+
 export type Venue = {
   id: string;
   name: string;
@@ -27,9 +28,18 @@ export type Venue = {
     lat?: number;
     lng?: number;
   };
-
   owner?: Owner;
 };
+
+export type VenueWithBookings = Venue & {
+  bookings?: BookingWithVenue[];
+};
+
+export type VenueWithExtras = Venue & {
+  owner?: Owner;
+  bookings?: Booking[];
+};
+
 
 export type Booking = {
   id: string;
@@ -38,7 +48,30 @@ export type Booking = {
   guests: number;
   created: string;
   updated: string;
+    customer?: {
+    name: string;
+    email: string;
+    avatar?: { url?: string; alt?: string } | null;
+    };
 };
+
+export type BookingWithVenue = Booking & {
+  venue?: Pick<Venue, "id" | "name" | "media" | "location" | "price" | "maxGuests"> | null;
+};
+
+
+export type Profile = {
+  name: string;
+  email?: string;
+  bio?: string;
+  avatar?: { url?: string; alt?: string } | null;
+  banner?: { url?: string; alt?: string } | null;
+  venueManager?: boolean;
+  venues?: VenueWithBookings[];   
+  bookings?: BookingWithVenue[]; 
+  _count?: { venues?: number; bookings?: number };
+};
+
 
 export type Paged<T> = {
   data: T[];
@@ -51,27 +84,6 @@ export type Paged<T> = {
     pageCount: number;
     totalCount: number;
   };
-};
-
-export type Profile = {
-  name: string;
-  email?: string;
-  bio?: string;
-  avatar?: { url?: string; alt?: string } | null;
-  banner?: { url?: string; alt?: string } | null;
-  venueManager?: boolean;
-  venues?: Venue[];
-  bookings?: BookingWithVenue[];
-  _count?: { venues?: number; bookings?: number };
-};
-
-export type BookingWithVenue = Booking & {
-  venue?: Pick<Venue, "id" | "name" | "media" | "location" | "price" | "maxGuests"> | null;
-};
-
-export type VenueWithExtras = Venue & {
-  owner?: Owner;
-  bookings?: Booking[];
 };
 
 export type PaginationMeta = {
