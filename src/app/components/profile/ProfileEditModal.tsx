@@ -113,7 +113,7 @@ export default function ProfileEditModal({
                 className={`absolute left-1/2 top-1/2 w-full max-w-2xl -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-slate-200 bg-[var(--background)] p-6 text-slate-900 shadow-xl transition ${open ? "opacity-100 scale-100" : "opacity-0 scale-95"
                     }`}
             >
-                <div className="mb-4 flex items-center justify-between">
+                <div className="mb-4 flex items-center justify-between max-h-[90vh] overflow-y">
                     <h2 className="text-lg font-semibold">Edit profile</h2>
                     <button onClick={onClose} className="rounded-md px-2 py-1 text-sm hover:bg-slate-100">
                         ✕

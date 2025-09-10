@@ -8,7 +8,8 @@ import EditProfileButton from "../components/profile/EditProfileButton";
 import CreateVenueButton from "../components/profile/CreateVenueButton";
 import VenueManagerToggle from "../components/profile/VenueManagerToggle";
 import VenueBookingsCard from "../components/profile/VenueBookingsCard";
-
+import CollapsibleSection from "../components/ui/CollapsibleSection";
+import HostingGuide from "../components/profile/HostingGuide";
 
 export const dynamic = "force-dynamic";
 
@@ -145,36 +146,36 @@ export default async function ProfilePage() {
         </div>
       </section>
 
-      <section className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <div className="rounded-2xl border border-amber-500 p-5">
-          <h2 className="mb-3 text-lg font-semibold">Your Venues</h2>
-          <VenuesList venues={profile.venues ?? []} />
-        </div>
+<section className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
+  <CollapsibleSection title="My Venues">
+    <VenuesList venues={profile.venues ?? []} />
+  </CollapsibleSection>
 
-        <div className="rounded-2xl border border-amber-500 p-5">
-          <h2 className="mb-3 text-lg font-semibold text-left">Your Bookings</h2>
-          <BookingsList bookings={profile.bookings ?? []} />
-        </div>
-      </section>
+  <CollapsibleSection title="My Bookings">
+    <BookingsList bookings={profile.bookings ?? []} />
+  </CollapsibleSection>
 
-{profile.venueManager && (
-  <section className="mt-8 rounded-2xl border border-amber-500 p-5">
-    <h2 className="mb-3 text-lg font-semibold text-left">
-      Bookings on Your Venues
-    </h2>
-    {venuesWithBookings.length ? (
-      <div className="space-y-6">
-        {venuesWithBookings.map((venue) => (
-          <VenueBookingsCard key={venue.id} venue={venue} />
-        ))}
-      </div>
-    ) : (
-      <p className="text-sm text-slate-600">
-        You don’t manage any venues yet.
-      </p>
-    )}
-  </section>
-)}
+  {profile.venueManager && (
+    <>
+      <CollapsibleSection title="Upcoming Bookings">
+        {venuesWithBookings.length ? (
+          <div className="space-y-6">
+            {venuesWithBookings.map((venue) => (
+              <VenueBookingsCard key={venue.id} venue={venue} />
+            ))}
+          </div>
+        ) : (
+          <p className="text-sm text-slate-600">
+            You don’t manage any venues yet.
+          </p>
+        )}
+      </CollapsibleSection>
+
+      <HostingGuide />
+    </>
+  )}
+</section>
+
 </main>
   );
 }

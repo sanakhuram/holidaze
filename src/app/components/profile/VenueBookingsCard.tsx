@@ -28,7 +28,7 @@ export default function VenueBookingsCard({ venue }: { venue: VenueWithExtras })
 
               <div className="flex-1 space-y-1">
                 <div>
-                  <span className="font-medium text-coffee">Booking Ref:</span>{" "}
+                  <span className="font-medium text-coffee truncate">Booking Ref:</span>{" "}
                   <span className="font-mono">{b.id}</span>
                 </div>
 
@@ -44,9 +44,7 @@ export default function VenueBookingsCard({ venue }: { venue: VenueWithExtras })
                   ) : (
                     "Unknown"
                   )}
-                  {b.customer?.email && (
-                    <span className="ml-1 text-slate-500">({b.customer.email})</span>
-                  )}
+                
                 </div>
 
                 <div>
