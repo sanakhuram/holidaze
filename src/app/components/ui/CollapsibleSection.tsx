@@ -7,7 +7,7 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 export default function CollapsibleSection({
     title,
     children,
-    defaultOpen = true,
+    defaultOpen = false,
 }: {
     title: string;
     children: React.ReactNode;
