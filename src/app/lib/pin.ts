@@ -1,8 +1,8 @@
 // src/app/lib/pin.ts
 import type { Venue } from "./types";
 
-const PIN_EMAIL = "nordicGems@stud.noroff.no";
-const PIN_NAME = "nordicGems";
+const PIN_EMAIL = "SunsetRetreat@stud.noroff.no";
+const PIN_NAME = "SunsetRetreat";
 
 export function isPinnedOwner(v: Venue) {
   const email = v.owner?.email?.toLowerCase();

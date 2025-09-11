@@ -35,7 +35,7 @@ export default function VenuesPage() {
 {pinned.length > 0 && (
   <BackgroundSection bg="/images/featured-bg.jpg" dim={0.6}>
     <div className={CONTAINER}>
-      <h2 className="mb-6 text-2xl font-semibold text-amber-400 drop-shadow">Nordic Gems</h2>
+      <h2 className="mb-6 text-2xl font-semibold text-amber-400 drop-shadow">Sunset Retreats</h2>
       <HorizontalScroller>
         {pinned.map((v) => (
           <div key={v.id} className="min-w-[250px] max-w-[280px] snap-start">
