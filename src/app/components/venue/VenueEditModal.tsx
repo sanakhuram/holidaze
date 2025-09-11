@@ -1,4 +1,4 @@
-// src/app/components/VenueEditModal.tsx
+
 "use client";
 
 import ModalShell from "../ui/ModalShell";
@@ -6,6 +6,7 @@ import VenueForm from "./VenueForm";
 import { toUpdatePayload, type VenueFormValues } from "@/app/lib/venueForm";
 import type { Venue } from "@/app/lib/types";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function VenueEditModal({
   open,
@@ -44,24 +45,30 @@ export default function VenueEditModal({
     },
   };
 
-  async function handleSubmit(values: VenueFormValues) {
-    setLoading(true);
-    try {
-      const payload = toUpdatePayload(values);
-      const res = await fetch(`/api/venues/${venue.id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(data?.errors?.[0]?.message || data?.message || "Update failed");
+async function handleSubmit(values: VenueFormValues) {
+  const toastId = toast.loading("Saving venue…");
+  setLoading(true);
+  try {
+    const payload = toUpdatePayload(values);
+    const res = await fetch(`/api/venues/${venue.id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data?.errors?.[0]?.message || data?.message || "Update failed");
 
-      await (onSaved?.() ?? Promise.resolve());
-      onClose();
-    } finally {
-      setLoading(false);
-    }
+    toast.success("Venue updated successfully 🎉", { id: toastId });
+
+    await (onSaved?.() ?? Promise.resolve());
+    onClose();
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : "Something went wrong 😬";
+    toast.error(message, { id: toastId });
+  } finally {
+    setLoading(false);
   }
+}
 
   return (
     <ModalShell title="Edit venue" open={open} onClose={onClose} maxWidth="max-w-2xl">

@@ -1,4 +1,3 @@
-//* eslint-disable @next/next/no-img-element */
 // src/app/components/CreateVenueModal.tsx
 "use client";
 
@@ -7,6 +6,7 @@ import ModalShell from "../ui/ModalShell";
 import VenueForm from "./VenueForm";
 import { toCreatePayload, type VenueFormValues } from "@/app/lib/venueForm";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function CreateVenueModal({
   open,
@@ -21,6 +21,7 @@ export default function CreateVenueModal({
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(values: VenueFormValues) {
+    const toastId = toast.loading("Creating venue…");
     setLoading(true);
     try {
       const payload = toCreatePayload(values);
@@ -32,11 +33,16 @@ export default function CreateVenueModal({
       const rd = await r.json();
       if (!r.ok) throw new Error(rd?.errors?.[0]?.message || rd?.message || "Create failed");
 
+      toast.success("Venue created successfully 🎉", { id: toastId });
+
       const id = rd?.data?.id as string | undefined;
       await (onCreated?.(id) ?? Promise.resolve());
       onClose();
       if (id) router.push(`/venues/${id}`);
       else router.refresh();
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Something went wrong 😬";
+      toast.error(message, { id: toastId });
     } finally {
       setLoading(false);
     }

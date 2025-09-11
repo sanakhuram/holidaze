@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-// src/app/components/ProfileEditModal.tsx
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
 import { useSession } from "@/hooks/useSession";
+import toast from "react-hot-toast";
 
 type ImgObj = { url?: string; alt?: string };
 type Initial = {
@@ -34,8 +34,6 @@ export default function ProfileEditModal({
     const [venueManager, setVenueManager] = useState(!!initial?.venueManager);
 
     const [loading, setLoading] = useState(false);
-    const [err, setErr] = useState<string | null>(null);
-    const [ok, setOk] = useState<string | null>(null);
 
     useEffect(() => {
         if (open) {
@@ -45,8 +43,6 @@ export default function ProfileEditModal({
             setBannerUrl(initial?.banner?.url ?? "");
             setBannerAlt(initial?.banner?.alt ?? "");
             setVenueManager(!!initial?.venueManager);
-            setErr(null);
-            setOk(null);
         }
     }, [open, initial]);
 
@@ -65,14 +61,13 @@ export default function ProfileEditModal({
 
     async function onSubmit(e: React.FormEvent) {
         e.preventDefault();
-        setErr(null);
-        setOk(null);
 
         if (!avatarUrlValid || !bannerUrlValid) {
-            setErr("Please enter valid http(s) image URLs.");
+            toast.error("Please enter valid http(s) image URLs.");
             return;
         }
 
+        const toastId = toast.loading("Updating profile…");
         setLoading(true);
         try {
             const payload = {
@@ -87,41 +82,47 @@ export default function ProfileEditModal({
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload),
             });
-            const rd = await r.json();
+            const rd = await r.json().catch(() => ({}));
             if (!r.ok) {
                 throw new Error(rd?.errors?.[0]?.message || rd?.message || "Update failed");
             }
 
-            setOk("Profile updated.");
+            toast.success("Profile updated ✨", { id: toastId });
+
             await refresh();
             await (onSaved?.() ?? Promise.resolve());
-            setTimeout(onClose, 500);
+            onClose();
         } catch (e: unknown) {
-            setErr(e instanceof Error ? e.message : "Something went wrong");
+            const message = e instanceof Error ? e.message : "Something went wrong";
+            toast.error(message, { id: toastId });
         } finally {
             setLoading(false);
         }
     }
 
+    if (!open) return null;
+
     return (
-        <div className={`fixed inset-0 z-50 ${open ? "" : "pointer-events-none"}`}>
+        <div className="fixed inset-0 z-50">
             <div
                 onClick={onClose}
                 className={`absolute inset-0 bg-black/40 transition ${open ? "opacity-100" : "opacity-0"}`}
             />
             <div
-                className={`absolute left-1/2 top-1/2 w-full max-w-2xl -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-slate-200 bg-[var(--background)] p-6 text-slate-900 shadow-xl transition ${open ? "opacity-100 scale-100" : "opacity-0 scale-95"
-                    }`}
+                role="dialog"
+                aria-modal="true"
+                className={`absolute left-1/2 top-1/2 w-full max-w-2xl -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-slate-200 bg-[var(--background)] p-6 text-slate-900 shadow-xl transition ${open ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
             >
                 <div className="mb-4 flex items-center justify-between max-h-[90vh] overflow-y">
                     <h2 className="text-lg font-semibold">Edit profile</h2>
-                    <button onClick={onClose} className="rounded-md px-2 py-1 text-sm hover:bg-slate-100">
+                    <button
+                        onClick={onClose}
+                        className="rounded-md px-2 py-1 text-sm hover:bg-slate-100"
+                        aria-label="Close"
+                    >
                         ✕
                     </button>
                 </div>
-
-                {err && <p className="mb-3 text-sm text-red-600">{err}</p>}
-                {ok && <p className="mb-3 text-sm text-emerald-700">{ok}</p>}
 
                 <form onSubmit={onSubmit} className="grid grid-cols-1 gap-6 lg:grid-cols-2">
 
@@ -203,13 +204,13 @@ export default function ProfileEditModal({
                         <button
                             type="button"
                             onClick={onClose}
-                            className="rounded-md border border-slate-300 px-4 py-2 text-sm hover:bg-slate-50 shadow-md"
+                            className="rounded-md border border-slate-300 px-4 py-2 text-sm shadow-md hover:bg-slate-50"
                         >
                             Cancel
                         </button>
                         <button
                             disabled={loading}
-                            className="rounded-md bg-amber-600 px-4 py-2 text-sm font-semibold text-white hover:brightness-110 disabled:opacity-50 shadow-md"
+                            className="rounded-md bg-amber-600 px-4 py-2 text-sm font-semibold text-white shadow-md hover:brightness-110 disabled:opacity-50"
                         >
                             {loading ? "Saving…" : "Save changes"}
                         </button>

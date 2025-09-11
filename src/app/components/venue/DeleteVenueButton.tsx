@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { Trash2 } from "lucide-react";
+import toast from "react-hot-toast";
+import { confirmToast } from "../ui/ConfirmToast";
 
 export default function DeleteVenueButton({
   id,
@@ -13,8 +15,7 @@ export default function DeleteVenueButton({
   const [loading, setLoading] = useState(false);
 
   async function handleDelete() {
-    if (!confirm("Are you sure you want to delete this venue?")) return;
-
+    const toastId = toast.loading("Deleting venue…");
     setLoading(true);
     try {
       const res = await fetch(`/api/venues/${id}`, {
@@ -22,10 +23,11 @@ export default function DeleteVenueButton({
       });
       if (!res.ok) throw new Error("Failed to delete venue");
 
+      toast.success("Venue deleted 🗑️", { id: toastId });
       await (onDeleted?.() ?? Promise.resolve());
-    } catch (err) {
-      console.error(err);
-      alert("Could not delete venue.");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Could not delete venue.";
+      toast.error(message, { id: toastId });
     } finally {
       setLoading(false);
     }
@@ -33,7 +35,12 @@ export default function DeleteVenueButton({
 
   return (
     <button
-      onClick={handleDelete}
+      onClick={() =>
+        confirmToast({
+          message: "Are you sure you want to delete this venue?",
+          onConfirm: handleDelete,
+        })
+      }
       disabled={loading}
       aria-label="Delete venue"
       title="Delete venue"

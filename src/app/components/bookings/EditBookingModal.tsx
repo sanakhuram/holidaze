@@ -1,4 +1,3 @@
-// src/app/components/EditBookingModal.tsx
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -7,6 +6,7 @@ import CalendarRange from "./CalenderRange";
 import GuestsRow from "./GuestRow";
 import type { DateRange, Matcher } from "react-day-picker";
 import { differenceInCalendarDays, formatISO, startOfToday } from "date-fns";
+import toast from "react-hot-toast";
 
 const EMPTY_RANGE: DateRange = { from: undefined, to: undefined };
 
@@ -39,9 +39,11 @@ export default function EditBookingModal({
   }, [open, booking]);
 
   const disabled: Matcher[] = useMemo(() => {
-    const others = (
-      (booking.venue as typeof booking.venue & { bookings?: BookingWithVenue[] })?.bookings ?? []
-    ).filter((b) => b.id !== booking.id);
+    const others =
+      (
+        (booking.venue as typeof booking.venue & { bookings?: BookingWithVenue[] })
+          ?.bookings ?? []
+      ).filter((b) => b.id !== booking.id);
     return [
       { before: startOfToday() },
       ...others.map((b) => ({
@@ -72,6 +74,7 @@ export default function EditBookingModal({
       return;
     }
 
+    const toastId = toast.loading("Updating booking…");
     setLoading(true);
     setErr(null);
     try {
@@ -89,10 +92,14 @@ export default function EditBookingModal({
       const rd = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(rd?.errors?.[0]?.message || rd?.message || "Update failed");
 
+      toast.success("Booking updated ✨", { id: toastId });
+
       await (onSaved?.() ?? Promise.resolve());
       onClose();
-    } catch (e) {
-      setErr(e instanceof Error ? e.message : "Something went wrong");
+    } catch (e: unknown) {
+      const message = e instanceof Error ? e.message : "Something went wrong";
+      setErr(message);
+      toast.error(message, { id: toastId });
     } finally {
       setLoading(false);
     }

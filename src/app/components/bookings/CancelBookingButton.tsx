@@ -1,14 +1,15 @@
-// src/app/components/CancelBookingButton.tsx
 "use client";
 
 import { useState, type ReactNode, type MouseEvent } from "react";
 import { Trash2 } from "lucide-react";
+import toast from "react-hot-toast";
+import { confirmToast } from "../ui/ConfirmToast";
 
 export default function CancelBookingButton({
   bookingId,
   onCancelled,
   className = "",
-  variant = "text", 
+  variant = "text",
   ariaLabel = "Cancel booking",
   confirm = true,
   children,
@@ -19,12 +20,13 @@ export default function CancelBookingButton({
   variant?: "text" | "icon";
   ariaLabel?: string;
   confirm?: boolean;
-  children?: ReactNode; 
+  children?: ReactNode;
 }) {
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
   async function cancel() {
+    const toastId = toast.loading("Cancelling booking…");
     setLoading(true);
     setErr(null);
     try {
@@ -35,9 +37,12 @@ export default function CancelBookingButton({
         throw new Error(body?.errors?.[0]?.message || body?.message || `HTTP ${res.status}`);
       }
 
+      toast.success("Booking cancelled ✅", { id: toastId });
       await (onCancelled?.() ?? Promise.resolve());
     } catch (e) {
-      setErr(e instanceof Error ? e.message : "Cancel failed");
+      const message = e instanceof Error ? e.message : "Cancel failed";
+      setErr(message);
+      toast.error(message, { id: toastId });
     } finally {
       setLoading(false);
     }
@@ -47,8 +52,17 @@ export default function CancelBookingButton({
     e.preventDefault();
     e.stopPropagation();
     if (loading) return;
-    if (confirm && !window.confirm("Cancel this booking? This cannot be undone.")) return;
-    await cancel();
+
+    if (confirm) {
+      confirmToast({
+        message: "Cancel this booking? This cannot be undone.",
+        confirmLabel: "Yes, cancel",
+        cancelLabel: "Keep",
+        onConfirm: cancel,
+      });
+    } else {
+      await cancel();
+    }
   }
 
   const fallback =
