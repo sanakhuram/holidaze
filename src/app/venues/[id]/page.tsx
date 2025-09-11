@@ -4,6 +4,7 @@ import type { VenueWithExtras } from "@/app/lib/types";
 import { notFound } from "next/navigation";
 import MediaGallery from "../../components/bookings/MediaGallery";
 import BookingSection from "../../components/bookings/BookingSection";
+import FakeReviews from "@/app/components/reviews/FakeReviews";
 
 type PageProps = {
   params: Promise<{ id: string }>;
@@ -19,16 +20,17 @@ export default async function VenueDetailPage(props: PageProps) {
   const data = res.data as VenueWithExtras;
 
   return (
-    <section className="mx-auto max-w-6xl px-4 py-8">
+    <section className="mx-auto max-w-6xl px-4 py-8 ">
       <div className="mb-6">
         <h1 className="text-3xl font-bold text-brand-brown">{data.name}</h1>
         <p className="mt-2 text-brand-brown/80">{data.description}</p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-[1.2fr,1fr]">
+      <div className="grid gap-6 md:grid-cols-[1.2fr,1fr] ">
         <MediaGallery media={data.media || []} name={data.name} />
         <BookingSection venue={data} />
       </div>
+        <FakeReviews venueId={data.id} />
     </section>
   );
 }

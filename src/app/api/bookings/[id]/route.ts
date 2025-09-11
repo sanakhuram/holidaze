@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // src/app/api/bookings/[id]/route.ts
 import { NextResponse } from "next/server";
 import { z } from "zod";
@@ -26,9 +27,7 @@ export async function DELETE(_req: Request, ctx: RouteCtx) {
     if (resp.status === 204) return new NextResponse(null, { status: 204 });
     return NextResponse.json(
       { 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         message: (data && typeof data === "object" && "message" in data ? (data as any).message : "Cancel failed"), 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         errors: (data && typeof data === "object" && "errors" in data ? (data as any).errors : []) 
       },
       { status: resp.status }
