@@ -21,7 +21,7 @@ export default function VenueCard({ venue }: { venue: Venue }) {
       href={`/venues/${String(venue.id)}` as Route}
       className="group block rounded-md shadow-xl transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
     >
-      <div className="relative h-48 w-full overflow-hidden">
+      <div className="relative h-48 w-full overflow-hidden rounded-t-md">
         <SafeImage
           src={src}
           alt={alt}

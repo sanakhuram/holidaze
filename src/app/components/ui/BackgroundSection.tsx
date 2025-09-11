@@ -12,7 +12,7 @@ export default function BackgroundSection({
   children: ReactNode;
 }) {
   return (
-    <section className="relative my-8 overflow-hidden border rounded-2xl">
+    <section className="relative my-8 overflow-hidden border ">
       <Image src={bg} alt="" fill sizes="100vw" priority className="object-cover" />
 
       <div
