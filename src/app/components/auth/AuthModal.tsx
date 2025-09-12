@@ -1,7 +1,6 @@
-// src/app/components/AuthModal.tsx
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import BrandGradientPanel from "@/app/components/ui/BrandGradientPanel";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
@@ -15,7 +14,12 @@ export default function AuthModal({
   onClose: () => void;
   mode?: "login" | "register";
 }) {
+  const [currentMode, setCurrentMode] = useState<"login" | "register">(mode);
   const panelRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    setCurrentMode(mode); 
+  }, [mode]);
 
   useEffect(() => {
     if (!open) return;
@@ -52,7 +56,32 @@ export default function AuthModal({
       >
         <BrandGradientPanel className="p-0">
           <div className="rounded-2xl p-6 text-foreground">
-            {mode === "login" ? (
+            <div className="mb-4 flex  gap-4">
+              <button
+                type="button"
+                onClick={() => setCurrentMode("login")}
+                className={`px-4 py-2 rounded-md font-semibold transition ${
+                  currentMode === "login"
+                    ? "bg-amber-900 text-white"
+                    : "bg-amber-600 text-white"
+                }`}
+              >
+                Login
+              </button>
+              <button
+                type="button"
+                onClick={() => setCurrentMode("register")}
+                className={`px-4 py-2 rounded-md font-semibold transition ${
+                  currentMode === "register"
+                    ? "bg-amber-900 text-white"
+                    : "bg-amber-600 text-white"
+                }`}
+              >
+                Register
+              </button>
+            </div>
+
+            {currentMode === "login" ? (
               <LoginForm onSuccess={onClose} />
             ) : (
               <RegisterForm onSuccess={onClose} />

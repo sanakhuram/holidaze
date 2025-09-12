@@ -27,7 +27,14 @@ export default function VenuesPage() {
       .catch(() => {});
   }, []);
 
-  if (loading && page === 1) return <p className={CONTAINER}>Loading…</p>;
+  if (loading && page === 1) {
+  return (
+    <div className={`${CONTAINER} flex justify-center items-center py-20`}>
+      <div className="h-8 w-8 animate-spin rounded-full border-4 border-amber-500 border-t-transparent"></div>
+    </div>
+  );
+}
+
   if (error) return <p className={`${CONTAINER} text-red-500`}>Error: {error}</p>;
 
   return (
