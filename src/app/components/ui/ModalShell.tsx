@@ -54,9 +54,9 @@ export default function ModalShell({
           className={clsx(
             "w-full",
             maxWidth,
-            "rounded-2xl border border-amber-500/30 bg-coffee text-amber-600 shadow-xl",
+            "bg-coffee rounded-2xl border border-amber-500/30 text-amber-600 shadow-xl",
             "transition-all",
-            open ? "opacity-100 scale-100" : "opacity-0 scale-95",
+            open ? "scale-100 opacity-100" : "scale-95 opacity-0",
             "max-h-[85vh] overflow-hidden",
             className
           )}
@@ -65,18 +65,18 @@ export default function ModalShell({
           aria-label={title}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="sticky top-0 z-[1] flex items-center justify-between bg-coffee px-6 pt-6 pb-3">
+          <div className="bg-coffee sticky top-0 z-[1] flex items-center justify-between px-6 pt-6 pb-3">
             <h2 className="text-lg font-semibold">{title}</h2>
             <button
               onClick={onClose}
-              className="rounded px-2 py-1 text-amber-600/90 hover:bg-amber-500/10 focus:outline-none focus:ring-2 focus:ring-amber-500/40"
+              className="rounded px-2 py-1 text-amber-600/90 hover:bg-amber-500/10 focus:ring-2 focus:ring-amber-500/40 focus:outline-none"
               aria-label="Close"
             >
               ✕
             </button>
           </div>
           <div className="modal-scroll px-6 pb-6">
-            <div className="rounded-xl border border-amber-500/20 bg-white/95 p-4 text-coffee shadow-sm">
+            <div className="text-coffee rounded-xl border border-amber-500/20 bg-white/95 p-4 shadow-sm">
               {children}
             </div>
           </div>

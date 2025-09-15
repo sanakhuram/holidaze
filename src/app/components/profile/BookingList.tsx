@@ -19,10 +19,7 @@ export default function BookingsList({
     () =>
       (bookings || [])
         .filter((b) => new Date(b.dateFrom).getTime() >= now)
-        .sort(
-          (a, b) =>
-            new Date(a.dateFrom).getTime() - new Date(b.dateFrom).getTime()
-        ),
+        .sort((a, b) => new Date(a.dateFrom).getTime() - new Date(b.dateFrom).getTime()),
     [bookings, now]
   );
 
@@ -33,12 +30,7 @@ export default function BookingsList({
   return (
     <div className="space-y-4">
       {upcoming.map((b) => (
-        <BookingCard
-          key={b.id}
-          b={b}
-          readonly={readonly}
-          onCancelled={() => router.refresh()}
-        />
+        <BookingCard key={b.id} b={b} readonly={readonly} onCancelled={() => router.refresh()} />
       ))}
     </div>
   );

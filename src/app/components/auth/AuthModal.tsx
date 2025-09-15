@@ -18,7 +18,7 @@ export default function AuthModal({
   const panelRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    setCurrentMode(mode); 
+    setCurrentMode(mode);
   }, [mode]);
 
   useEffect(() => {
@@ -51,19 +51,17 @@ export default function AuthModal({
       <div className="absolute inset-0 bg-black/50" />
       <div
         ref={panelRef}
-        className="absolute left-1/2 top-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2"
+        className="absolute top-1/2 left-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2"
         onClick={stop}
       >
         <BrandGradientPanel className="p-0">
-          <div className="rounded-2xl p-6 text-foreground">
-            <div className="mb-4 flex  gap-4">
+          <div className="text-foreground rounded-2xl p-6">
+            <div className="mb-4 flex gap-4">
               <button
                 type="button"
                 onClick={() => setCurrentMode("login")}
-                className={`px-4 py-2 rounded-md font-semibold transition ${
-                  currentMode === "login"
-                    ? "bg-amber-900 text-white"
-                    : "bg-amber-600 text-white"
+                className={`rounded-md px-4 py-2 font-semibold transition ${
+                  currentMode === "login" ? "bg-amber-900 text-white" : "bg-amber-600 text-white"
                 }`}
               >
                 Login
@@ -71,10 +69,8 @@ export default function AuthModal({
               <button
                 type="button"
                 onClick={() => setCurrentMode("register")}
-                className={`px-4 py-2 rounded-md font-semibold transition ${
-                  currentMode === "register"
-                    ? "bg-amber-900 text-white"
-                    : "bg-amber-600 text-white"
+                className={`rounded-md px-4 py-2 font-semibold transition ${
+                  currentMode === "register" ? "bg-amber-900 text-white" : "bg-amber-600 text-white"
                 }`}
               >
                 Register

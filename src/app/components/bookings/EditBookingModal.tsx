@@ -39,11 +39,9 @@ export default function EditBookingModal({
   }, [open, booking]);
 
   const disabled: Matcher[] = useMemo(() => {
-    const others =
-      (
-        (booking.venue as typeof booking.venue & { bookings?: BookingWithVenue[] })
-          ?.bookings ?? []
-      ).filter((b) => b.id !== booking.id);
+    const others = (
+      (booking.venue as typeof booking.venue & { bookings?: BookingWithVenue[] })?.bookings ?? []
+    ).filter((b) => b.id !== booking.id);
     return [
       { before: startOfToday() },
       ...others.map((b) => ({
@@ -113,7 +111,7 @@ export default function EditBookingModal({
       <div
         role="dialog"
         aria-modal="true"
-        className="absolute left-1/2 top-1/2 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-amber-600/30 bg-gradient-to-r from-coffee to-wine p-6 text-amber-100 shadow-xl"
+        className="from-coffee to-wine absolute top-1/2 left-1/2 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-amber-600/30 bg-gradient-to-r p-6 text-amber-100 shadow-xl"
       >
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-lg font-semibold">Edit booking</h2>

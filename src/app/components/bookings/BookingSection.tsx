@@ -96,15 +96,15 @@ export default function BookingSection({ venue }: { venue: VenueWithExtras }) {
 
   return (
     <section className="rounded-sm border border-amber-500 p-5 shadow-sm md:p-6">
-      <h2 className="mb-4 text-center text-xl font-semibold text-wine md:mb-6">Book Now</h2>
+      <h2 className="text-wine mb-4 text-center text-xl font-semibold md:mb-6">Book Now</h2>
 
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         <div className="rounded-sm border border-amber-500 p-5 shadow-sm">
-          <h3 className="mb-3 text-center text-amber-600 font-semibold text-lg">Info</h3>
+          <h3 className="mb-3 text-center text-lg font-semibold text-amber-600">Info</h3>
 
           <div className="flex items-end justify-between">
             <div>
-              <div className="text-2xl font-bold text-coffee">€{venue.price}</div>
+              <div className="text-coffee text-2xl font-bold">€{venue.price}</div>
               <div className="text-xs text-neutral-500">per night</div>
             </div>
             <div className="flex items-center gap-1 text-sm text-neutral-700">
@@ -113,7 +113,7 @@ export default function BookingSection({ venue }: { venue: VenueWithExtras }) {
             </div>
           </div>
 
-          <div className="mt-3 flex items-center gap-2 text-sm text-wine">
+          <div className="text-wine mt-3 flex items-center gap-2 text-sm">
             <MapPin className="h-4 w-4" />
             <span className="truncate">
               {venue.location?.address ||
@@ -139,14 +139,14 @@ export default function BookingSection({ venue }: { venue: VenueWithExtras }) {
 
           <div className="my-5 h-px w-full bg-amber-600/25" />
 
-          <h3 className="mb-2 text-center text-amber-600 font-semibold text-lg">Amenities</h3>
+          <h3 className="mb-2 text-center text-lg font-semibold text-amber-600">Amenities</h3>
           <Amenities meta={venue.meta} />
         </div>
 
         <div className="rounded-sm border border-amber-500 p-5 shadow-sm">
           <div className="flex items-end justify-between">
             <div className="text-sm text-neutral-700">
-              <div className="font-medium text-coffee">Your stay</div>
+              <div className="text-coffee font-medium">Your stay</div>
               <div className="text-neutral-500">{summary}</div>
             </div>
 
@@ -160,7 +160,7 @@ export default function BookingSection({ venue }: { venue: VenueWithExtras }) {
                   max={venue.maxGuests}
                   value={guests}
                   onChange={(e) => setGuests(Number(e.target.value))}
-                  className="w-16 rounded-md border border-neutral-300 px-2 py-1 text-coffee"
+                  className="text-coffee w-16 rounded-md border border-neutral-300 px-2 py-1"
                 />
                 <span className="text-neutral-500">/ {venue.maxGuests}</span>
               </label>
@@ -187,7 +187,7 @@ export default function BookingSection({ venue }: { venue: VenueWithExtras }) {
         </div>
       </div>
 
-      <div className="mt-6 rounded-xl border text-wine border-amber-500 p-3 shadow-sm">
+      <div className="text-wine mt-6 rounded-xl border border-amber-500 p-3 shadow-sm">
         <MapCard
           hasCoords={hasCoords}
           lat={venue.location?.lat}

@@ -90,4 +90,3 @@ export async function getProfileByName(name: string, token: string) {
     { headers: { Authorization: `Bearer ${token}` } }
   ).then((r) => r.data);
 }
-

@@ -19,20 +19,20 @@ export default function VenueCard({ venue }: { venue: Venue }) {
   return (
     <Link
       href={`/venues/${String(venue.id)}` as Route}
-      className="group block rounded-md shadow-xl transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
+      className="group block rounded-md shadow-xl transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-amber-500/60 focus-visible:outline-none"
     >
       <div className="relative h-48 w-full overflow-hidden rounded-t-md">
         <SafeImage
           src={src}
           alt={alt}
           placeholder={PLACEHOLDER}
-          className="h-full w-full  object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
       </div>
       <div className="border-t" />
-      <div className="rounded-md bg-background px-4 py-4 sm:px-5 sm:py-5">
+      <div className="bg-background rounded-md px-4 py-4 sm:px-5 sm:py-5">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="truncate text-base font-semibold text-wine sm:text-lg">{venue.name}</h3>
+          <h3 className="text-wine truncate text-base font-semibold sm:text-lg">{venue.name}</h3>
           <span
             className="inline-flex items-center gap-1 text-yellow-700"
             aria-label={`Rating ${rating}`}

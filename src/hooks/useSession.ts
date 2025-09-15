@@ -3,8 +3,7 @@
 
 import useSWR from "swr";
 
-const fetcher = (url: string) =>
-  fetch(url, { cache: "no-store" }).then((r) => r.json());
+const fetcher = (url: string) => fetch(url, { cache: "no-store" }).then((r) => r.json());
 
 export function useSession() {
   const { data, error, isLoading, mutate } = useSWR("/auth/session", fetcher, {
@@ -15,7 +14,7 @@ export function useSession() {
   return {
     authenticated: !!data?.authenticated,
     user: data?.user ?? null,
-    token: data?.token ?? null, 
+    token: data?.token ?? null,
     isLoading,
     error,
     refresh: () => mutate(),

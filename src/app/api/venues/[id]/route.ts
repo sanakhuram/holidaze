@@ -40,7 +40,7 @@ type RouteCtx = { params: Promise<{ id: string }> };
 
 export async function PUT(req: Request, ctx: RouteCtx) {
   const { id } = await ctx.params;
-  const jar = await cookies(); 
+  const jar = await cookies();
   const token = jar.get("noroff_token")?.value;
   if (!token) return NextResponse.json({ message: "Not authenticated" }, { status: 401 });
 
@@ -95,8 +95,8 @@ export async function PUT(req: Request, ctx: RouteCtx) {
 }
 
 export async function DELETE(_req: Request, ctx: RouteCtx) {
-  const { id } = await ctx.params; 
-  const jar = await cookies(); 
+  const { id } = await ctx.params;
+  const jar = await cookies();
   const token = jar.get("noroff_token")?.value;
   if (!token) return NextResponse.json({ message: "Not authenticated" }, { status: 401 });
 

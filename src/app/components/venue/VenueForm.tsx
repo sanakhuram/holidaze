@@ -38,7 +38,7 @@ export default function VenueForm({
 
   return (
     <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6 md:grid-cols-2">
-      {error && <p className="md:col-span-2 text-sm text-red-600">{error}</p>}
+      {error && <p className="text-sm text-red-600 md:col-span-2">{error}</p>}
 
       <label className="text-sm">
         <span className="mb-1 block text-slate-600">Name *</span>
@@ -235,7 +235,7 @@ export default function VenueForm({
         </div>
       </div>
 
-      <div className="md:col-span-2 flex items-center justify-end gap-2">
+      <div className="flex items-center justify-end gap-2 md:col-span-2">
         <button
           type="button"
           onClick={onCancel}

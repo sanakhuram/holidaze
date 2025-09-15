@@ -60,7 +60,7 @@ export default function LoginForm({ onSuccess }: { onSuccess: () => void }) {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full rounded-md border border-amber-600/30 bg-white px-3 py-2 text-coffee"
+          className="text-coffee w-full rounded-md border border-amber-600/30 bg-white px-3 py-2"
           placeholder="you@stud.noroff.no"
           pattern="^[^@]+@stud\.noroff\.no$"
           title="Use your stud.noroff.no email"
@@ -76,7 +76,7 @@ export default function LoginForm({ onSuccess }: { onSuccess: () => void }) {
           minLength={8}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full rounded-md border border-amber-600/30 bg-white px-3 py-2 text-coffee"
+          className="text-coffee w-full rounded-md border border-amber-600/30 bg-white px-3 py-2"
           placeholder="••••••••"
           disabled={loading}
         />

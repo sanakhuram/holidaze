@@ -7,7 +7,6 @@ export type Owner = {
   avatar?: string | null;
 };
 
-
 export type Venue = {
   id: string;
   name: string;
@@ -40,7 +39,6 @@ export type VenueWithExtras = Venue & {
   bookings?: Booking[];
 };
 
-
 export type Booking = {
   id: string;
   dateFrom: string;
@@ -48,17 +46,16 @@ export type Booking = {
   guests: number;
   created: string;
   updated: string;
-    customer?: {
+  customer?: {
     name: string;
     email: string;
     avatar?: { url?: string; alt?: string } | null;
-    };
+  };
 };
 
 export type BookingWithVenue = Booking & {
   venue?: Pick<Venue, "id" | "name" | "media" | "location" | "price" | "maxGuests"> | null;
 };
-
 
 export type Profile = {
   name: string;
@@ -67,11 +64,10 @@ export type Profile = {
   avatar?: { url?: string; alt?: string } | null;
   banner?: { url?: string; alt?: string } | null;
   venueManager?: boolean;
-  venues?: VenueWithBookings[];   
-  bookings?: BookingWithVenue[]; 
+  venues?: VenueWithBookings[];
+  bookings?: BookingWithVenue[];
   _count?: { venues?: number; bookings?: number };
 };
-
 
 export type Paged<T> = {
   data: T[];

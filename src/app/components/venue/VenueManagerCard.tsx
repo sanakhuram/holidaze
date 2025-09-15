@@ -22,11 +22,11 @@ export default function VenueManageCard({
   const city = venue.location?.city ?? "";
 
   return (
-    <div className="rounded-xl border border-amber-600/25 bg-gradient-to-r from-coffee to-wine p-3 text-amber-500 shadow-sm md:p-4">
+    <div className="from-coffee to-wine rounded-xl border border-amber-600/25 bg-gradient-to-r p-3 text-amber-500 shadow-sm md:p-4">
       <div className="flex justify-between gap-3">
         <Link
           href={`/venues/${String(venue.id)}` as Route}
-          className="h-24 w-24 overflow-hidden rounded-lg md:h-28 md:w-28 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
+          className="h-24 w-24 overflow-hidden rounded-lg focus-visible:ring-2 focus-visible:ring-amber-500/60 focus-visible:outline-none md:h-28 md:w-28"
         >
           <SafeImage
             src={img}
@@ -47,18 +47,14 @@ export default function VenueManageCard({
         <div className="flex items-center gap-2">
           <Link
             href={`/venues/${String(venue.id)}` as Route}
-            className="truncate text-base font-semibold md:text-lg hover:underline"
+            className="truncate text-base font-semibold hover:underline md:text-lg"
           >
             {venue.name}
           </Link>
-          {city && (
-            <span className="truncate text-xs text-amber-500/70 md:text-sm">• {city}</span>
-          )}
+          {city && <span className="truncate text-xs text-amber-500/70 md:text-sm">• {city}</span>}
         </div>
 
-        <div className="mt-1 line-clamp-2 text-sm text-amber-100/80">
-          {venue.description}
-        </div>
+        <div className="mt-1 line-clamp-2 text-sm text-amber-100/80">{venue.description}</div>
 
         <div className="mt-2 flex flex-wrap items-center gap-4 text-sm text-amber-200/80">
           <span className="inline-flex items-center gap-1">
@@ -68,9 +64,7 @@ export default function VenueManageCard({
           <span className="inline-flex items-center gap-1">
             <DollarSign className="h-4 w-4" />€{venue.price}
           </span>
-          <span className="inline-flex items-center gap-1">
-            Guests: {venue.maxGuests}
-          </span>
+          <span className="inline-flex items-center gap-1">Guests: {venue.maxGuests}</span>
         </div>
 
         <div className="mt-2 text-xs text-amber-200/70">

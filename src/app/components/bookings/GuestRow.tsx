@@ -19,7 +19,7 @@ export default function GuestsRow({
           max={maxGuests}
           value={guests}
           onChange={(e) => onChange(Number(e.target.value))}
-          className="w-full rounded-md border border-amber-600/30 bg-coffee/40 px-3 py-2 text-amber-50 placeholder-amber-200/50"
+          className="bg-coffee/40 w-full rounded-md border border-amber-600/30 px-3 py-2 text-amber-50 placeholder-amber-200/50"
           placeholder="1"
         />
       </label>

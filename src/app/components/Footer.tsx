@@ -7,7 +7,7 @@ import { toast } from "react-hot-toast";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-coffee to-wine text-amber-600 pt-12 pb-8 px-6">
+    <footer className="from-coffee to-wine bg-gradient-to-r px-6 pt-12 pb-8 text-amber-600">
       <div className="container mx-auto grid gap-10 md:grid-cols-4">
         <div className="flex flex-col items-start">
           <Image
@@ -16,16 +16,16 @@ export default function Footer() {
             width={95}
             height={95}
             style={{ height: "auto", width: "auto" }}
-            className="rounded-full mb-4"
+            className="mb-4 rounded-full"
             priority
           />
-          <h2 className="text-2xl font-bold mb-2 text-amber-600">Holidaze</h2>
+          <h2 className="mb-2 text-2xl font-bold text-amber-600">Holidaze</h2>
           <p className="text-sm/6 opacity-90">
             Escape, Explore, Enjoy. Your next adventure starts here.
           </p>
         </div>
         <div>
-          <h3 className="font-semibold text-xl mb-4 text-amber-600">Links</h3>
+          <h3 className="mb-4 text-xl font-semibold text-amber-600">Links</h3>
           <ul className="space-y-2">
             <li>
               <Link href={"/" as Route} className="hover:underline">
@@ -42,7 +42,7 @@ export default function Footer() {
                 About Us
               </Link>
             </li>
-              <li>
+            <li>
               <Link href={"/terms" as Route} className="hover:underline">
                 Terms & Conditions
               </Link>
@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-xl font-semibold mb-4 text-amber-600">Contact</h3>
+          <h3 className="mb-4 text-xl font-semibold text-amber-600">Contact</h3>
           <ul className="space-y-2 text-sm">
             <li>Email: support@holidaze.com</li>
             <li>Phone: +123 456 7890</li>
@@ -60,8 +60,8 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-xl font-semibold mb-4 text-amber-600">Subscribe</h3>
-          <p className="text-sm mb-4 opacity-90">
+          <h3 className="mb-4 text-xl font-semibold text-amber-600">Subscribe</h3>
+          <p className="mb-4 text-sm opacity-90">
             Join our newsletter to get the latest deals and travel tips!
           </p>
           <form
@@ -74,12 +74,12 @@ export default function Footer() {
             <input
               type="email"
               placeholder="Your email address"
-              className="p-2 rounded bg-white text-coffee placeholder:text-coffee/60 focus:outline-none"
+              className="text-coffee placeholder:text-coffee/60 rounded bg-white p-2 focus:outline-none"
               required
             />
             <button
               type="submit"
-              className="p-2 bg-amber-700 text-white rounded hover:bg-amber-600 transition"
+              className="rounded bg-amber-700 p-2 text-white transition hover:bg-amber-600"
             >
               Subscribe
             </button>
@@ -87,7 +87,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="text-center text-xs mt-12 opacity-90">
+      <div className="mt-12 text-center text-xs opacity-90">
         © {new Date().getFullYear()} Holidaze 🌴. All rights reserved.
       </div>
     </footer>

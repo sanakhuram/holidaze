@@ -21,9 +21,9 @@ export default function MediaGallery({ media, name }: { media: Media[]; name: st
   }, [open]);
 
   return (
-    <div className="flex flex-col md:flex-row gap-4 w-full">
+    <div className="flex w-full flex-col gap-4 md:flex-row">
       {items.length > 1 && (
-        <div className="hidden md:flex flex-col gap-2 max-h-[400px] overflow-y-auto">
+        <div className="hidden max-h-[400px] flex-col gap-2 overflow-y-auto md:flex">
           {items.map((m, i) => {
             const selected = i === active;
             return (
@@ -34,15 +34,15 @@ export default function MediaGallery({ media, name }: { media: Media[]; name: st
                 aria-label={`Show image ${i + 1}`}
                 aria-pressed={selected}
                 className={`relative h-20 w-28 overflow-hidden rounded-lg border ${
-                  selected ? "ring-2 ring-brand-orange border-transparent" : "border-black/10"
-                } focus:outline-none focus:ring-2 focus:ring-brand-orange`}
+                  selected ? "ring-brand-orange border-transparent ring-2" : "border-black/10"
+                } focus:ring-brand-orange focus:ring-2 focus:outline-none`}
               >
                 <Image
                   src={m.url}
                   alt={m.alt || `${name} ${i + 1}`}
                   width={112}
                   height={80}
-                  className="w-full h-auto object-cover"
+                  className="h-auto w-full object-cover"
                 />
               </button>
             );
@@ -62,14 +62,14 @@ export default function MediaGallery({ media, name }: { media: Media[]; name: st
             alt={main.alt || name}
             width={1200}
             height={800}
-            className="w-full h-auto object-cover rounded-md"
+            className="h-auto w-full rounded-md object-cover"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 768px, 1024px"
             priority
           />
         </button>
 
         {items.length > 1 && (
-          <div className="mt-3 flex md:hidden gap-2 flex-wrap">
+          <div className="mt-3 flex flex-wrap gap-2 md:hidden">
             {items.map((m, i) => {
               const selected = i === active;
               return (
@@ -80,15 +80,15 @@ export default function MediaGallery({ media, name }: { media: Media[]; name: st
                   aria-label={`Show image ${i + 1}`}
                   aria-pressed={selected}
                   className={`relative h-20 w-24 overflow-hidden rounded-lg border ${
-                    selected ? "ring-2 ring-brand-orange border-transparent" : "border-black/10"
-                  } focus:outline-none focus:ring-2 focus:ring-brand-orange`}
+                    selected ? "ring-brand-orange border-transparent ring-2" : "border-black/10"
+                  } focus:ring-brand-orange focus:ring-2 focus:outline-none`}
                 >
                   <Image
                     src={m.url}
                     alt={m.alt || `${name} ${i + 1}`}
                     width={96}
                     height={80}
-                    className="w-full h-auto object-cover"
+                    className="h-auto w-full object-cover"
                   />
                 </button>
               );
@@ -101,11 +101,11 @@ export default function MediaGallery({ media, name }: { media: Media[]; name: st
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 grid place-items-center bg-black/90 p-4 "
+          className="fixed inset-0 z-50 grid place-items-center bg-black/90 p-4"
           onClick={() => setOpen(false)}
         >
           <div
-            className="relative max-w-5xl w-full max-h-[90vh] overflow-hidden rounded-xl"
+            className="relative max-h-[90vh] w-full max-w-5xl overflow-hidden rounded-xl"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
@@ -113,14 +113,14 @@ export default function MediaGallery({ media, name }: { media: Media[]; name: st
               alt={main.alt || name}
               width={1600}
               height={1200}
-              className="w-full h-auto object-contain rounded-xl"
+              className="h-auto w-full rounded-xl object-contain"
               sizes="90vw"
             />
             <button
               type="button"
               onClick={() => setOpen(false)}
               aria-label="Close"
-              className="absolute right-3 top-3 rounded-md bg-amber-500/80 px-2 py-1 text-white hover:bg-wine/70"
+              className="hover:bg-wine/70 absolute top-3 right-3 rounded-md bg-amber-500/80 px-2 py-1 text-white"
             >
               ✕
             </button>

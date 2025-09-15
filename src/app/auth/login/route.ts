@@ -53,7 +53,11 @@ export async function POST(req: Request) {
 
     const payload = (await readJsonSafe(upstream)) as Upstream | null;
 
-    if (!upstream.ok) return errorResponse(payload?.errors?.[0]?.message ?? payload?.message ?? "Login failed", upstream.status);
+    if (!upstream.ok)
+      return errorResponse(
+        payload?.errors?.[0]?.message ?? payload?.message ?? "Login failed",
+        upstream.status
+      );
 
     const { accessToken, name, email: userEmail, avatar, venueManager } = payload?.data ?? {};
     if (!accessToken) return errorResponse("Login succeeded but no token was returned", 502);
@@ -74,7 +78,8 @@ export async function POST(req: Request) {
 
     return res;
   } catch (err) {
-    if (err instanceof ZodError) return errorResponse(err.issues[0]?.message ?? "Invalid input", 400);
+    if (err instanceof ZodError)
+      return errorResponse(err.issues[0]?.message ?? "Invalid input", 400);
     if (err instanceof Error) return errorResponse(err.message, 400);
     return errorResponse("Unexpected error", 400);
   }

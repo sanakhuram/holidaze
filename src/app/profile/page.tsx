@@ -13,15 +13,7 @@ import HostingGuide from "../components/profile/HostingGuide";
 
 export const dynamic = "force-dynamic";
 
-function Img({
-  src,
-  alt,
-  className,
-}: {
-  src?: string | null;
-  alt?: string;
-  className?: string;
-}) {
+function Img({ src, alt, className }: { src?: string | null; alt?: string; className?: string }) {
   return <img src={src ?? ""} alt={alt ?? ""} className={className} />;
 }
 
@@ -75,7 +67,7 @@ export default async function ProfilePage() {
   }
 
   return (
-    <main className="mx-auto max-w-6xl px-4 pb-10 pt-2">
+    <main className="mx-auto max-w-6xl px-4 pt-2 pb-10">
       <div className="relative h-52 w-full overflow-hidden rounded-sm shadow-lg">
         <Img
           src={bannerUrl}
@@ -86,7 +78,7 @@ export default async function ProfilePage() {
 
       <div className="relative -mt-12 flex flex-col items-start gap-3">
         <div className="flex items-end gap-3">
-          <div className="h-24 w-24 overflow-hidden rounded-2xl ring-4 ring-wine shadow-lg">
+          <div className="ring-wine h-24 w-24 overflow-hidden rounded-2xl shadow-lg ring-4">
             <Img
               src={avatarUrl}
               alt={profile.avatar?.alt ?? `${profile.name} avatar`}
@@ -98,18 +90,16 @@ export default async function ProfilePage() {
           </div>
         </div>
 
-        <h1 className="flex items-center gap-2 text-2xl font-bold text-coffee">
+        <h1 className="text-coffee flex items-center gap-2 text-2xl font-bold">
           {profile.name}
           {profile.venueManager && (
-            <span className="rounded-lg bg-wine px-2 py-0.5 text-xs font-medium text-white shadow">
+            <span className="bg-wine rounded-lg px-2 py-0.5 text-xs font-medium text-white shadow">
               Venue Manager
             </span>
           )}
         </h1>
 
-        {profile.email && (
-          <p className="text-sm text-amber-800">{profile.email}</p>
-        )}
+        {profile.email && <p className="text-sm text-amber-800">{profile.email}</p>}
 
         <div className="mt-2 flex flex-wrap gap-3">
           {profile.venueManager && <CreateVenueButton />}
@@ -117,65 +107,56 @@ export default async function ProfilePage() {
         </div>
       </div>
 
-      <section className="mt-6 border-b-2 border-wine p-5">
+      <section className="border-wine mt-6 border-b-2 p-5">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div>
             <div className="text-xs text-slate-500">Email:</div>
-            <div className="text-sm font-medium break-words truncate">
-              {profile.email ?? "—"}
-            </div>
+            <div className="truncate text-sm font-medium break-words">{profile.email ?? "—"}</div>
           </div>
           <div>
             <div className="text-xs text-slate-500">Bio:</div>
-            <div className="text-sm font-medium whitespace-pre-wrap break-words">
+            <div className="text-sm font-medium break-words whitespace-pre-wrap">
               {profile.bio || "—"}
             </div>
           </div>
           <div>
             <div className="text-xs text-slate-500">Bookings:</div>
-            <div className="text-sm font-semibold">
-              {profile._count?.bookings ?? 0}
-            </div>
+            <div className="text-sm font-semibold">{profile._count?.bookings ?? 0}</div>
           </div>
           <div>
             <div className="text-xs text-slate-500">Venues:</div>
-            <div className="text-sm font-semibold">
-              {profile._count?.venues ?? 0}
-            </div>
+            <div className="text-sm font-semibold">{profile._count?.venues ?? 0}</div>
           </div>
         </div>
       </section>
 
-<section className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
-  <CollapsibleSection title="My Venues">
-    <VenuesList venues={profile.venues ?? []} />
-  </CollapsibleSection>
+      <section className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <CollapsibleSection title="My Venues">
+          <VenuesList venues={profile.venues ?? []} />
+        </CollapsibleSection>
 
-  <CollapsibleSection title="My Bookings">
-    <BookingsList bookings={profile.bookings ?? []} />
-  </CollapsibleSection>
+        <CollapsibleSection title="My Bookings">
+          <BookingsList bookings={profile.bookings ?? []} />
+        </CollapsibleSection>
 
-  {profile.venueManager && (
-    <>
-      <CollapsibleSection title="Upcoming Bookings">
-        {venuesWithBookings.length ? (
-          <div className="space-y-6">
-            {venuesWithBookings.map((venue) => (
-              <VenueBookingsCard key={venue.id} venue={venue} />
-            ))}
-          </div>
-        ) : (
-          <p className="text-sm text-slate-600">
-            You don’t manage any venues yet.
-          </p>
+        {profile.venueManager && (
+          <>
+            <CollapsibleSection title="Upcoming Bookings">
+              {venuesWithBookings.length ? (
+                <div className="space-y-6">
+                  {venuesWithBookings.map((venue) => (
+                    <VenueBookingsCard key={venue.id} venue={venue} />
+                  ))}
+                </div>
+              ) : (
+                <p className="text-sm text-slate-600">You don’t manage any venues yet.</p>
+              )}
+            </CollapsibleSection>
+
+            <HostingGuide />
+          </>
         )}
-      </CollapsibleSection>
-
-      <HostingGuide />
-    </>
-  )}
-</section>
-
-</main>
+      </section>
+    </main>
   );
 }

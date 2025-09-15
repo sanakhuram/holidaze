@@ -37,7 +37,10 @@ export default function RegisterForm({ onSuccess }: { onSuccess: () => void }) {
       onSuccess();
     } catch (e: unknown) {
       const msg =
-        typeof e === "object" && e !== null && "message" in e && typeof (e as { message?: unknown }).message === "string"
+        typeof e === "object" &&
+        e !== null &&
+        "message" in e &&
+        typeof (e as { message?: unknown }).message === "string"
           ? (e as { message: string }).message
           : "Registration failed";
       setErr(msg);
@@ -62,7 +65,7 @@ export default function RegisterForm({ onSuccess }: { onSuccess: () => void }) {
           required
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full rounded-md border border-amber-600/30 bg-white px-3 py-2 text-coffee"
+          className="text-coffee w-full rounded-md border border-amber-600/30 bg-white px-3 py-2"
           placeholder="my_username"
           pattern="^[A-Za-z0-9_]+$"
           title="Only letters, numbers, and _"
@@ -77,7 +80,7 @@ export default function RegisterForm({ onSuccess }: { onSuccess: () => void }) {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full rounded-md border border-amber-600/30 bg-white px-3 py-2 text-coffee"
+          className="text-coffee w-full rounded-md border border-amber-600/30 bg-white px-3 py-2"
           placeholder="you@stud.noroff.no"
           pattern="^[^@]+@stud\.noroff\.no$"
           title="Use your stud.noroff.no email"
@@ -93,7 +96,7 @@ export default function RegisterForm({ onSuccess }: { onSuccess: () => void }) {
           minLength={8}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full rounded-md border border-amber-600/30 bg-white px-3 py-2 text-coffee"
+          className="text-coffee w-full rounded-md border border-amber-600/30 bg-white px-3 py-2"
           placeholder="Min 8 characters"
           disabled={loading}
         />

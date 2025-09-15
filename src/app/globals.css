@@ -2,7 +2,7 @@
 @import "react-day-picker/dist/style.css";
 
 :root {
-  --background: #FDF2EA;
+  --background: #fdf2ea;
   --foreground: #272318;
   --coffee: #241a19;
   --wine: #722633;
@@ -31,8 +31,8 @@
 }
 /* Calendar container */
 .rdp {
-      --rdp-day_button-height: 42px;
-    --rdp-day_button-width: 42px;
+  --rdp-day_button-height: 42px;
+  --rdp-day_button-width: 42px;
   --rdp-accent-color: #fbbf24;
   --rdp-background-color: #fffaf0;
   margin: 0;
@@ -60,10 +60,9 @@ button.rdp-day_selected,
   border: var(--coffee);
 }
 
-
 @media (max-width: 640px) {
   .rdp-day {
-       --rdp-day_button-height: 20px;
+    --rdp-day_button-height: 20px;
     --rdp-day_button-width: 20px;
     font-size: 0.75rem !important;
   }
@@ -75,7 +74,6 @@ button.rdp-day_selected,
   }
 }
 
-
 svg.rdp-chevron {
   fill: #241a19;
 }
@@ -85,19 +83,21 @@ svg.rdp-chevron {
 }
 
 *::-webkit-scrollbar {
-  width: 6px;  
-  height: 6px; 
+  width: 6px;
+  height: 6px;
 }
 
 *::-webkit-scrollbar-track {
-  background: transparent; 
-  margin: 4px;     
+  background: transparent;
+  margin: 4px;
 }
 
 *::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, var(--wine), var(--coffee));
   border-radius: 9999px;
-  transition: background 0.3s ease, width 0.3s ease;
+  transition:
+    background 0.3s ease,
+    width 0.3s ease;
 }
 
 *::-webkit-scrollbar-thumb:hover {
@@ -125,7 +125,7 @@ html {
   scrollbar-color: var(--wine) transparent;
 }
 
-.border-gradient{
+.border-gradient {
   border: 30px solid transparent;
   border-image: var(--brand-gradient) 1;
 }

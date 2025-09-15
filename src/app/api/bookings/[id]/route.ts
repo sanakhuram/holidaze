@@ -26,14 +26,20 @@ export async function DELETE(_req: Request, ctx: RouteCtx) {
 
     if (resp.status === 204) return new NextResponse(null, { status: 204 });
     return NextResponse.json(
-      { 
-        message: (data && typeof data === "object" && "message" in data ? (data as any).message : "Cancel failed"), 
-        errors: (data && typeof data === "object" && "errors" in data ? (data as any).errors : []) 
+      {
+        message:
+          data && typeof data === "object" && "message" in data
+            ? (data as any).message
+            : "Cancel failed",
+        errors: data && typeof data === "object" && "errors" in data ? (data as any).errors : [],
       },
       { status: resp.status }
     );
   } catch (e: unknown) {
-    return NextResponse.json({ message: e instanceof Error ? e.message : "Unknown error" }, { status: 401 });
+    return NextResponse.json(
+      { message: e instanceof Error ? e.message : "Unknown error" },
+      { status: 401 }
+    );
   }
 }
 
@@ -63,6 +69,9 @@ export async function PUT(req: Request, ctx: RouteCtx) {
 
     return NextResponse.json(data, { status: resp.status });
   } catch (e: unknown) {
-    return NextResponse.json({ message: e instanceof Error ? e.message : "Unknown error" }, { status: 401 });
+    return NextResponse.json(
+      { message: e instanceof Error ? e.message : "Unknown error" },
+      { status: 401 }
+    );
   }
 }

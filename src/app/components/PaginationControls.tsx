@@ -34,7 +34,7 @@ export default function PaginationControls({
         Prev
       </button>
 
-      <span className="text-sm text-brand-brown/80">
+      <span className="text-brand-brown/80 text-sm">
         Page {meta.currentPage} / {meta.pageCount}
       </span>
 

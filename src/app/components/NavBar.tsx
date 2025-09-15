@@ -30,7 +30,7 @@ export default function Navbar() {
   const isActive = (href: string) => pathname === href;
 
   return (
-    <nav className="sticky top-0 z-50 bg-gradient-to-r from-coffee to-wine text-amber-600 shadow-md shadow-amber-900/40">
+    <nav className="from-coffee to-wine sticky top-0 z-50 bg-gradient-to-r text-amber-600 shadow-md shadow-amber-900/40">
       <div className="container mx-auto flex items-center justify-between p-4">
         <Link href={"/" as Route} className="flex items-center gap-2 text-2xl font-bold">
           <Image
@@ -45,7 +45,7 @@ export default function Navbar() {
           <span className="sr-only">Home</span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden items-center gap-6 md:flex">
           <Link
             href={"/venues" as Route}
             aria-current={isActive("/venues") ? "page" : undefined}
@@ -64,10 +64,10 @@ export default function Navbar() {
                 href={"/profile" as Route}
                 className="flex items-center gap-2 text-sm opacity-95 hover:underline"
               >
-                <div className="grid h-7 w-7 place-items-center rounded-full bg-amber-200/10 border border-amber-200/30">
+                <div className="grid h-7 w-7 place-items-center rounded-full border border-amber-200/30 bg-amber-200/10">
                   <span className="font-semibold">{initial}</span>
                 </div>
-                <span className="truncate max-w-[12rem]">
+                <span className="max-w-[12rem] truncate">
                   Hi, {user?.name || user?.email || "there"}
                 </span>
               </Link>
@@ -110,7 +110,7 @@ export default function Navbar() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label="Toggle menu"
-          className="md:hidden inline-flex items-center justify-center rounded-md p-1.5 hover:bg-white/5"
+          className="inline-flex items-center justify-center rounded-md p-1.5 hover:bg-white/5 md:hidden"
         >
           {open ? <FaUmbrellaBeach className="h-6 w-6" /> : <GiPalmTree className="h-6 w-6" />}
         </button>
@@ -119,7 +119,7 @@ export default function Navbar() {
       {open && (
         <div
           id="mobile-menu"
-          className="md:hidden border-t border-white/10 bg-gradient-to-r from-coffee/95 to-wine/95 px-4 py-3 space-y-3 text-base"
+          className="from-coffee/95 to-wine/95 space-y-3 border-t border-white/10 bg-gradient-to-r px-4 py-3 text-base md:hidden"
         >
           <Link
             href={"/venues" as Route}
@@ -138,10 +138,10 @@ export default function Navbar() {
                 className="flex items-center gap-2 text-sm opacity-95"
                 onClick={() => setOpen(false)}
               >
-                <div className="grid h-7 w-7 place-items-center rounded-full bg-amber-200/10 border border-amber-200/30">
+                <div className="grid h-7 w-7 place-items-center rounded-full border border-amber-200/30 bg-amber-200/10">
                   <span className="font-semibold">{initial}</span>
                 </div>
-                <span className="truncate max-w-[60%]">
+                <span className="max-w-[60%] truncate">
                   {user?.name || user?.email || "Signed in"}
                 </span>
               </Link>

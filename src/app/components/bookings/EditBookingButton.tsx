@@ -36,7 +36,7 @@ export default function EditBookingButton({
         <span>Edit</span>
       </span>
     ) : (
-      <span className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-amber-600/30 bg-coffee/40 hover:bg-coffee/60">
+      <span className="bg-coffee/40 hover:bg-coffee/60 inline-flex h-8 w-8 items-center justify-center rounded-md border border-amber-600/30">
         <Pencil className="h-4 w-4" />
       </span>
     );

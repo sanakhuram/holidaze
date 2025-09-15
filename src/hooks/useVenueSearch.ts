@@ -17,51 +17,51 @@ export function useVenueSearch(initialLimit = 16) {
 
   const debouncedQ = useDebounce(q, 350);
 
-useEffect(() => {
-  let active = true;
-  setLoading(true);
-  setError(null);
+  useEffect(() => {
+    let active = true;
+    setLoading(true);
+    setError(null);
 
-  const isSearching = debouncedQ && debouncedQ.length >= 5;
-  const searchTerm = isSearching ? debouncedQ : undefined;
+    const isSearching = debouncedQ && debouncedQ.length >= 5;
+    const searchTerm = isSearching ? debouncedQ : undefined;
 
-  if (debouncedQ && !isSearching) {
-    setLoading(false);
-    setVenues([]); 
-    return;
-  }
+    if (debouncedQ && !isSearching) {
+      setLoading(false);
+      setVenues([]);
+      return;
+    }
 
-  getVenues(page, initialLimit, searchTerm)
-    .then((res) => {
-      if (!active) return;
-      setVenues(res?.data ?? []);
-      const m = res?.meta;
-      setMeta(
-        m
-          ? {
-              currentPage: m.currentPage,
-              pageCount: m.pageCount,
-              isFirstPage: m.isFirstPage ?? m.currentPage <= 1,
-              isLastPage: m.isLastPage ?? m.currentPage >= m.pageCount,
-            }
-          : {
-              currentPage: page,
-              pageCount: (res?.data?.length ?? 0) < initialLimit ? page : page + 1,
-              isFirstPage: page === 1,
-              isLastPage: (res?.data?.length ?? 0) < initialLimit,
-            }
-      );
-    })
-    .catch((e: unknown) => {
-      if (!active) return;
-      setError(e instanceof Error ? e.message : "Unknown error");
-    })
-    .finally(() => active && setLoading(false));
+    getVenues(page, initialLimit, searchTerm)
+      .then((res) => {
+        if (!active) return;
+        setVenues(res?.data ?? []);
+        const m = res?.meta;
+        setMeta(
+          m
+            ? {
+                currentPage: m.currentPage,
+                pageCount: m.pageCount,
+                isFirstPage: m.isFirstPage ?? m.currentPage <= 1,
+                isLastPage: m.isLastPage ?? m.currentPage >= m.pageCount,
+              }
+            : {
+                currentPage: page,
+                pageCount: (res?.data?.length ?? 0) < initialLimit ? page : page + 1,
+                isFirstPage: page === 1,
+                isLastPage: (res?.data?.length ?? 0) < initialLimit,
+              }
+        );
+      })
+      .catch((e: unknown) => {
+        if (!active) return;
+        setError(e instanceof Error ? e.message : "Unknown error");
+      })
+      .finally(() => active && setLoading(false));
 
-  return () => {
-    active = false;
-  };
-}, [page, debouncedQ, initialLimit]);
+    return () => {
+      active = false;
+    };
+  }, [page, debouncedQ, initialLimit]);
 
   return {
     venues,

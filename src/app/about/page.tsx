@@ -18,16 +18,9 @@ export default function AboutUs({
   return (
     <section
       aria-labelledby="about-title"
-      className="relative overflow-hidden min-h-screen flex items-center"
+      className="relative flex min-h-screen items-center overflow-hidden"
     >
-      <Image
-        src={imgSrc}
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-      />
+      <Image src={imgSrc} alt="" fill priority sizes="100vw" className="object-cover" />
 
       <div
         className="absolute inset-0"
@@ -50,38 +43,36 @@ export default function AboutUs({
           {headingLevel === "h1" ? (
             <h1
               id="about-title"
-              className="text-4xl md:text-5xl font-extrabold text-white drop-shadow"
+              className="text-4xl font-extrabold text-white drop-shadow md:text-5xl"
             >
               About Holidaze Venues
             </h1>
           ) : (
             <h2
               id="about-title"
-              className="text-4xl md:text-5xl font-extrabold text-white drop-shadow"
+              className="text-4xl font-extrabold text-white drop-shadow md:text-5xl"
             >
               About Holidaze Venues
             </h2>
           )}
 
-          <h3 className="mt-3 text-xl md:text-2xl font-semibold text-amber-200 drop-shadow">
+          <h3 className="mt-3 text-xl font-semibold text-amber-200 drop-shadow md:text-2xl">
             Simple booking. Thoughtful design. No surprises.
           </h3>
 
-          <p className="mt-5 max-w-3xl text-base md:text-lg leading-relaxed text-white/90">
-            Holidaze Venues keeps travel straightforward: clear venue details,
-            fast pages, and booking that just works. Hosts get easy tools to
-            list and manage; guests get trustworthy info and a{" "}
-            <span className="font-semibold">Nordic Gems</span> spotlight to find
+          <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/90 md:text-lg">
+            Holidaze Venues keeps travel straightforward: clear venue details, fast pages, and
+            booking that just works. Hosts get easy tools to list and manage; guests get trustworthy
+            info and a <span className="font-semibold">Nordic Gems</span> spotlight to find
             standouts.
           </p>
 
-          <p className="mt-3 max-w-3xl text-white/85 leading-relaxed">
-            We focus on the basics done right—reliable search, honest content,
-            and responsive layouts—while building for what’s next with smarter
-            filters and smoother flows.
+          <p className="mt-3 max-w-3xl leading-relaxed text-white/85">
+            We focus on the basics done right—reliable search, honest content, and responsive
+            layouts—while building for what’s next with smarter filters and smoother flows.
           </p>
 
-          <ul className="mt-6 grid gap-2 sm:grid-cols-2 max-w-3xl">
+          <ul className="mt-6 grid max-w-3xl gap-2 sm:grid-cols-2">
             <li className="flex items-start gap-2 text-white/90">
               <span className="mt-2 inline-block h-2 w-2 rounded-full bg-amber-300" />
               <span>Clear availability, guest limits, and house rules</span>

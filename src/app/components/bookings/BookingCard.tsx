@@ -24,7 +24,7 @@ export default function BookingCard({
   const price = v?.price ?? 0;
 
   return (
-    <div className="rounded-xl border border-amber-600/25 bg-gradient-to-r from-wine to-coffee p-3 text-amber-500 shadow-sm md:p-4">
+    <div className="from-wine to-coffee rounded-xl border border-amber-600/25 bg-gradient-to-r p-3 text-amber-500 shadow-sm md:p-4">
       <div className="flex justify-between gap-3">
         <div className="h-20 w-20 overflow-hidden rounded-lg md:h-28 md:w-28">
           <SafeImage src={img} alt={alt} className="h-full w-full object-cover" />
@@ -33,7 +33,7 @@ export default function BookingCard({
         {!readonly && (
           <div className="flex items-start gap-2">
             <EditBookingButton booking={b} onEdited={onEdited}>
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-amber-400 bg-coffee/40 hover:bg-coffee/60">
+              <span className="bg-coffee/40 hover:bg-coffee/60 inline-flex h-8 w-8 items-center justify-center rounded-md border border-amber-400">
                 <Pencil className="h-4 w-4 text-amber-400" />
               </span>
             </EditBookingButton>
@@ -47,7 +47,7 @@ export default function BookingCard({
         )}
       </div>
 
-      <div className="mt-3 flex justify-between items-end">
+      <div className="mt-3 flex items-end justify-between">
         <div className="min-w-0">
           <div className="flex items-center gap-2">
             <h3 className="truncate text-base font-semibold md:text-lg">
@@ -60,11 +60,11 @@ export default function BookingCard({
 
           <div className="mt-1 grid gap-1 text-sm md:text-[15px]">
             <div>
-              <span className="text-emerald-300 font-medium">Check-in:</span>{" "}
+              <span className="font-medium text-emerald-300">Check-in:</span>{" "}
               <span>{new Date(b.dateFrom).toLocaleDateString()}</span>
             </div>
             <div>
-              <span className="text-rose-300 font-medium">Check-out:</span>{" "}
+              <span className="font-medium text-rose-300">Check-out:</span>{" "}
               <span>{new Date(b.dateTo).toLocaleDateString()}</span>
             </div>
             <div className="flex items-center gap-2 text-amber-200/80">

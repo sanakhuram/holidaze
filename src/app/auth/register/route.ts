@@ -56,7 +56,8 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ data: { ok: true } }, { status: 201 });
   } catch (err) {
-    if (err instanceof ZodError) return errorResponse(err.issues[0]?.message ?? "Invalid input", 400);
+    if (err instanceof ZodError)
+      return errorResponse(err.issues[0]?.message ?? "Invalid input", 400);
     if (err instanceof Error) return errorResponse(err.message, 400);
     return errorResponse("Unexpected error", 400);
   }

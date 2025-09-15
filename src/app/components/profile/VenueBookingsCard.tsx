@@ -6,7 +6,7 @@ import type { VenueWithExtras } from "@/app/lib/types";
 
 export default function VenueBookingsCard({ venue }: { venue: VenueWithExtras }) {
   return (
-    <div className="rounded-lg border border-amber-400 p-4 bg-gradient-to-b from-coffee to-wine">
+    <div className="from-coffee to-wine rounded-lg border border-amber-400 bg-gradient-to-b p-4">
       <h3 className="mb-3 font-semibold text-amber-500">{venue.name}</h3>
 
       {venue.bookings?.length ? (
@@ -28,12 +28,12 @@ export default function VenueBookingsCard({ venue }: { venue: VenueWithExtras })
 
               <div className="flex-1 space-y-1">
                 <div>
-                  <span className="font-medium text-coffee truncate">Booking Ref:</span>{" "}
+                  <span className="text-coffee truncate font-medium">Booking Ref:</span>{" "}
                   <span className="font-mono">{b.id}</span>
                 </div>
 
                 <div>
-                  <span className="font-medium text-coffee">Guest:</span>{" "}
+                  <span className="text-coffee font-medium">Guest:</span>{" "}
                   {b.customer?.name ? (
                     <Link
                       href={`/profiles/${encodeURIComponent(b.customer.name)}`}
@@ -44,18 +44,16 @@ export default function VenueBookingsCard({ venue }: { venue: VenueWithExtras })
                   ) : (
                     "Unknown"
                   )}
-                
                 </div>
 
                 <div>
-                  <span className="font-medium text-coffee">Dates:</span>{" "}
+                  <span className="text-coffee font-medium">Dates:</span>{" "}
                   {new Date(b.dateFrom).toLocaleDateString()} →{" "}
                   {new Date(b.dateTo).toLocaleDateString()}
                 </div>
 
                 <div>
-                  <span className="font-medium text-coffee">Guests:</span>{" "}
-                  {b.guests}
+                  <span className="text-coffee font-medium">Guests:</span> {b.guests}
                 </div>
               </div>
             </li>

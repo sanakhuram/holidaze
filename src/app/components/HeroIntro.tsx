@@ -40,17 +40,12 @@ export default function HeroIntro() {
       aria-label="Open venues"
       onClick={navigate}
       onKeyDown={onKeyDown}
-      className="
-        relative isolate flex w-full cursor-pointer overflow-hidden
-        bg-coffee
-        h-[40vh] sm:h-[50vh] md:h-[68vh] lg:h-[90vh]
-        focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-400 focus-visible:ring-offset-2
-      "
+      className="bg-coffee relative isolate flex h-[40vh] w-full cursor-pointer overflow-hidden focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-400 focus-visible:ring-offset-2 sm:h-[50vh] md:h-[68vh] lg:h-[90vh]"
     >
       {!prefersReducedMotion && (
         <motion.div
           aria-hidden
-          className="absolute inset-0 bg-coffee z-20 pointer-events-none"
+          className="bg-coffee pointer-events-none absolute inset-0 z-20"
           initial={{ opacity: 0 }}
           animate={closing ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.3 }}
@@ -61,7 +56,7 @@ export default function HeroIntro() {
         initial={{ x: 0 }}
         animate={closing && !prefersReducedMotion ? { x: "-50%" } : { x: 0 }}
         transition={trans}
-        className="relative z-10 w-1/2 h-full"
+        className="relative z-10 h-full w-1/2"
         onAnimationComplete={() => {
           if (closing && !prefersReducedMotion) router.push("/venues");
         }}
@@ -80,7 +75,7 @@ export default function HeroIntro() {
         initial={{ x: 0 }}
         animate={closing && !prefersReducedMotion ? { x: "50%" } : { x: 0 }}
         transition={trans}
-        className="relative z-10 w-1/2 h-full"
+        className="relative z-10 h-full w-1/2"
       >
         <Image
           src="/images/hero-left.jpg"
@@ -91,13 +86,8 @@ export default function HeroIntro() {
         />
       </motion.div>
 
-      <div className="absolute inset-0 z-30 flex items-center justify-center px-3 bg-black/15 sm:bg-black/20 md:bg-black/25">
-        <h1 className="
-            text-center font-extrabold leading-tight drop-shadow-lg text-amber-200
-            [font-size:clamp(0.85rem,2.9vw,1.6rem)]
-            md:[font-size:clamp(1.1rem,2.1vw,2.2rem)]
-            lg:[font-size:clamp(1.25rem,1.8vw,2.5rem)]
-          ">
+      <div className="absolute inset-0 z-30 flex items-center justify-center bg-black/15 px-3 sm:bg-black/20 md:bg-black/25">
+        <h1 className="text-center [font-size:clamp(0.85rem,2.9vw,1.6rem)] leading-tight font-extrabold text-amber-200 drop-shadow-lg md:[font-size:clamp(1.1rem,2.1vw,2.2rem)] lg:[font-size:clamp(1.25rem,1.8vw,2.5rem)]">
           Unfold Your Next Escape
         </h1>
       </div>

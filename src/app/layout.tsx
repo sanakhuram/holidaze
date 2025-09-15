@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} ${poppins.variable} min-h-screen flex flex-col bg-background text-foreground`}
+        className={`${poppins.variable} ${poppins.variable} bg-background text-foreground flex min-h-screen flex-col`}
       >
         <AuthModalProvider>
           <Navbar />

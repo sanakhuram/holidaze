@@ -28,32 +28,33 @@ export default function VenuesPage() {
   }, []);
 
   if (loading && page === 1) {
-  return (
-    <div className={`${CONTAINER} flex justify-center items-center py-20`}>
-      <div className="h-8 w-8 animate-spin rounded-full border-4 border-amber-500 border-t-transparent"></div>
-    </div>
-  );
-}
+    return (
+      <div className={`${CONTAINER} flex items-center justify-center py-20`}>
+        <div className="h-8 w-8 animate-spin rounded-full border-4 border-amber-500 border-t-transparent"></div>
+      </div>
+    );
+  }
 
   if (error) return <p className={`${CONTAINER} text-red-500`}>Error: {error}</p>;
 
   return (
     <>
-{pinned.length > 0 && (
-  <BackgroundSection bg="/images/featured-bg.jpg" dim={0.6}>
-    <div className={CONTAINER}>
-      <h2 className="mb-6 text-2xl font-semibold text-amber-400 drop-shadow">Sunset Retreats</h2>
-      <HorizontalScroller>
-        {pinned.map((v) => (
-          <div key={v.id} className="min-w-[250px] max-w-[280px] snap-start">
-            <VenueCard venue={v} />
+      {pinned.length > 0 && (
+        <BackgroundSection bg="/images/featured-bg.jpg" dim={0.6}>
+          <div className={CONTAINER}>
+            <h2 className="mb-6 text-2xl font-semibold text-amber-400 drop-shadow">
+              Sunset Retreats
+            </h2>
+            <HorizontalScroller>
+              {pinned.map((v) => (
+                <div key={v.id} className="max-w-[280px] min-w-[250px] snap-start">
+                  <VenueCard venue={v} />
+                </div>
+              ))}
+            </HorizontalScroller>
           </div>
-        ))}
-      </HorizontalScroller>
-    </div>
-  </BackgroundSection>
-)}
-
+        </BackgroundSection>
+      )}
 
       <div className={`${CONTAINER} my-8`}>
         <input
@@ -61,12 +62,12 @@ export default function VenuesPage() {
           placeholder="Search venues..."
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-600"
+          className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:ring-2 focus:ring-amber-600 focus:outline-none"
         />
       </div>
 
       <div className={CONTAINER}>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
+        <div className="grid w-full grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
           {others.map((v) => (
             <VenueCard key={v.id} venue={v} />
           ))}

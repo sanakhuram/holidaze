@@ -50,7 +50,7 @@ export default function CreateVenueModal({
 
   return (
     <ModalShell title="Create venue" open={open} onClose={onClose} maxWidth="max-w-3xl">
-      <div className="rounded-xl border border-amber-500/20 bg-white/90 p-4 text-coffee shadow-sm backdrop-blur">
+      <div className="text-coffee rounded-xl border border-amber-500/20 bg-white/90 p-4 shadow-sm backdrop-blur">
         <VenueForm
           submitLabel="Create venue"
           loading={loading}
