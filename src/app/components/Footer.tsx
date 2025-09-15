@@ -42,6 +42,11 @@ export default function Footer() {
                 About Us
               </Link>
             </li>
+              <li>
+              <Link href={"/terms" as Route} className="hover:underline">
+                Terms & Conditions
+              </Link>
+            </li>
           </ul>
         </div>
 

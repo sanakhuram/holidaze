@@ -107,3 +107,7 @@ html {
   scrollbar-color: var(--wine) transparent;
 }
 
+.border-gradient{
+  border: 30px solid transparent;
+  border-image: var(--brand-gradient) 1;
+}
