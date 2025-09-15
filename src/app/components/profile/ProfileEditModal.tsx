@@ -32,7 +32,6 @@ export default function ProfileEditModal({
     const [bannerUrl, setBannerUrl] = useState(initial?.banner?.url ?? "");
     const [bannerAlt, setBannerAlt] = useState(initial?.banner?.alt ?? "");
     const [venueManager, setVenueManager] = useState(!!initial?.venueManager);
-
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -104,21 +103,19 @@ export default function ProfileEditModal({
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-
             <div
                 onClick={onClose}
                 className={`absolute inset-0 bg-black/40 transition ${open ? "opacity-100" : "opacity-0"}`}
             />
-
             <div
                 role="dialog"
                 aria-modal="true"
                 className={`relative w-[95%] sm:w-[90%] md:w-[80%] lg:max-w-2xl 
-            max-h-[90vh] overflow-y-auto rounded-2xl border border-slate-200 
-            bg-[var(--background)] p-4 sm:p-6 text-slate-900 shadow-xl transition 
-            ${open ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
+          max-h-[90vh] overflow-y-auto rounded-2xl border border-slate-200 
+          bg-[var(--background)] p-4 sm:p-6 text-slate-900 shadow-xl transition 
+          ${open ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
             >
-
+                {/* Header */}
                 <div className="mb-4 flex items-center justify-between">
                     <h2 className="text-base sm:text-lg font-semibold">Edit profile</h2>
                     <button
@@ -130,15 +127,9 @@ export default function ProfileEditModal({
                     </button>
                 </div>
 
-                <form
-                    onSubmit={onSubmit}
-                    className="grid grid-cols-1 gap-6 md:grid-cols-2"
-                >
-
+                <form onSubmit={onSubmit} className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>
-                        <label className="mb-1 block text-xs font-medium text-slate-600">
-                            Banner URL
-                        </label>
+                        <label className="mb-1 block text-xs font-medium text-slate-600">Banner URL</label>
                         <input
                             value={bannerUrl}
                             onChange={(e) => setBannerUrl(e.target.value)}
@@ -146,9 +137,7 @@ export default function ProfileEditModal({
                                 }`}
                             placeholder="https://…"
                         />
-                        <label className="mt-2 mb-1 block text-xs font-medium text-slate-600">
-                            Banner Alt
-                        </label>
+                        <label className="mt-2 mb-1 block text-xs font-medium text-slate-600">Banner Alt</label>
                         <input
                             value={bannerAlt}
                             onChange={(e) => setBannerAlt(e.target.value)}
@@ -157,11 +146,7 @@ export default function ProfileEditModal({
                         />
                         <div className="mt-3 h-28 overflow-hidden rounded-lg border bg-slate-50">
                             {bannerUrl ? (
-                                <img
-                                    src={bannerUrl}
-                                    alt={bannerAlt}
-                                    className="h-full w-full object-cover"
-                                />
+                                <img src={bannerUrl} alt={bannerAlt} className="h-full w-full object-cover" />
                             ) : (
                                 <div className="grid h-full place-items-center text-xs text-slate-500">
                                     Banner preview
@@ -169,10 +154,9 @@ export default function ProfileEditModal({
                             )}
                         </div>
                     </div>
+
                     <div>
-                        <label className="mb-1 block text-xs font-medium text-slate-600">
-                            Avatar URL
-                        </label>
+                        <label className="mb-1 block text-xs font-medium text-slate-600">Avatar URL</label>
                         <input
                             value={avatarUrl}
                             onChange={(e) => setAvatarUrl(e.target.value)}
@@ -180,9 +164,7 @@ export default function ProfileEditModal({
                                 }`}
                             placeholder="https://…"
                         />
-                        <label className="mt-2 mb-1 block text-xs font-medium text-slate-600">
-                            Avatar Alt
-                        </label>
+                        <label className="mt-2 mb-1 block text-xs font-medium text-slate-600">Avatar Alt</label>
                         <input
                             value={avatarAlt}
                             onChange={(e) => setAvatarAlt(e.target.value)}
@@ -192,11 +174,7 @@ export default function ProfileEditModal({
                         <div className="mt-3 flex items-center gap-3">
                             <div className="h-16 w-16 overflow-hidden rounded-xl border bg-slate-50">
                                 {avatarUrl ? (
-                                    <img
-                                        src={avatarUrl}
-                                        alt={avatarAlt}
-                                        className="h-full w-full object-cover"
-                                    />
+                                    <img src={avatarUrl} alt={avatarAlt} className="h-full w-full object-cover" />
                                 ) : (
                                     <div className="grid h-full place-items-center text-[10px] text-slate-500">
                                         Avatar
@@ -215,9 +193,7 @@ export default function ProfileEditModal({
                     </div>
 
                     <div className="md:col-span-2">
-                        <label className="mb-1 block text-xs font-medium text-slate-600">
-                            Bio
-                        </label>
+                        <label className="mb-1 block text-xs font-medium text-slate-600">Bio</label>
                         <textarea
                             value={bio}
                             onChange={(e) => setBio(e.target.value)}
