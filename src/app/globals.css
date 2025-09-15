@@ -31,7 +31,8 @@
 }
 /* Calendar container */
 .rdp {
-  --rdp-cell-size: 40px;
+      --rdp-day_button-height: 42px;
+    --rdp-day_button-width: 42px;
   --rdp-accent-color: #fbbf24;
   --rdp-background-color: #fffaf0;
   margin: 0;
@@ -58,6 +59,23 @@ button.rdp-day_selected,
   background-color: orangered;
   border: var(--coffee);
 }
+
+
+@media (max-width: 640px) {
+  .rdp-day {
+       --rdp-day_button-height: 20px;
+    --rdp-day_button-width: 20px;
+    font-size: 0.75rem !important;
+  }
+
+  .rdp-day_button {
+    min-width: 28px !important;
+    min-height: 28px !important;
+    line-height: 28px !important;
+  }
+}
+
+
 svg.rdp-chevron {
   fill: #241a19;
 }
