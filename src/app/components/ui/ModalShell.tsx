@@ -54,7 +54,7 @@ export default function ModalShell({
           className={clsx(
             "w-full",
             maxWidth,
-            "bg-coffee rounded-2xl border border-amber-500/30 text-amber-600 shadow-xl",
+            "bg-gradient-to-b from-coffee to-wine rounded-2xl border border-amber-500/30 text-amber-600 shadow-xl",
             "transition-all",
             open ? "scale-100 opacity-100" : "scale-95 opacity-0",
             "max-h-[85vh] overflow-hidden",
