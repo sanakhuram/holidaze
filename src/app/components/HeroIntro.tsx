@@ -87,9 +87,14 @@ export default function HeroIntro() {
       </motion.div>
 
       <div className="absolute inset-0 z-30 flex items-center justify-center bg-black/15 px-3 sm:bg-black/20 md:bg-black/25">
-        <h1 className="text-center [font-size:clamp(0.85rem,2.9vw,1.6rem)] leading-tight font-extrabold text-amber-200 drop-shadow-lg md:[font-size:clamp(1.1rem,2.1vw,2.2rem)] lg:[font-size:clamp(1.25rem,1.8vw,2.5rem)]">
+        <motion.h1
+          initial={{ backgroundPosition: "200% 50%" }}
+          animate={{ backgroundPosition: "0% 50%" }}
+          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          className="bg-gradient-to-r from-amber-200 via-orange-400 to-orange-800 bg-[length:200%_100%] bg-clip-text text-center [font-size:clamp(1.25rem,1.8vw,2.5rem)] font-extrabold text-transparent drop-shadow-[0_0_6px_rgba(0,0,0,0.8)]"
+        >
           Unfold Your Next Escape
-        </h1>
+        </motion.h1>
       </div>
     </section>
   );
