@@ -105,14 +105,48 @@ Open at: [http://localhost:3000](http://localhost:3000)
 
 ## 📦 Key Packages
 
-* `next`, `react`, `react-dom`
-* `tailwindcss`, `postcss`, `autoprefixer`
-* `react-hot-toast` – notifications
-* `react-day-picker` – calendars
-* `framer-motion` – animations
-* `lucide-react`, `react-icons` – icons
-* `swr` – data fetching
-* `zod` – validation
+<p align="center">
+  <a href="https://nextjs.org/" target="_blank">
+    <img src="https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
+  </a>
+  <a href="https://react.dev/" target="_blank">
+    <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
+  </a>
+  <a href="https://react.dev/" target="_blank">
+    <img src="https://img.shields.io/badge/React--DOM-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
+  </a>
+  <a href="https://tailwindcss.com/" target="_blank">
+    <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  </a>
+  <a href="https://postcss.org/" target="_blank">
+    <img src="https://img.shields.io/badge/PostCSS-FF6D00?style=for-the-badge&logo=postcss&logoColor=white" />
+  </a>
+  <a href="https://github.com/postcss/autoprefixer" target="_blank">
+    <img src="https://img.shields.io/badge/Autoprefixer-FDD835?style=for-the-badge&logo=autoprefixer&logoColor=black" />
+  </a>
+  <a href="https://react-hot-toast.com/" target="_blank">
+    <img src="https://img.shields.io/badge/React--Hot--Toast-FF4081?style=for-the-badge&logo=react&logoColor=white" />
+  </a>
+  <a href="https://react-day-picker.js.org/" target="_blank">
+    <img src="https://img.shields.io/badge/React--Day--Picker-8E24AA?style=for-the-badge&logo=react&logoColor=white" />
+  </a>
+  <a href="https://www.framer.com/motion/" target="_blank">
+    <img src="https://img.shields.io/badge/Framer--Motion-00C4FF?style=for-the-badge&logo=framer&logoColor=black" />
+  </a>
+  <a href="https://lucide.dev/" target="_blank">
+    <img src="https://img.shields.io/badge/Lucide--React-FF5722?style=for-the-badge&logo=react&logoColor=white" />
+  </a>
+  <a href="https://react-icons.github.io/react-icons/" target="_blank">
+    <img src="https://img.shields.io/badge/React--Icons-009688?style=for-the-badge&logo=react&logoColor=white" />
+  </a>
+  <a href="https://swr.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/SWR-2962FF?style=for-the-badge&logo=vercel&logoColor=white" />
+  </a>
+  <a href="https://zod.dev/" target="_blank">
+    <img src="https://img.shields.io/badge/Zod-4CAF50?style=for-the-badge&logo=zod&logoColor=white" />
+  </a>
+</p>
+
 
 ---
 
