@@ -1,7 +1,7 @@
 // src/app/components/venue/VenueForm.tsx
 "use client";
 
-import { useVenueForm } from "./useVenueForm";
+import { useVenueForm } from "../../../hooks/useVenueForm";
 import type { VenueFormValues } from "@/app/lib/venueForm";
 
 export default function VenueForm({
