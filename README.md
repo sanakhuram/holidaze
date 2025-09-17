@@ -112,9 +112,6 @@ Open at: [http://localhost:3000](http://localhost:3000)
   <a href="https://react.dev/" target="_blank">
     <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
   </a>
-  <a href="https://react.dev/" target="_blank">
-    <img src="https://img.shields.io/badge/React--DOM-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
-  </a>
   <a href="https://tailwindcss.com/" target="_blank">
     <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white" />
   </a>
@@ -147,6 +144,14 @@ Open at: [http://localhost:3000](http://localhost:3000)
   </a>
 </p>
 
+- 🔔 **React Hot Toast** → for toast notifications  
+- 📅 **React Day Picker** → calendar date selection  
+- 🎞️ **Framer Motion** → animations and transitions  
+- 🖼️ **Lucide React / React Icons** → icons  
+- 📡 **SWR** → data fetching with cache & revalidation  
+- ✅ **Zod** → schema validation for forms  
+
+
 
 ---
 
@@ -167,7 +172,6 @@ The scope was defined by the official API documentation and included these deliv
 * *Customer:* can register/login, book venues, view/update profile.
 * *Venue Manager:* can register/login, manage venues & view bookings.
 
-⏳ Time commitment: Full-time \~6 weeks | Part-time \~14 weeks
 
 ---
 
