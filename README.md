@@ -39,15 +39,32 @@
 ## 🛠️ Tech Stack
 
 <p align="center">
-  <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react" />
-  <img src="https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=nextdotjs" />
-  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript" />
-  <img src="https://img.shields.io/badge/TailwindCSS-4-06B6D4?style=for-the-badge&logo=tailwindcss" />
-  <img src="https://img.shields.io/badge/Figma-Style%20Guide-F24E1E?style=for-the-badge&logo=figma" />
-  <img src="https://img.shields.io/badge/Figma-Wireframes-F24E1E?style=for-the-badge&logo=figma" />
-  <img src="https://img.shields.io/badge/Figma-Mobile%20Prototype-F24E1E?style=for-the-badge&logo=figma" />
-  <img src="https://img.shields.io/badge/Figma-Desktop%20Prototype-F24E1E?style=for-the-badge&logo=figma" />
+  <a href="https://react.dev/" target="_blank">
+    <img src="https://img.shields.io/badge/React-19-FF61F6?style=for-the-badge&logo=react&logoColor=white" />
+  </a>
+  <a href="https://nextjs.org/" target="_blank">
+    <img src="https://img.shields.io/badge/Next.js-15-8A2BE2?style=for-the-badge&logo=nextdotjs&logoColor=white" />
+  </a>
+  <a href="https://www.typescriptlang.org/" target="_blank">
+    <img src="https://img.shields.io/badge/TypeScript-5-1E90FF?style=for-the-badge&logo=typescript&logoColor=white" />
+  </a>
+  <a href="https://tailwindcss.com/" target="_blank">
+    <img src="https://img.shields.io/badge/TailwindCSS-4-FFD700?style=for-the-badge&logo=tailwindcss&logoColor=black" />
+  </a>
+  <a href="https://www.figma.com/design/4ya7bUgAL0onYXAJuJklb1/Holidaze?node-id=48-3&t=ShOEkJL9FgCr1KEp-1" target="_blank">
+    <img src="https://img.shields.io/badge/Figma-Style%20Guide-FF4500?style=for-the-badge&logo=figma&logoColor=white" />
+  </a>
+  <a href="https://www.figma.com/design/4ya7bUgAL0onYXAJuJklb1/Holidaze?node-id=72-42&t=ShOEkJL9FgCr1KEp-1" target="_blank">
+    <img src="https://img.shields.io/badge/Figma-Wireframes-FF1493?style=for-the-badge&logo=figma&logoColor=white" />
+  </a>
+  <a href="https://www.figma.com/design/4ya7bUgAL0onYXAJuJklb1/Holidaze?node-id=48-2&t=ShOEkJL9FgCr1KEp-1" target="_blank">
+    <img src="https://img.shields.io/badge/Figma-Mobile%20Prototype-FF8C00?style=for-the-badge&logo=figma&logoColor=white" />
+  </a>
+  <a href="https://www.figma.com/design/4ya7bUgAL0onYXAJuJklb1/Holidaze?node-id=0-1&t=ShOEkJL9FgCr1KEp-1" target="_blank">
+    <img src="https://img.shields.io/badge/Figma-Desktop%20Prototype-DC143C?style=for-the-badge&logo=figma&logoColor=white" />
+  </a>
 </p>
+
 
 ---
 
@@ -139,5 +156,5 @@ Made with ❤️ by **Sana Khuram**
 * 🐙 [GitHub](https://github.com/sanakhuram)
 * 📧 [sana.khuram.baig@gmail.com](mailto:sana.khuram.baig@gmail.com)
 
-```
+
 
