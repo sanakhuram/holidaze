@@ -91,8 +91,11 @@ export default function HeroIntro() {
           initial={{ backgroundPosition: "200% 50%" }}
           animate={{ backgroundPosition: "0% 50%" }}
           transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-          className="bg-gradient-to-r from-amber-200 via-orange-400 to-orange-800 bg-[length:200%_100%] bg-clip-text text-center [font-size:clamp(1.25rem,1.8vw,2.5rem)] font-extrabold text-transparent drop-shadow-[0_0_6px_rgba(0,0,0,0.8)]"
-        >
+          className="bg-gradient-to-r from-amber-200 via-orange-400 to-orange-800 
+            bg-[length:200%_100%] bg-clip-text text-transparent 
+            text-center font-extrabold [font-size:clamp(1.25rem,1.8vw,2.5rem)] 
+            drop-shadow-[0_0_6px_rgba(0,0,0,0.8)]"
+  >
           Unfold Your Next Escape
         </motion.h1>
       </div>

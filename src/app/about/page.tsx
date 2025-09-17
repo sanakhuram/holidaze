@@ -18,7 +18,7 @@ export default function AboutUs({
   return (
     <section
       aria-labelledby="about-title"
-      className="relative flex min-h-screen items-center overflow-hidden"
+      className="relative flex min-h-[70vh] items-center overflow-hidden sm:min-h-[80vh] md:min-h-screen"
     >
       <Image src={imgSrc} alt="" fill priority sizes="100vw" className="object-cover" />
 
@@ -39,58 +39,56 @@ export default function AboutUs({
       />
 
       <div className="relative z-10 w-full">
-        <div className="mx-auto max-w-5xl px-6 text-left">
+        <div className="mx-auto max-w-5xl px-4 text-left sm:px-6 lg:px-8">
           {headingLevel === "h1" ? (
             <h1
               id="about-title"
-              className="text-4xl font-extrabold text-white drop-shadow md:text-5xl"
+              className="[font-size:clamp(1.75rem,4vw,3.5rem)] font-extrabold text-white drop-shadow"
             >
               About Holidaze Venues
             </h1>
           ) : (
             <h2
               id="about-title"
-              className="text-4xl font-extrabold text-white drop-shadow md:text-5xl"
+              className="[font-size:clamp(1.75rem,4vw,3.5rem)] font-extrabold text-white drop-shadow"
             >
               About Holidaze Venues
             </h2>
           )}
 
-          <h3 className="mt-3 text-xl font-semibold text-amber-200 drop-shadow md:text-2xl">
+          <h3 className="mt-3 [font-size:clamp(1.1rem,2vw,1.75rem)] font-semibold text-amber-200 drop-shadow">
             Simple booking. Thoughtful design. No surprises.
           </h3>
 
-          <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/90 md:text-lg">
+          <p className="mt-5 max-w-3xl [font-size:clamp(0.95rem,1.3vw,1.125rem)] leading-relaxed text-white/90">
             Holidaze Venues keeps travel straightforward: clear venue details, fast pages, and
             booking that just works. Hosts get easy tools to list and manage; guests get trustworthy
             info and a <span className="font-semibold">Nordic Gems</span> spotlight to find
             standouts.
           </p>
 
-          <p className="mt-3 max-w-3xl leading-relaxed text-white/85">
+          <p className="mt-3 max-w-3xl [font-size:clamp(0.9rem,1.2vw,1.05rem)] leading-relaxed text-white/85">
             We focus on the basics done right—reliable search, honest content, and responsive
             layouts—while building for what’s next with smarter filters and smoother flows.
           </p>
 
-          <ul className="mt-6 grid max-w-3xl gap-2 sm:grid-cols-2">
-            <li className="flex items-start gap-2 text-white/90">
-              <span className="mt-2 inline-block h-2 w-2 rounded-full bg-amber-300" />
-              <span>Clear availability, guest limits, and house rules</span>
-            </li>
-            <li className="flex items-start gap-2 text-white/90">
-              <span className="mt-2 inline-block h-2 w-2 rounded-full bg-amber-300" />
-              <span>Fast, readable UI across devices</span>
-            </li>
-            <li className="flex items-start gap-2 text-white/90">
-              <span className="mt-2 inline-block h-2 w-2 rounded-full bg-amber-300" />
-              <span>Helpful host tools to create and manage venues</span>
-            </li>
-            <li className="flex items-start gap-2 text-white/90">
-              <span className="mt-2 inline-block h-2 w-2 rounded-full bg-amber-300" />
-              <span>
+          <ul className="mt-6 grid max-w-3xl gap-3 sm:grid-cols-2">
+            {[
+              "Clear availability, guest limits, and house rules",
+              "Fast, readable UI across devices",
+              "Helpful host tools to create and manage venues",
+              <>
                 Local flavor with <em>Nordic Gems</em> up top
-              </span>
-            </li>
+              </>,
+            ].map((item, i) => (
+              <li
+                key={i}
+                className="flex items-start gap-2 [font-size:clamp(0.9rem,1.2vw,1rem)] text-white/90"
+              >
+                <span className="mt-2 inline-block h-2 w-2 rounded-full bg-amber-300" />
+                <span>{item}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

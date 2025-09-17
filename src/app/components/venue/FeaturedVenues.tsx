@@ -12,7 +12,10 @@ export default function FeaturedVenues({ pinned }: { pinned: Venue[] }) {
 return (
   <BackgroundSection dim={0.6}>
     <div className={`${CONTAINER} py-12`}>
-      <h2 className="mb-2 text-3xl font-extrabold text-amber-400 drop-shadow">
+      <h2
+        className="mb-2 font-extrabold text-amber-400 drop-shadow"
+        style={{ fontSize: "clamp(1.5rem, 2vw + 1rem, 3rem)" }}
+      >
         Browse Our Featured Venues
       </h2>
       <p className="mb-8 text-sm text-gray-200 drop-shadow-amber-400">
@@ -28,5 +31,4 @@ return (
     </div>
   </BackgroundSection>
 );
-
 }
