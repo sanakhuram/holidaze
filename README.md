@@ -115,17 +115,11 @@ Open at: [http://localhost:3000](http://localhost:3000)
   <a href="https://tailwindcss.com/" target="_blank">
     <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white" />
   </a>
-  <a href="https://postcss.org/" target="_blank">
-    <img src="https://img.shields.io/badge/PostCSS-FF6D00?style=for-the-badge&logo=postcss&logoColor=white" />
-  </a>
-  <a href="https://github.com/postcss/autoprefixer" target="_blank">
-    <img src="https://img.shields.io/badge/Autoprefixer-FDD835?style=for-the-badge&logo=autoprefixer&logoColor=black" />
-  </a>
   <a href="https://react-hot-toast.com/" target="_blank">
-    <img src="https://img.shields.io/badge/React--Hot--Toast-FF4081?style=for-the-badge&logo=react&logoColor=white" />
+    <img src="https://img.shields.io/badge/React--Hot--Toast-FF69B4?style=for-the-badge&logo=react&logoColor=white" />
   </a>
   <a href="https://react-day-picker.js.org/" target="_blank">
-    <img src="https://img.shields.io/badge/React--Day--Picker-8E24AA?style=for-the-badge&logo=react&logoColor=white" />
+    <img src="https://img.shields.io/badge/React--Day--Picker-9370DB?style=for-the-badge&logo=react&logoColor=white" />
   </a>
   <a href="https://www.framer.com/motion/" target="_blank">
     <img src="https://img.shields.io/badge/Framer--Motion-00C4FF?style=for-the-badge&logo=framer&logoColor=black" />
@@ -137,21 +131,20 @@ Open at: [http://localhost:3000](http://localhost:3000)
     <img src="https://img.shields.io/badge/React--Icons-009688?style=for-the-badge&logo=react&logoColor=white" />
   </a>
   <a href="https://swr.vercel.app/" target="_blank">
-    <img src="https://img.shields.io/badge/SWR-2962FF?style=for-the-badge&logo=vercel&logoColor=white" />
+    <img src="https://img.shields.io/badge/SWR-1E90FF?style=for-the-badge&logo=vercel&logoColor=white" />
   </a>
   <a href="https://zod.dev/" target="_blank">
     <img src="https://img.shields.io/badge/Zod-4CAF50?style=for-the-badge&logo=zod&logoColor=white" />
   </a>
 </p>
 
-- 🔔 **React Hot Toast** → for toast notifications  
-- 📅 **React Day Picker** → calendar date selection  
-- 🎞️ **Framer Motion** → animations and transitions  
-- 🖼️ **Lucide React / React Icons** → icons  
-- 📡 **SWR** → data fetching with cache & revalidation  
-- ✅ **Zod** → schema validation for forms  
-
-
+- 🔔 **React Hot Toast** → notifications  
+- 📅 **React Day Picker** → calendar inputs  
+- 🎞️ **Framer Motion** → animations  
+- 🖼️ **Lucide & React Icons** → icons  
+- 📡 **SWR** → data fetching & revalidation  
+- ✅ **Zod** → form validation (login/register)  
+- 🌐 **Native Fetch + API Wrapper** → API requests (with env + Noroff API key)  
 
 ---
 

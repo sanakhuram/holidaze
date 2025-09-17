@@ -4,7 +4,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
-      { protocol: "https", hostname: "**" }, // quick & dirty for school project
+      { protocol: "https", hostname: "**" }, 
       // For production, restrict to known hosts
     ],
   },
