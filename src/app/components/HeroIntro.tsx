@@ -42,6 +42,7 @@ export default function HeroIntro() {
       onKeyDown={onKeyDown}
       className="bg-coffee relative isolate flex h-[40vh] w-full cursor-pointer overflow-hidden focus:outline-none focus-visible:ring-4 focus-visible:ring-amber-400 focus-visible:ring-offset-2 sm:h-[50vh] md:h-[68vh] lg:h-[90vh]"
     >
+
       {!prefersReducedMotion && (
         <motion.div
           aria-hidden
@@ -65,8 +66,8 @@ export default function HeroIntro() {
           src="/images/hero-right.jpg"
           alt="Beach sunset right"
           fill
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 50vw"
-          className="object-cover md:mix-blend-color-burn"
+          sizes="(max-width: 300px) 50vw, (max-width: 640px) 50vw, 50vw"
+          className="object-cover object-right md:mix-blend-color-burn"
           priority
         />
       </motion.div>
@@ -81,8 +82,8 @@ export default function HeroIntro() {
           src="/images/hero-left.jpg"
           alt="Beach sunset left"
           fill
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 50vw"
-          className="object-cover"
+          sizes="(max-width: 300px) 50vw, (max-width: 640px) 50vw, 50vw"
+          className="object-cover object-left"
         />
       </motion.div>
 

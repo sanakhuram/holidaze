@@ -1,3 +1,4 @@
+//src/app/components/profile/VenuesList.tsx
 "use client";
 
 import { useState } from "react";
@@ -7,11 +8,13 @@ import VenueManageCard from "../venue/VenueManagerCard";
 export default function VenuesList({
   venues,
   readonly = false,
+  isVenueManager = false, 
   initialCount = 3,
   step = 3,
 }: {
   venues: Venue[];
   readonly?: boolean;
+  isVenueManager?: boolean; 
   initialCount?: number;
   step?: number;
 }) {
@@ -28,7 +31,12 @@ export default function VenuesList({
     <div>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {visibleVenues.map((v) => (
-          <VenueManageCard key={v.id} venue={v} readonly={readonly} />
+          <VenueManageCard
+            key={v.id}
+            venue={v}
+            readonly={readonly}
+            isVenueManager={isVenueManager} 
+          />
         ))}
       </div>
 
@@ -45,3 +53,4 @@ export default function VenuesList({
     </div>
   );
 }
+

@@ -15,7 +15,6 @@ export default function ToastProvider() {
           border: "1px solid var(--wine)",
           borderRadius: "0.75rem",
           padding: "0.75rem 1rem",
-          fontFamily: "var(--font-sans, sans-serif)",
         },
         success: {
           iconTheme: {

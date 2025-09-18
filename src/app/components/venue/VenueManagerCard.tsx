@@ -1,3 +1,4 @@
+//src/app/components/venue/VenueManagerCard.tsx
 "use client";
 
 import SafeImage from "@/app/components/SafeImage";
@@ -12,9 +13,11 @@ import type { Route } from "next";
 export default function VenueManageCard({
   venue,
   readonly = false,
+  isVenueManager = false, 
 }: {
   venue: Venue;
   readonly?: boolean;
+  isVenueManager?: boolean; 
 }) {
   const router = useRouter();
   const img = venue.media?.[0]?.url ?? null;
@@ -35,12 +38,13 @@ export default function VenueManageCard({
           />
         </Link>
 
-        {!readonly && (
-          <div className="flex items-start gap-2">
-            <EditVenueButton venue={venue} />
-            <DeleteVenueButton id={venue.id} onDeleted={() => router.refresh()} />
-          </div>
-        )}
+        {isVenueManager &&
+          !readonly && ( 
+            <div className="flex items-start gap-2">
+              <EditVenueButton venue={venue} />
+              <DeleteVenueButton id={venue.id} onDeleted={() => router.refresh()} />
+            </div>
+          )}
       </div>
 
       <div className="mt-3 min-w-0">

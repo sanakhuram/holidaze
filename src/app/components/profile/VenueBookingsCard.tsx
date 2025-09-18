@@ -6,7 +6,7 @@ import type { VenueWithExtras } from "@/app/lib/types";
 
 export default function VenueBookingsCard({ venue }: { venue: VenueWithExtras }) {
   return (
-    <div className="from-coffee/90 to-wine/90 rounded-lg border border-amber-300 bg-gradient-to-b p-4 shadow">
+    <div className="from-coffee to-wine rounded-lg border border-amber-300 bg-gradient-to-b p-4 shadow">
       <h3 className="mb-3 text-lg font-semibold text-amber-200">{venue.name}</h3>
 
       {venue.bookings?.length ? (
@@ -58,7 +58,7 @@ export default function VenueBookingsCard({ venue }: { venue: VenueWithExtras })
           ))}
         </ul>
       ) : (
-        <p className="text-sm text-slate-100">No bookings yet for this venue.</p>
+        <p className="text-sm text-slate-200">No bookings yet for this venue.</p>
       )}
     </div>
   );

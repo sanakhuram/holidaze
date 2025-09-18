@@ -2,6 +2,7 @@
 import { getVenueById } from "@/app/lib/api";
 import type { VenueWithExtras } from "@/app/lib/types";
 import { notFound } from "next/navigation";
+import { cookies } from "next/headers"; 
 import MediaGallery from "../../components/bookings/MediaGallery";
 import BookingSection from "../../components/bookings/BookingSection";
 import FakeReviews from "@/app/components/reviews/FakeReviews";
@@ -13,6 +14,9 @@ type PageProps = {
 
 export default async function VenueDetailPage(props: PageProps) {
   const { id } = await props.params;
+  const jar = await cookies();
+  const token = jar.get("noroff_token")?.value;
+  const authenticated = !!token;
 
   const res = await getVenueById(id).catch(() => null);
   if (!res?.data) notFound();
@@ -28,7 +32,7 @@ export default async function VenueDetailPage(props: PageProps) {
 
       <div className="grid gap-8 md:grid-cols-[1.2fr,1fr]">
         <MediaGallery media={data.media || []} name={data.name} />
-        <BookingSection venue={data} />
+        <BookingSection venue={data} authenticated={authenticated} />
       </div>
 
       <div className="mt-10">

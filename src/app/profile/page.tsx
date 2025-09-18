@@ -124,9 +124,11 @@ export default async function ProfilePage() {
 
       <section className="mt-8 space-y-6">
         <HostingGuide />
-
         <CollapsibleSection title="My Venues" defaultOpen>
-          <VenuesList venues={profile.venues ?? []} />
+          <VenuesList
+            venues={profile.venues ?? []}
+            isVenueManager={profile.venueManager} 
+          />
         </CollapsibleSection>
         <CollapsibleSection title="My Bookings">
           <BookingsList bookings={profile.bookings ?? []} />
