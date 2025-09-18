@@ -4,7 +4,7 @@ import Spinner from "@/app/components/ui/Spinner";
 export default function LoadingVenueDetailPage() {
   return (
     <div className="mx-auto flex max-w-6xl items-center justify-center py-20">
-      <Spinner size={10} />
+      <Spinner size={48} />
     </div>
   );
 }

@@ -8,11 +8,12 @@ import BookingsList from "@/app/components/profile/BookingList";
 import CollapsibleSection from "@/app/components/ui/CollapsibleSection";
 
 type PageProps = {
-  params: { name: string };
+  params: Promise<{ name: string }>;
 };
 
 export default async function ProfileDetailPage({ params }: PageProps) {
-  const { name } = params;
+  const { name } = await params; // ✅ await params
+
   const jar = await cookies();
   const token = jar.get("noroff_token")?.value;
 
@@ -27,30 +28,33 @@ export default async function ProfileDetailPage({ params }: PageProps) {
 
   if (!profile) notFound();
 
-  const bannerUrl = profile.banner?.url;
-  const avatarUrl = profile.avatar?.url;
+  const bannerUrl = profile.banner?.url ?? "/default-banner.jpg";
+  const avatarUrl = profile.avatar?.url ?? "/default-avatar.jpg";
 
   return (
     <main className="mx-auto max-w-6xl px-4 pt-2 pb-10">
+      {/* Banner */}
       <div className="relative h-52 w-full overflow-hidden rounded-sm shadow-lg">
         <Image
-          src={bannerUrl ?? "/default-banner.jpg"}
+          src={bannerUrl}
           alt={profile.banner?.alt ?? `${profile.name} banner`}
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
       </div>
 
+      {/* Avatar + Info */}
       <div className="relative -mt-12 flex flex-col items-start gap-3">
         <div className="flex items-end gap-3">
           <div className="ring-wine relative h-24 w-24 overflow-hidden rounded-2xl shadow-lg ring-4">
             <Image
-              src={avatarUrl ?? "/default-avatar.jpg"}
+              src={avatarUrl}
               alt={profile.avatar?.alt ?? `${profile.name} avatar`}
               fill
-              className="object-cover"
               sizes="96px"
+              className="object-cover"
             />
           </div>
         </div>
@@ -60,8 +64,9 @@ export default async function ProfileDetailPage({ params }: PageProps) {
         {profile.bio && <p className="text-sm text-amber-800">{profile.bio}</p>}
       </div>
 
+      {/* Stats */}
       <section className="border-wine mt-6 border-b-2 p-5">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <div>
             <div className="text-xs text-slate-500">Email:</div>
             <div className="text-sm font-medium">{profile.email ?? "—"}</div>
@@ -77,12 +82,13 @@ export default async function ProfileDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <CollapsibleSection title="Venues">
+      {/* Sections */}
+      <div className="mt-8 space-y-6">
+        <CollapsibleSection title="Venues" defaultOpen>
           <VenuesList venues={profile.venues ?? []} readonly />
         </CollapsibleSection>
 
-        <CollapsibleSection title="Bookings">
+        <CollapsibleSection title="Bookings" defaultOpen>
           <BookingsList bookings={profile.bookings ?? []} readonly />
         </CollapsibleSection>
       </div>
