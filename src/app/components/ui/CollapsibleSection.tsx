@@ -16,7 +16,7 @@ export default function CollapsibleSection({
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className="rounded-xl border border-amber-300 bg-wine-50/40 shadow-sm">
+    <div className="bg-wine-50/40 rounded-xl border border-amber-300 shadow-sm">
       <button
         onClick={() => setOpen((prev) => !prev)}
         className="text-coffee flex w-full items-center justify-between rounded-t-xl px-5 py-3 text-left font-semibold transition-colors hover:bg-amber-100/60"

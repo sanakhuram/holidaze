@@ -22,7 +22,7 @@ export function useVenueSearch(initialLimit = 16) {
     error,
     q,
     setQ: (val: string) => {
-      setPage(1); 
+      setPage(1);
       setQ(val);
     },
     page,

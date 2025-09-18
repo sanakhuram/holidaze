@@ -27,12 +27,12 @@ export default function VenueBookingsCard({ venue }: { venue: VenueWithExtras })
               </div>
               <div className="flex-1 space-y-1">
                 <div>
-                  <span className="font-medium ">Booking Ref:</span>{" "}
-                  <span className="font-mono ">{b.id}</span>
+                  <span className="font-medium">Booking Ref:</span>{" "}
+                  <span className="font-mono">{b.id}</span>
                 </div>
 
                 <div>
-                  <span className="font-medium ">Guest:</span>{" "}
+                  <span className="font-medium">Guest:</span>{" "}
                   {b.customer?.name ? (
                     <Link
                       href={`/profiles/${encodeURIComponent(b.customer.name)}`}
@@ -51,7 +51,7 @@ export default function VenueBookingsCard({ venue }: { venue: VenueWithExtras })
                 </div>
 
                 <div>
-                  <span className="font-medium ">Guests:</span> {b.guests}
+                  <span className="font-medium">Guests:</span> {b.guests}
                 </div>
               </div>
             </li>

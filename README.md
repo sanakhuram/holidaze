@@ -1,4 +1,3 @@
-
 <div align="center">
   <h1>
     <img 
@@ -65,18 +64,17 @@
   </a>
 </p>
 
-
 ---
 
 ## ✨ Features & User Stories
 
-- 🔑 **Auth:** Register/Login (Noroff `@stud.noroff.no` email restriction)  
-- 🌍 **Explore:** View/search venues, filter by rating, guests, or location  
-- 📅 **Bookings:** Create, edit, cancel, with calendar of available dates  
-- 👤 **Profiles:** Customers see bookings; venue managers manage venues  
-- 🏡 **Venue Management:** Create, edit, delete venues, view upcoming bookings  
-- 🎨 **Design System:** Responsive, WCAG-compliant, Figma-driven theme  
-- 💬 **Feedback:** Toast notifications for all key actions  
+- 🔑 **Auth:** Register/Login (Noroff `@stud.noroff.no` email restriction)
+- 🌍 **Explore:** View/search venues, filter by rating, guests, or location
+- 📅 **Bookings:** Create, edit, cancel, with calendar of available dates
+- 👤 **Profiles:** Customers see bookings; venue managers manage venues
+- 🏡 **Venue Management:** Create, edit, delete venues, view upcoming bookings
+- 🎨 **Design System:** Responsive, WCAG-compliant, Figma-driven theme
+- 💬 **Feedback:** Toast notifications for all key actions
 
 ---
 
@@ -92,14 +90,14 @@ npm install
 
 # Run dev server
 npm run dev
-````
+```
 
 Open at: [http://localhost:3000](http://localhost:3000)
 
 **Branching:**
 
-* `master` → stable release
-* `feature/*` → feature-specific work
+- `master` → stable release
+- `feature/*` → feature-specific work
 
 ---
 
@@ -138,13 +136,13 @@ Open at: [http://localhost:3000](http://localhost:3000)
   </a>
 </p>
 
-- 🔔 **React Hot Toast** → notifications  
-- 📅 **React Day Picker** → calendar inputs  
-- 🎞️ **Framer Motion** → animations  
-- 🖼️ **Lucide & React Icons** → icons  
-- 📡 **SWR** → data fetching & revalidation  
-- ✅ **Zod** → form validation (login/register)  
-- 🌐 **Native Fetch + API Wrapper** → API requests (with env + Noroff API key)  
+- 🔔 **React Hot Toast** → notifications
+- 📅 **React Day Picker** → calendar inputs
+- 🎞️ **Framer Motion** → animations
+- 🖼️ **Lucide & React Icons** → icons
+- 📡 **SWR** → data fetching & revalidation
+- ✅ **Zod** → form validation (login/register)
+- 🌐 **Native Fetch + API Wrapper** → API requests (with env + Noroff API key)
 
 ---
 
@@ -153,18 +151,17 @@ Open at: [http://localhost:3000](http://localhost:3000)
 **Holidaze** was developed as part of **Noroff FED2 Project Exam 2**.
 The scope was defined by the official API documentation and included these deliverables:
 
-* 📌 **Kanban board** (GitHub Projects/Trello with Roadmap)
-* 🎨 **Figma style guide & prototypes** (desktop + mobile)
-* 🖥️ **Error-free, modular front-end** (Next.js + TypeScript + TailwindCSS)
-* ✅ **Manual testing** of user stories + accessibility validation (Lighthouse, WAVE)
-* 🚀 **Deployment** on Vercel
+- 📌 **Kanban board** (GitHub Projects/Trello with Roadmap)
+- 🎨 **Figma style guide & prototypes** (desktop + mobile)
+- 🖥️ **Error-free, modular front-end** (Next.js + TypeScript + TailwindCSS)
+- ✅ **Manual testing** of user stories + accessibility validation (Lighthouse, WAVE)
+- 🚀 **Deployment** on Vercel
 
 **User Roles & Stories**
 
-* *Visitor:* can browse/search venues.
-* *Customer:* can register/login, book venues, view/update profile.
-* *Venue Manager:* can register/login, manage venues & view bookings.
-
+- _Visitor:_ can browse/search venues.
+- _Customer:_ can register/login, book venues, view/update profile.
+- _Venue Manager:_ can register/login, manage venues & view bookings.
 
 ---
 
@@ -172,7 +169,7 @@ The scope was defined by the official API documentation and included these deliv
 
 This project was a milestone for me:
 
-* ♻️ I **reused older components** and refined them into production-ready features.
+- ♻️ I **reused older components** and refined them into production-ready features.
 
 Building Holidaze taught me how to go from **wireframes → style guide → production app**, which was the most valuable lesson.
 
@@ -182,10 +179,7 @@ Building Holidaze taught me how to go from **wireframes → style guide → prod
 
 Made with ❤️ by **Sana Khuram**
 
-* 🌐 [Portfolio](https://skhuram.netlify.app/)
-* 💼 [LinkedIn](https://www.linkedin.com/in/sana-khuram-157ba02b7/)
-* 🐙 [GitHub](https://github.com/sanakhuram)
-* 📧 [sana.khuram.baig@gmail.com](mailto:sana.khuram.baig@gmail.com)
-
-
-
+- 🌐 [Portfolio](https://skhuram.netlify.app/)
+- 💼 [LinkedIn](https://www.linkedin.com/in/sana-khuram-157ba02b7/)
+- 🐙 [GitHub](https://github.com/sanakhuram)
+- 📧 [sana.khuram.baig@gmail.com](mailto:sana.khuram.baig@gmail.com)

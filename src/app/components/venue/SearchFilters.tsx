@@ -29,7 +29,7 @@ export default function SearchFilters({
       </div>
 
       <div className="relative">
-        <Star className="absolute top-2.5 left-2 h-4 w-4 text-amber-600 fill-amber-200" />
+        <Star className="absolute top-2.5 left-2 h-4 w-4 fill-amber-200 text-amber-600" />
         <input
           type="number"
           placeholder="Min rating"
@@ -47,7 +47,7 @@ export default function SearchFilters({
       </div>
 
       <div className="relative">
-        <Users className="absolute top-2.5 left-2 h-4 w-4 text-wine fill-wine" />
+        <Users className="text-wine fill-wine absolute top-2.5 left-2 h-4 w-4" />
         <input
           type="number"
           placeholder="Min guests"

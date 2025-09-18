@@ -15,7 +15,6 @@ export function useVenueFilters(venues: Venue[]) {
   });
 
   const filteredVenues = venues.filter((v) => {
-
     const matchesRating =
       filters.minRating !== undefined && filters.minRating !== null
         ? v.rating >= filters.minRating
