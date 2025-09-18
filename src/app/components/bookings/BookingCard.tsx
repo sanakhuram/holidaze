@@ -1,6 +1,7 @@
 "use client";
 
 import { Pencil, Trash2, Users } from "lucide-react";
+import Link from "next/link";
 import SafeImage from "@/app/components/SafeImage";
 import CancelBookingButton from "./CancelBookingButton";
 import EditBookingButton from "./EditBookingButton";
@@ -26,9 +27,12 @@ export default function BookingCard({
   return (
     <div className="from-wine to-coffee rounded-xl border border-amber-600/25 bg-gradient-to-r p-3 text-amber-500 shadow-sm md:p-4">
       <div className="flex justify-between gap-3">
-        <div className="h-20 w-20 overflow-hidden rounded-lg md:h-28 md:w-28">
+        <Link
+          href={v ? `/venues/${v.id}` : "#"}
+          className="h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg md:h-28 md:w-28"
+        >
           <SafeImage src={img} alt={alt} className="h-full w-full object-cover" />
-        </div>
+        </Link>
 
         {!readonly && (
           <div className="flex items-start gap-2">
@@ -49,14 +53,17 @@ export default function BookingCard({
 
       <div className="mt-3 flex items-end justify-between">
         <div className="min-w-0">
-          <div className="flex items-center gap-2">
+          <Link
+            href={v ? `/venues/${v.id}` : "#"}
+            className="flex items-center gap-2 hover:underline"
+          >
             <h3 className="truncate text-base font-semibold md:text-lg">
               {v?.name ?? "Unknown venue"}
             </h3>
             {city && (
               <span className="truncate text-xs text-amber-200/70 md:text-sm">• {city}</span>
             )}
-          </div>
+          </Link>
 
           <div className="mt-1 grid gap-1 text-sm md:text-[15px]">
             <div>

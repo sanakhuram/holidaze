@@ -8,11 +8,11 @@ import BookingsList from "@/app/components/profile/BookingList";
 import CollapsibleSection from "@/app/components/ui/CollapsibleSection";
 
 type PageProps = {
-  params: Promise<{ name: string }>;
+  params: { name: string };
 };
 
 export default async function ProfileDetailPage({ params }: PageProps) {
-  const { name } = await params;
+  const { name } = params;
   const jar = await cookies();
   const token = jar.get("noroff_token")?.value;
 
@@ -20,42 +20,38 @@ export default async function ProfileDetailPage({ params }: PageProps) {
 
   let profile: Profile | null = null;
   try {
-    profile = await getProfileByName(name, token!);
+    profile = await getProfileByName(name, token);
   } catch {
     notFound();
   }
 
   if (!profile) notFound();
 
-  const bannerUrl = profile.banner?.url ?? undefined;
-  const avatarUrl = profile.avatar?.url ?? undefined;
+  const bannerUrl = profile.banner?.url;
+  const avatarUrl = profile.avatar?.url;
 
   return (
     <main className="mx-auto max-w-6xl px-4 pt-2 pb-10">
       <div className="relative h-52 w-full overflow-hidden rounded-sm shadow-lg">
-        {bannerUrl && (
-          <Image
-            src={bannerUrl}
-            alt={profile.banner?.alt ?? `${profile.name} banner`}
-            fill
-            className="object-cover"
-            priority
-          />
-        )}
+        <Image
+          src={bannerUrl ?? "/default-banner.jpg"}
+          alt={profile.banner?.alt ?? `${profile.name} banner`}
+          fill
+          className="object-cover"
+          priority
+        />
       </div>
 
       <div className="relative -mt-12 flex flex-col items-start gap-3">
         <div className="flex items-end gap-3">
           <div className="ring-wine relative h-24 w-24 overflow-hidden rounded-2xl shadow-lg ring-4">
-            {avatarUrl && (
-              <Image
-                src={avatarUrl}
-                alt={profile.avatar?.alt ?? `${profile.name} avatar`}
-                fill
-                className="object-cover"
-                sizes="48px"
-              />
-            )}
+            <Image
+              src={avatarUrl ?? "/default-avatar.jpg"}
+              alt={profile.avatar?.alt ?? `${profile.name} avatar`}
+              fill
+              className="object-cover"
+              sizes="96px"
+            />
           </div>
         </div>
 

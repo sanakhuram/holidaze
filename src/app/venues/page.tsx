@@ -13,8 +13,23 @@ const CONTAINER = "mx-auto w-full max-w-6xl px-4";
 
 export default function VenuesPage() {
   const [pinned, setPinned] = useState<Venue[]>([]);
-  const { venues, meta, loading, error, q, setQ, page, setPage, filters, setFilters } =
+  const { venues, meta, loading, error, q, setQ, setPage, filters, setFilters } =
     useVenueSearch(16);
+
+  const [showLoading, setShowLoading] = useState(false);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+
+    if (loading) {
+      setShowLoading(true);
+      timer = setTimeout(() => setShowLoading(false), 2000);
+    } else {
+      setShowLoading(false);
+    }
+
+    return () => clearTimeout(timer);
+  }, [loading]);
 
   useEffect(() => {
     getVenues(1, 100)
@@ -23,14 +38,6 @@ export default function VenuesPage() {
       })
       .catch(() => {});
   }, []);
-
-  if (loading && page === 1) {
-    return (
-      <div className={`${CONTAINER} flex items-center justify-center py-20`}>
-        <div className="h-8 w-8 animate-spin rounded-full border-4 border-amber-500 border-t-transparent"></div>
-      </div>
-    );
-  }
 
   if (error) {
     return <p className={`${CONTAINER} text-red-500`}>Error: {error}</p>;
@@ -45,13 +52,19 @@ export default function VenuesPage() {
           Explore All Venues
         </h1>
         <p className="mt-2 text-sm text-gray-500 md:text-base">
-          Discover places across the globe, from hidden gems to iconic retreats 
+          Discover places across the globe, from hidden gems to iconic retreats
         </p>
       </div>
 
       <SearchFilters q={q} setQ={setQ} filters={filters} setFilters={setFilters} />
 
-      <VenueGrid venues={venues} meta={meta} setPage={setPage} />
+      {showLoading ? (
+        <div className={`${CONTAINER} py-20 text-center text-amber-600`}>
+          Loading venues, please wait…
+        </div>
+      ) : (
+        <VenueGrid venues={venues} meta={meta} setPage={setPage} />
+      )}
     </>
   );
 }

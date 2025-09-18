@@ -13,24 +13,17 @@ import HostingGuide from "../components/profile/HostingGuide";
 
 export const dynamic = "force-dynamic";
 
-function Img({ src, alt, className }: { src?: string | null; alt?: string; className?: string }) {
-  return <img src={src ?? ""} alt={alt ?? ""} className={className} />;
-}
-
 export default async function ProfilePage() {
   const jar = await cookies();
   const token = jar.get("noroff_token")?.value;
   const rawUser = jar.get("holidaze_user")?.value ?? null;
 
-  const username = rawUser
-    ? (() => {
-        try {
-          return (JSON.parse(rawUser) as { name?: string })?.name;
-        } catch {
-          return undefined;
-        }
-      })()
-    : undefined;
+  let username: string | undefined;
+  try {
+    username = rawUser ? JSON.parse(rawUser).name : undefined;
+  } catch {
+    username = undefined;
+  }
 
   if (!token || !username) {
     return (
@@ -56,8 +49,8 @@ export default async function ProfilePage() {
     );
   }
 
-  const bannerUrl = profile.banner?.url ?? undefined;
-  const avatarUrl = profile.avatar?.url ?? undefined;
+  const bannerUrl = profile.banner?.url ?? "/default-banner.jpg";
+  const avatarUrl = profile.avatar?.url ?? "/default-avatar.jpg";
 
   let venuesWithBookings: VenueWithExtras[] = [];
   if (profile.venueManager && profile.venues?.length) {
@@ -69,7 +62,7 @@ export default async function ProfilePage() {
   return (
     <main className="mx-auto max-w-6xl px-4 pt-2 pb-10">
       <div className="relative h-52 w-full overflow-hidden rounded-sm shadow-lg">
-        <Img
+        <img
           src={bannerUrl}
           alt={profile.banner?.alt ?? `${profile.name} banner`}
           className="h-full w-full object-cover"
@@ -79,7 +72,7 @@ export default async function ProfilePage() {
       <div className="relative -mt-12 flex flex-col items-start gap-3">
         <div className="flex items-end gap-3">
           <div className="ring-wine h-24 w-24 overflow-hidden rounded-2xl shadow-lg ring-4">
-            <Img
+            <img
               src={avatarUrl}
               alt={profile.avatar?.alt ?? `${profile.name} avatar`}
               className="h-full w-full object-cover"
@@ -98,7 +91,6 @@ export default async function ProfilePage() {
             </span>
           )}
         </h1>
-
         {profile.email && <p className="text-sm text-amber-800">{profile.email}</p>}
 
         <div className="mt-2 flex flex-wrap gap-3">
@@ -108,7 +100,7 @@ export default async function ProfilePage() {
       </div>
 
       <section className="border-wine mt-6 border-b-2 p-5">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
           <div>
             <div className="text-xs text-slate-500">Email:</div>
             <div className="truncate text-sm font-medium break-words">{profile.email ?? "—"}</div>
@@ -130,31 +122,27 @@ export default async function ProfilePage() {
         </div>
       </section>
 
-      <section className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <CollapsibleSection title="My Venues">
+      <section className="mt-8 space-y-6">
+        <HostingGuide />
+
+        <CollapsibleSection title="My Venues" defaultOpen>
           <VenuesList venues={profile.venues ?? []} />
         </CollapsibleSection>
-
         <CollapsibleSection title="My Bookings">
           <BookingsList bookings={profile.bookings ?? []} />
         </CollapsibleSection>
-
         {profile.venueManager && (
-          <>
-            <CollapsibleSection title="Upcoming Bookings">
-              {venuesWithBookings.length ? (
-                <div className="space-y-6">
-                  {venuesWithBookings.map((venue) => (
-                    <VenueBookingsCard key={venue.id} venue={venue} />
-                  ))}
-                </div>
-              ) : (
-                <p className="text-sm text-slate-600">You don’t manage any venues yet.</p>
-              )}
-            </CollapsibleSection>
-
-            <HostingGuide />
-          </>
+          <CollapsibleSection title="Upcoming Bookings">
+            {venuesWithBookings.length ? (
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {venuesWithBookings.map((venue) => (
+                  <VenueBookingsCard key={venue.id} venue={venue} />
+                ))}
+              </div>
+            ) : (
+              <p className="text-sm text-slate-600">You don’t manage any venues yet.</p>
+            )}
+          </CollapsibleSection>
         )}
       </section>
     </main>
