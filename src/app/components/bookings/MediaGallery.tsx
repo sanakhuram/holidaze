@@ -40,9 +40,9 @@ export default function MediaGallery({ media, name }: { media: Media[]; name: st
                 <Image
                   src={m.url}
                   alt={m.alt || `${name} ${i + 1}`}
-                  width={112}
-                  height={80}
-                  className="h-auto w-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="112px" 
                 />
               </button>
             );
@@ -54,17 +54,16 @@ export default function MediaGallery({ media, name }: { media: Media[]; name: st
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="block w-full overflow-hidden rounded-md"
+          className="relative block h-[400px] w-full overflow-hidden rounded-md sm:h-[500px]"
           aria-label="Open image"
         >
           <Image
             src={main.url}
             alt={main.alt || name}
-            width={1200}
-            height={800}
-            className="h-auto w-full rounded-md object-cover"
+            fill
+            className="rounded-md object-cover"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 768px, 1024px"
-            priority
+            priority 
           />
         </button>
 
@@ -86,9 +85,9 @@ export default function MediaGallery({ media, name }: { media: Media[]; name: st
                   <Image
                     src={m.url}
                     alt={m.alt || `${name} ${i + 1}`}
-                    width={96}
-                    height={80}
-                    className="h-auto w-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="96px" 
                   />
                 </button>
               );
@@ -105,15 +104,14 @@ export default function MediaGallery({ media, name }: { media: Media[]; name: st
           onClick={() => setOpen(false)}
         >
           <div
-            className="relative max-h-[90vh] w-full max-w-5xl overflow-hidden rounded-xl"
+            className="relative h-[80vh] w-full max-w-5xl overflow-hidden rounded-xl"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
               src={main.url}
               alt={main.alt || name}
-              width={1600}
-              height={1200}
-              className="h-auto w-full rounded-xl object-contain"
+              fill
+              className="rounded-xl object-contain"
               sizes="90vw"
             />
             <button

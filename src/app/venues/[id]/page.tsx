@@ -20,17 +20,20 @@ export default async function VenueDetailPage(props: PageProps) {
   const data = res.data as VenueWithExtras;
 
   return (
-    <section className="mx-auto max-w-6xl px-4 py-8">
-      <div className="mb-6">
+    <section className="mx-auto max-w-6xl px-4 py-10">
+      <div className="mb-8">
         <h1 className="text-brand-brown text-3xl font-bold">{data.name}</h1>
-        <p className="text-brand-brown/80 mt-2">{data.description}</p>
+        <p className="text-brand-brown/80 mt-3">{data.description}</p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-[1.2fr,1fr]">
+      <div className="grid gap-8 md:grid-cols-[1.2fr,1fr]">
         <MediaGallery media={data.media || []} name={data.name} />
         <BookingSection venue={data} />
       </div>
-      <FakeReviews venueId={data.id} />
+
+      <div className="mt-10">
+        <FakeReviews venueId={data.id} />
+      </div>
     </section>
   );
 }

@@ -12,7 +12,7 @@ type PageProps = {
 };
 
 export default async function ProfileDetailPage({ params }: PageProps) {
-  const { name } = await params; // ✅ await params
+  const { name } = await params; 
 
   const jar = await cookies();
   const token = jar.get("noroff_token")?.value;
@@ -33,7 +33,6 @@ export default async function ProfileDetailPage({ params }: PageProps) {
 
   return (
     <main className="mx-auto max-w-6xl px-4 pt-2 pb-10">
-      {/* Banner */}
       <div className="relative h-52 w-full overflow-hidden rounded-sm shadow-lg">
         <Image
           src={bannerUrl}
@@ -45,7 +44,6 @@ export default async function ProfileDetailPage({ params }: PageProps) {
         />
       </div>
 
-      {/* Avatar + Info */}
       <div className="relative -mt-12 flex flex-col items-start gap-3">
         <div className="flex items-end gap-3">
           <div className="ring-wine relative h-24 w-24 overflow-hidden rounded-2xl shadow-lg ring-4">
@@ -64,7 +62,6 @@ export default async function ProfileDetailPage({ params }: PageProps) {
         {profile.bio && <p className="text-sm text-amber-800">{profile.bio}</p>}
       </div>
 
-      {/* Stats */}
       <section className="border-wine mt-6 border-b-2 p-5">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <div>
@@ -82,7 +79,6 @@ export default async function ProfileDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Sections */}
       <div className="mt-8 space-y-6">
         <CollapsibleSection title="Venues" defaultOpen>
           <VenuesList venues={profile.venues ?? []} readonly />
