@@ -98,7 +98,6 @@ export default async function ProfilePage() {
           <EditProfileButton profile={profile} />
         </div>
       </div>
-
       <section className="border-wine mt-6 border-b-2 p-5">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
           <div>
@@ -113,7 +112,12 @@ export default async function ProfilePage() {
           </div>
           <div>
             <div className="text-xs text-slate-500">Bookings:</div>
-            <div className="text-sm font-semibold">{profile._count?.bookings ?? 0}</div>
+            <div className="text-sm font-semibold">
+              {
+                (profile.bookings ?? []).filter((b) => new Date(b.dateFrom).getTime() >= Date.now())
+                  .length
+              }
+            </div>
           </div>
           <div>
             <div className="text-xs text-slate-500">Venues:</div>
@@ -124,17 +128,17 @@ export default async function ProfilePage() {
 
       <section className="mt-8 space-y-6">
         <HostingGuide />
-        <CollapsibleSection title="My Venues" defaultOpen>
-          <VenuesList
-            venues={profile.venues ?? []}
-            isVenueManager={profile.venueManager} 
-          />
+
+        <CollapsibleSection title="My Venues" defaultOpen icon="circleChevron">
+          <VenuesList venues={profile.venues ?? []} isVenueManager={profile.venueManager} />
         </CollapsibleSection>
-        <CollapsibleSection title="My Bookings">
+
+        <CollapsibleSection title="My Bookings" icon="arrow">
           <BookingsList bookings={profile.bookings ?? []} />
         </CollapsibleSection>
+
         {profile.venueManager && (
-          <CollapsibleSection title="Upcoming Bookings">
+          <CollapsibleSection title="Upcoming Bookings" icon="plus">
             {venuesWithBookings.length ? (
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {venuesWithBookings.map((venue) => (
