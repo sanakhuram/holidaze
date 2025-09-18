@@ -3,8 +3,8 @@
 import { Pencil, Trash2, Users } from "lucide-react";
 import Link from "next/link";
 import SafeImage from "@/app/components/SafeImage";
-import CancelBookingButton from "./CancelBookingButton";
-import EditBookingButton from "./EditBookingButton";
+import CancelBookingButton from "../bookings/CancelBookingButton";
+import EditBookingButton from "../bookings/EditBookingButton";
 import type { BookingWithVenue } from "@/app/lib/types";
 
 export default function BookingCard({
@@ -25,11 +25,11 @@ export default function BookingCard({
   const price = v?.price ?? 0;
 
   return (
-    <div className="from-wine to-coffee rounded-xl border border-amber-600/25 bg-gradient-to-r p-3 text-amber-500 shadow-sm md:p-4">
-      <div className="flex justify-between gap-3">
+    <div className="from-wine to-coffee w-full rounded-xl border border-amber-600/25 bg-gradient-to-r p-3 text-amber-500 shadow-sm md:p-4">
+      <div className="flex flex-wrap justify-between gap-3">
         <Link
           href={v ? `/venues/${v.id}` : "#"}
-          className="h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg md:h-28 md:w-28"
+          className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-lg sm:h-28 sm:w-28"
         >
           <SafeImage src={img} alt={alt} className="h-full w-full object-cover" />
         </Link>
@@ -51,7 +51,7 @@ export default function BookingCard({
         )}
       </div>
 
-      <div className="mt-3 flex items-end justify-between">
+      <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div className="min-w-0">
           <Link
             href={v ? `/venues/${v.id}` : "#"}

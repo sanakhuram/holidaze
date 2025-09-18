@@ -32,10 +32,14 @@ export default function CollapsibleSection({
       <div
         className={clsx(
           "overflow-hidden transition-all duration-300 ease-in-out",
-          open ? "max-h-screen px-5 py-4 opacity-100" : "max-h-0 px-5 opacity-0"
+          open ? "max-h-[90vh] opacity-100" : "max-h-0 opacity-0"
         )}
       >
-        {open && <div className="grid gap-4">{children}</div>}
+        <div className="px-5 py-4">
+          <div className="max-h-[75vh] overflow-x-hidden overflow-y-auto">
+            <div className="grid gap-4">{children}</div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,11 +1,10 @@
-//src/app/components/venue/VenueManagerCard.tsx
 "use client";
 
 import SafeImage from "@/app/components/SafeImage";
 import type { Venue } from "@/app/lib/types";
 import { MapPin, DollarSign } from "lucide-react";
-import EditVenueButton from "./EditVenueButton";
-import DeleteVenueButton from "./DeleteVenueButton";
+import EditVenueButton from "../venue/EditVenueButton";
+import DeleteVenueButton from "../venue/DeleteVenueButton";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import type { Route } from "next";
@@ -13,11 +12,11 @@ import type { Route } from "next";
 export default function VenueManageCard({
   venue,
   readonly = false,
-  isVenueManager = false, 
+  isVenueManager = false,
 }: {
   venue: Venue;
   readonly?: boolean;
-  isVenueManager?: boolean; 
+  isVenueManager?: boolean;
 }) {
   const router = useRouter();
   const img = venue.media?.[0]?.url ?? null;
@@ -25,11 +24,11 @@ export default function VenueManageCard({
   const city = venue.location?.city ?? "";
 
   return (
-    <div className="from-coffee to-wine rounded-xl border border-amber-600/25 bg-gradient-to-r p-3 text-amber-500 shadow-sm md:p-4">
-      <div className="flex justify-between gap-3">
+    <div className="from-coffee to-wine w-full rounded-xl border border-amber-600/25 bg-gradient-to-r p-3 text-amber-500 shadow-sm md:p-4">
+      <div className="flex flex-wrap justify-between gap-3">
         <Link
           href={`/venues/${String(venue.id)}` as Route}
-          className="h-24 w-24 overflow-hidden rounded-lg focus-visible:ring-2 focus-visible:ring-amber-500/60 focus-visible:outline-none md:h-28 md:w-28"
+          className="h-24 w-24 overflow-hidden rounded-lg focus-visible:ring-2 focus-visible:ring-amber-500/60 focus-visible:outline-none sm:h-28 sm:w-28"
         >
           <SafeImage
             src={img}
@@ -38,13 +37,12 @@ export default function VenueManageCard({
           />
         </Link>
 
-        {isVenueManager &&
-          !readonly && ( 
-            <div className="flex items-start gap-2">
-              <EditVenueButton venue={venue} />
-              <DeleteVenueButton id={venue.id} onDeleted={() => router.refresh()} />
-            </div>
-          )}
+        {isVenueManager && !readonly && (
+          <div className="flex items-start gap-2">
+            <EditVenueButton venue={venue} />
+            <DeleteVenueButton id={venue.id} onDeleted={() => router.refresh()} />
+          </div>
+        )}
       </div>
 
       <div className="mt-3 min-w-0">
