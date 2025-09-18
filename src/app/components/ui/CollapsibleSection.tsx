@@ -42,7 +42,7 @@ export default function CollapsibleSection({
         return open ? (
           <MinusCircle className="h-6 w-6 text-rose-500 transition-transform duration-300" />
         ) : (
-          <PlusCircle className="h-6 w-6 text-emerald-500 transition-transform duration-300" />
+          <PlusCircle className="h-6 w-6 text-pink-800 transition-transform duration-300" />
         );
       case "chevron":
         return open ? (
@@ -53,7 +53,7 @@ export default function CollapsibleSection({
       case "circleChevron":
       default:
         return open ? (
-          <CircleChevronUp className="h-6 w-6 text-green-500 transition-transform duration-300" />
+          <CircleChevronUp className="h-6 w-6 text-pink-800 transition-transform duration-300" />
         ) : (
           <CircleChevronDown className="h-6 w-6 text-amber-600 transition-transform duration-300" />
         );
@@ -61,10 +61,10 @@ export default function CollapsibleSection({
   };
 
   return (
-    <div className="bg-wine-50/40 rounded-xl border border-amber-300 shadow-sm">
+    <div className="bg-wine-50/40 rounded-xl border border-amber-500/50 shadow-sm">
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="group text-coffee flex w-full items-center justify-between rounded-t-xl px-5 py-3 text-left font-semibold transition-colors hover:bg-amber-100/60"
+        className="group text-coffee flex w-full items-center justify-between rounded-t-xl px-5 py-3 text-left font-semibold transition-colors hover:bg-amber-00/60"
       >
         <span>{title}</span>
         {renderIcon()}

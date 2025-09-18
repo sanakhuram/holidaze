@@ -4,7 +4,7 @@ import CollapsibleSection from "../ui/CollapsibleSection";
 
 export default function HostingGuide() {
   return (
-    <CollapsibleSection title="Hosting Guide" icon="plus" defaultOpen>
+    <CollapsibleSection title="Hosting Guide" icon="plus" defaultOpen={false}>
       <div className="space-y-3 text-sm leading-relaxed text-slate-700">
         <p>
           Want to start hosting? First, make sure you’re a{" "}
