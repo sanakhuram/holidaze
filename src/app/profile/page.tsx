@@ -10,6 +10,7 @@ import VenueManagerToggle from "../components/profile/VenueManagerToggle";
 import VenueBookingsCard from "../components/profile/VenueBookingsCard";
 import CollapsibleSection from "../components/ui/CollapsibleSection";
 import HostingGuide from "../components/profile/HostingGuide";
+import BackToVenues from "../components/ui/BackToVenues";
 
 export const dynamic = "force-dynamic";
 
@@ -61,6 +62,7 @@ export default async function ProfilePage() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 pt-2 pb-10">
+      <BackToVenues className="m-4 inline-block" />
       <div className="relative h-52 w-full overflow-hidden rounded-sm shadow-lg">
         <img
           src={bannerUrl}

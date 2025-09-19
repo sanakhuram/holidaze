@@ -1,4 +1,4 @@
-// src/app/components/reviews/FakeReviews.tsx
+// src/app/components/reviews/VenueReviews.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -16,14 +16,24 @@ type Review = {
   date: string;
 };
 
+
 const reviewSamples = [
   "Amazing stay, would definitely come back!",
   "Very clean and cozy place with a great host.",
   "Perfect location, close to everything.",
   "Good value for money, comfortable beds.",
+  "Lovely atmosphere, felt just like home.",
+  "Great communication with the host.",
 ];
 
-export default function FakeReviews({ venueId }: { venueId: string }) {
+function shuffle<T>(arr: T[]): T[] {
+  return arr
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+}
+
+export default function VenueReviews({ venueId }: { venueId: string }) {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [featured, setFeatured] = useState<Venue[]>([]);
 
@@ -31,19 +41,24 @@ export default function FakeReviews({ venueId }: { venueId: string }) {
     const fake = Array.from({ length: 4 }).map((_, i) => ({
       id: faker.string.uuid(),
       name: faker.person.firstName(),
-      rating: faker.number.int({ min: 2, max: 5 }),
+      rating: faker.number.float({ min: 2, max: 5, multipleOf: 0.5 }),
       comment: reviewSamples[i % reviewSamples.length],
       date: faker.date.recent({ days: 30 }).toLocaleDateString("en-US"),
     }));
     setReviews(fake);
   }, [venueId]);
 
+
   useEffect(() => {
     async function loadFeatured() {
       try {
-        const res = await getVenues(1, 12);
+        const res = await getVenues(1, 20); 
         const { pinned, others } = pinByOwner(res.data);
-        const picks = [...pinned, ...others].slice(0, 4).filter((v) => v.id !== venueId);
+
+        const shuffledOthers = shuffle(others.filter((v) => v.id !== venueId));
+
+        const picks = [...pinned, ...shuffledOthers].slice(0, 4);
+
         setFeatured(picks);
       } catch (err) {
         console.error("Failed to load featured venues:", err);
@@ -63,7 +78,8 @@ export default function FakeReviews({ venueId }: { venueId: string }) {
             <li key={r.id} className="rounded-md border border-amber-500 p-3">
               <div className="flex items-center justify-between">
                 <span className="text-coffee font-medium">{r.name}</span>
-                <span className="text-amber-600">{`⭐`.repeat(r.rating)}</span>
+
+                <span className="text-sm text-amber-600">{r.rating.toFixed(1)} ⭐</span>
               </div>
               <p className="text-wine mt-1 text-sm">{r.comment}</p>
               <p className="text-wine mt-1 text-xs">{r.date}</p>

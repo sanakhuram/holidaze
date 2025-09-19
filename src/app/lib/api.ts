@@ -78,7 +78,6 @@ export function getVenues(page = 1, limit = 24, search?: string) {
 }
 
 export const searchVenues = (q: string, page = 1, limit = 24) => getVenues(page, limit, q);
-
 export const getVenueById = (id: string) =>
   api<{ data: VenueWithExtras }>(
     `/holidaze/venues/${encodeURIComponent(id)}?_owner=true&_bookings=true`

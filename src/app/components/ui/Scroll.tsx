@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function HorizontalScroller({ children }: { children: React.ReactNode }) {
@@ -15,13 +15,25 @@ export default function HorizontalScroller({ children }: { children: React.React
     });
   };
 
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const handleTouchMove = () => {
+    };
+
+    el.addEventListener("touchmove", handleTouchMove, { passive: true });
+    return () => {
+      el.removeEventListener("touchmove", handleTouchMove);
+    };
+  }, []);
+
   return (
     <div className="relative">
       <button
         onClick={() => scroll("left")}
-        className="absolute top-1/2 left-2 z-10 -translate-y-1/2 rounded-full bg-amber-600/90 p-2 text-white shadow hover:bg-amber-500"
+        className="absolute top-1/2 left-2 z-10 -translate-y-1/2 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-lg transition hover:scale-110 hover:from-orange-600 hover:to-amber-500"
       >
-        <ChevronLeft size={20} />
+        <ChevronLeft size={18} />
       </button>
 
       <div
@@ -33,9 +45,9 @@ export default function HorizontalScroller({ children }: { children: React.React
 
       <button
         onClick={() => scroll("right")}
-        className="absolute top-1/2 right-2 z-10 -translate-y-1/2 rounded-full bg-amber-600/90 p-2 text-white shadow hover:bg-amber-500"
+        className="absolute top-1/2 right-2 z-10 -translate-y-1/2 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-lg transition hover:scale-110 hover:from-orange-600 hover:to-amber-500"
       >
-        <ChevronRight size={20} />
+        <ChevronRight size={18} />
       </button>
 
       <div className="pointer-events-none absolute top-0 left-0 h-full w-12 bg-gradient-to-r from-black/30 to-transparent" />

@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import { poppins } from "./fonts";
 import ToastProvider from "./components/ToastProvider";
 import { AuthModalProvider } from "./auth/AuthModalContext";
+import BackToTop from "./components/ui/BactToTop";
 
 export const metadata: Metadata = {
   title: "Holidaze | Accommodation Booking",
@@ -26,6 +27,7 @@ export default function RootLayout({
           <Navbar />
           <ToastProvider />
           <main className="flex-1">{children}</main>
+          <BackToTop/>
           <Footer />
         </AuthModalProvider>
       </body>

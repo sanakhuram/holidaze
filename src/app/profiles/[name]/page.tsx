@@ -6,13 +6,14 @@ import type { Profile } from "@/app/lib/types";
 import VenuesList from "@/app/components/profile/VenueList";
 import BookingsList from "@/app/components/profile/BookingList";
 import CollapsibleSection from "@/app/components/ui/CollapsibleSection";
+import BackToVenues from "@/app/components/ui/BackToVenues";
 
 type PageProps = {
-  params: Promise<{ name: string }>;
+  params: { name: string };
 };
 
 export default async function ProfileDetailPage({ params }: PageProps) {
-  const { name } = await params; 
+  const { name } = params;
 
   const jar = await cookies();
   const token = jar.get("noroff_token")?.value;
@@ -30,9 +31,12 @@ export default async function ProfileDetailPage({ params }: PageProps) {
 
   const bannerUrl = profile.banner?.url ?? "/default-banner.jpg";
   const avatarUrl = profile.avatar?.url ?? "/default-avatar.jpg";
+  const now = new Date();
+  const activeBookings = profile.bookings?.filter((b) => new Date(b.dateTo) >= now) ?? [];
 
   return (
     <main className="mx-auto max-w-6xl px-4 pt-2 pb-10">
+      <BackToVenues className="m-4 inline-block" />
       <div className="relative h-52 w-full overflow-hidden rounded-sm shadow-lg">
         <Image
           src={bannerUrl}
@@ -70,7 +74,7 @@ export default async function ProfileDetailPage({ params }: PageProps) {
           </div>
           <div>
             <div className="text-xs text-slate-500">Bookings:</div>
-            <div className="text-sm font-medium">{profile._count?.bookings ?? 0}</div>
+            <div className="text-sm font-medium">{activeBookings.length}</div>
           </div>
           <div>
             <div className="text-xs text-slate-500">Venues:</div>
@@ -85,7 +89,7 @@ export default async function ProfileDetailPage({ params }: PageProps) {
         </CollapsibleSection>
 
         <CollapsibleSection title="Bookings" defaultOpen>
-          <BookingsList bookings={profile.bookings ?? []} readonly />
+          <BookingsList bookings={activeBookings} readonly />
         </CollapsibleSection>
       </div>
     </main>

@@ -2,6 +2,7 @@
 
 import { FormEvent } from "react";
 import { toast } from "react-hot-toast";
+import BackToVenues from "../components/ui/BackToVenues";
 
 export default function TermsPage() {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -11,7 +12,11 @@ export default function TermsPage() {
   }
 
   return (
-    <main className="bg-background rounded-2xl border-[30px] border-transparent p-8 [border-image:linear-gradient(to_right,var(--coffee),var(--wine))_1]">
+    <main className="bg-background relative rounded-2xl border-[30px] border-transparent p-8 [border-image:linear-gradient(to_right,var(--coffee),var(--wine))_1]">
+      <div className="absolute top-4 left-4 z-20">
+        <BackToVenues className="rounded-full px-3 py-1 text-amber-700 hover:text-amber-800 hover:underline" />
+      </div>
+
       <div className="text-foreground/90 m-10 mx-auto max-w-5xl text-sm leading-relaxed">
         <h1 className="text-coffee mb-8 text-center text-2xl font-bold">Terms & Conditions</h1>
 
@@ -115,7 +120,6 @@ export default function TermsPage() {
           understood, and agreed to these Terms & Conditions.
         </p>
 
-        {/* Clear float so later content doesn’t wrap weirdly */}
         <div className="clear-both"></div>
       </div>
     </main>

@@ -2,10 +2,11 @@
 import { getVenueById } from "@/app/lib/api";
 import type { VenueWithExtras } from "@/app/lib/types";
 import { notFound } from "next/navigation";
-import { cookies } from "next/headers"; 
+import { cookies } from "next/headers";
 import MediaGallery from "../../components/bookings/MediaGallery";
 import BookingSection from "../../components/bookings/BookingSection";
-import FakeReviews from "@/app/components/reviews/FakeReviews";
+import FakeReviews from "@/app/components/reviews/VenueReviews";
+import BackToVenues from "@/app/components/ui/BackToVenues";
 
 type PageProps = {
   params: Promise<{ id: string }>;
@@ -25,6 +26,7 @@ export default async function VenueDetailPage(props: PageProps) {
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-10">
+      <BackToVenues className="mb-6 inline-block" />
       <div className="mb-8">
         <h1 className="text-brand-brown text-3xl font-bold">{data.name}</h1>
         <p className="text-brand-brown/80 mt-3">{data.description}</p>

@@ -1,5 +1,6 @@
 // src/app/components/AboutUs.tsx
 import Image from "next/image";
+import BackToVenues from "../components/ui/BackToVenues";
 
 type HeadingLevel = "h1" | "h2";
 
@@ -91,6 +92,9 @@ export default function AboutUs({
             ))}
           </ul>
         </div>
+      </div>
+      <div className="absolute top-4 left-4 z-20">
+        <BackToVenues className="rounded-full  px-3 py-1 text-amber-200 hover:bg-coffee/60 hover:text-amber-300" />
       </div>
     </section>
   );
