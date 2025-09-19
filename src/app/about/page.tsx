@@ -94,7 +94,7 @@ export default function AboutUs({
         </div>
       </div>
       <div className="absolute top-4 left-4 z-20">
-        <BackToVenues className="rounded-full  px-3 py-1 text-amber-200 hover:bg-coffee/60 hover:text-amber-300" />
+        <BackToVenues className="hover:bg-coffee/60 rounded-full px-3 py-1 text-amber-200 hover:text-amber-300" />
       </div>
     </section>
   );

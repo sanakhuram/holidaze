@@ -27,7 +27,7 @@ export default function RootLayout({
           <Navbar />
           <ToastProvider />
           <main className="flex-1">{children}</main>
-          <BackToTop/>
+          <BackToTop />
           <Footer />
         </AuthModalProvider>
       </body>

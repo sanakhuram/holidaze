@@ -64,7 +64,7 @@ export default function CollapsibleSection({
     <div className="bg-wine-50/40 rounded-xl border border-amber-500/50 shadow-sm">
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="group text-coffee flex w-full items-center justify-between rounded-t-xl px-5 py-3 text-left font-semibold transition-colors hover:bg-amber-00/60"
+        className="group text-coffee hover:bg-amber-00/60 flex w-full items-center justify-between rounded-t-xl px-5 py-3 text-left font-semibold transition-colors"
       >
         <span>{title}</span>
         {renderIcon()}

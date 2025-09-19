@@ -40,8 +40,8 @@ export default function VenuesList({
       {venues.length > initialCount && (
         <div className="mt-4 flex justify-center">
           <ViewMoreButton
-            onExpand={() => setVisibleCount(venues.length)} 
-            onCollapse={() => setVisibleCount(initialCount)} 
+            onExpand={() => setVisibleCount(venues.length)}
+            onCollapse={() => setVisibleCount(initialCount)}
           />
         </div>
       )}

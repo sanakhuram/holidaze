@@ -18,8 +18,7 @@ export default function HorizontalScroller({ children }: { children: React.React
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
-    const handleTouchMove = () => {
-    };
+    const handleTouchMove = () => {};
 
     el.addEventListener("touchmove", handleTouchMove, { passive: true });
     return () => {

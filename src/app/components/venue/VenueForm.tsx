@@ -50,7 +50,7 @@ export default function VenueForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6 text-slate-700 md:grid-cols-2 ">
+    <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-6 text-slate-700 md:grid-cols-2">
       {error && <p className="text-sm text-red-600 md:col-span-2">{error}</p>}
 
       <label className="text-sm">
@@ -75,7 +75,7 @@ export default function VenueForm({
             min={0}
             value={values.price}
             onChange={(e) => set("price", Number(e.target.value))}
-            className="w-full rounded-md border border-slate-300  py-2 pr-3 pl-9 focus:border-amber-500 focus:ring-amber-500"
+            className="w-full rounded-md border border-slate-300 py-2 pr-3 pl-9 focus:border-amber-500 focus:ring-amber-500"
             placeholder="0.00"
           />
         </div>
@@ -103,7 +103,7 @@ export default function VenueForm({
           <textarea
             value={values.description}
             onChange={(e) => set("description", e.target.value)}
-            className="h-24 w-full rounded-md border border-slate-300  py-2 pr-3 pl-9 focus:border-amber-500 focus:ring-amber-500"
+            className="h-24 w-full rounded-md border border-slate-300 py-2 pr-3 pl-9 focus:border-amber-500 focus:ring-amber-500"
             placeholder="Write a short description"
           />
         </div>
@@ -204,7 +204,7 @@ export default function VenueForm({
             placeholder="Continent"
             value={values.location.continent ?? ""}
             onChange={(e) => setLocation("continent", e.target.value)}
-            className="w-full rounded-md border border-slate-300  px-3 py-2"
+            className="w-full rounded-md border border-slate-300 px-3 py-2"
           />
         </div>
         <div className="grid grid-cols-2 gap-2">
@@ -216,7 +216,7 @@ export default function VenueForm({
             onChange={(e) =>
               setLocation("lat", e.target.value === "" ? undefined : Number(e.target.value))
             }
-            className="w-full rounded-md border border-slate-300  px-3 py-2"
+            className="w-full rounded-md border border-slate-300 px-3 py-2"
           />
           <input
             type="number"
@@ -226,7 +226,7 @@ export default function VenueForm({
             onChange={(e) =>
               setLocation("lng", e.target.value === "" ? undefined : Number(e.target.value))
             }
-            className="w-full rounded-md border border-slate-300  px-3 py-2"
+            className="w-full rounded-md border border-slate-300 px-3 py-2"
           />
         </div>
       </div>
@@ -260,7 +260,7 @@ export default function VenueForm({
               <button
                 type="button"
                 onClick={() => removeMedia(i)}
-                className="col-span-1 flex items-center justify-center rounded-md border border-slate-300  p-2 hover:bg-red-50"
+                className="col-span-1 flex items-center justify-center rounded-md border border-slate-300 p-2 hover:bg-red-50"
               >
                 <X className="h-5 w-5 text-red-500" />
               </button>
@@ -279,7 +279,7 @@ export default function VenueForm({
         <button
           type="button"
           onClick={onCancel}
-          className="rounded-md border border-slate-300  px-4 py-2 text-sm hover:bg-slate-100"
+          className="rounded-md border border-slate-300 px-4 py-2 text-sm hover:bg-slate-100"
         >
           Cancel
         </button>

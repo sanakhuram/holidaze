@@ -44,8 +44,8 @@ export default function BookingsList({
       {upcoming.length > initialCount && (
         <div className="mt-4 flex justify-center">
           <ViewMoreButton
-            onExpand={() => setVisibleCount(upcoming.length)} 
-            onCollapse={() => setVisibleCount(initialCount)} 
+            onExpand={() => setVisibleCount(upcoming.length)}
+            onCollapse={() => setVisibleCount(initialCount)}
           />
         </div>
       )}

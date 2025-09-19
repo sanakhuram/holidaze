@@ -23,7 +23,7 @@ export default function PaginationControls({
 
   const changePage = (page: number) => {
     onPageChange(page);
-    window.scrollTo({ top: 0, behavior: "smooth" }); 
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const prev = () => changePage(Math.max(1, meta.currentPage - 1));
@@ -34,7 +34,6 @@ export default function PaginationControls({
     <div
       className={`mt-8 flex flex-wrap items-center justify-center gap-4 text-sm text-amber-700 ${className}`}
     >
-
       {!isFirst && (
         <button
           onClick={backToFirst}

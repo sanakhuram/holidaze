@@ -16,7 +16,6 @@ type Review = {
   date: string;
 };
 
-
 const reviewSamples = [
   "Amazing stay, would definitely come back!",
   "Very clean and cozy place with a great host.",
@@ -48,11 +47,10 @@ export default function VenueReviews({ venueId }: { venueId: string }) {
     setReviews(fake);
   }, [venueId]);
 
-
   useEffect(() => {
     async function loadFeatured() {
       try {
-        const res = await getVenues(1, 20); 
+        const res = await getVenues(1, 20);
         const { pinned, others } = pinByOwner(res.data);
 
         const shuffledOthers = shuffle(others.filter((v) => v.id !== venueId));

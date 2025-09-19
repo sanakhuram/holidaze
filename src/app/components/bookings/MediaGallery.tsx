@@ -42,7 +42,7 @@ export default function MediaGallery({ media, name }: { media: Media[]; name: st
                   alt={m.alt || `${name} ${i + 1}`}
                   fill
                   className="object-cover"
-                  sizes="112px" 
+                  sizes="112px"
                 />
               </button>
             );
@@ -63,7 +63,7 @@ export default function MediaGallery({ media, name }: { media: Media[]; name: st
             fill
             className="rounded-md object-cover"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 768px, 1024px"
-            priority 
+            priority
           />
         </button>
 
@@ -87,7 +87,7 @@ export default function MediaGallery({ media, name }: { media: Media[]; name: st
                     alt={m.alt || `${name} ${i + 1}`}
                     fill
                     className="object-cover"
-                    sizes="96px" 
+                    sizes="96px"
                   />
                 </button>
               );
