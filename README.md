@@ -134,15 +134,24 @@ Open at: [http://localhost:3000](http://localhost:3000)
   <a href="https://zod.dev/" target="_blank">
     <img src="https://img.shields.io/badge/Zod-4CAF50?style=for-the-badge&logo=zod&logoColor=white" />
   </a>
+  <a href="https://www.openstreetmap.org/" target="_blank">
+    <img src="https://img.shields.io/badge/OpenStreetMap-Map%20Embed-6DA55F?style=for-the-badge&logo=openstreetmap&logoColor=white" />
+  </a>
+  <a href="https://www.google.com/maps" target="_blank">
+    <img src="https://img.shields.io/badge/Google%20Maps-Embed-4285F4?style=for-the-badge&logo=googlemaps&logoColor=white" />
+  </a>
 </p>
 
-- 🔔 **React Hot Toast** → notifications
-- 📅 **React Day Picker** → calendar inputs
-- 🎞️ **Framer Motion** → animations
-- 🖼️ **Lucide & React Icons** → icons
-- 📡 **SWR** → data fetching & revalidation
-- ✅ **Zod** → form validation (login/register)
-- 🌐 **Native Fetch + API Wrapper** → API requests (with env + Noroff API key)
+
+- 🔔 **React Hot Toast** → notifications  
+- 📅 **React Day Picker** → calendar inputs  
+- 🎞️ **Framer Motion** → animations  
+- 🖼️ **Lucide & React Icons** → icons  
+- 📡 **SWR** → data fetching & revalidation  
+- ✅ **Zod** → form validation (login/register)  
+- 🌐 **Native Fetch + API Wrapper** → API requests (with env + Noroff API key)  
+- 🗺️ **OpenStreetMap + Google Maps Embed** → venue location previews with markers  
+
 
 ---
 
