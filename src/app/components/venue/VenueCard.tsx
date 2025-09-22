@@ -34,7 +34,7 @@ export default function VenueCard({ venue }: { venue: Venue }) {
         <div className="flex items-start justify-between gap-3">
           <h2 className="text-wine truncate text-base font-semibold sm:text-lg">{venue.name}</h2>
           <span
-            className="inline-flex items-center gap-1 text-amber-600"
+            className="inline-flex items-center gap-1 text-amber-900"
             aria-label={`Rating ${rating}`}
             title={`Rating ${rating}`}
           >

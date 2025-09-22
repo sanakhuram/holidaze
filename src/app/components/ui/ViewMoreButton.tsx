@@ -24,18 +24,14 @@ export default function ViewMoreButton({
   return (
     <button
       onClick={handleClick}
-      className="group bg-wine hover:text-coffee flex items-center gap-2 rounded-full px-3 py-2 text-white shadow transition-colors duration-300 hover:bg-amber-500"
+      aria-expanded={expanded}
+      aria-label={expanded ? "Collapse content" : "Expand content"}
+      className="group bg-wine hover:text-coffee flex items-center justify-center rounded-full p-2 text-white shadow transition-colors duration-300 hover:bg-amber-500"
     >
       {expanded ? (
-        <>
-          <ChevronsUp className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1" />
-          <span>Collapse</span>
-        </>
+        <ChevronsUp className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1" />
       ) : (
-        <>
-          <ChevronsDown className="h-5 w-5 transition-transform duration-300 group-hover:translate-y-1" />
-          <span>View More</span>
-        </>
+        <ChevronsDown className="h-5 w-5 transition-transform duration-300 group-hover:translate-y-1" />
       )}
     </button>
   );

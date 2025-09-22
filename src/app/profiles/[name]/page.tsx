@@ -67,15 +67,15 @@ export default async function ProfileDetailPage({ params }: { params: Params }) 
       <section className="border-wine mt-6 border-b-2 p-5">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <div>
-            <div className="text-xs text-slate-500">Email:</div>
+            <div className="text-xs text-slate-800">Email:</div>
             <div className="text-sm font-medium">{profile.email ?? "—"}</div>
           </div>
           <div>
-            <div className="text-xs text-slate-500">Bookings:</div>
+            <div className="text-xs text-slate-800">Bookings:</div>
             <div className="text-sm font-medium">{activeBookings.length}</div>
           </div>
           <div>
-            <div className="text-xs text-slate-500">Venues:</div>
+            <div className="text-xs text-slate-800">Venues:</div>
             <div className="text-sm font-medium">{profile._count?.venues ?? 0}</div>
           </div>
         </div>

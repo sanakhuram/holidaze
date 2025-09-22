@@ -8,7 +8,7 @@ import Amenities from "./Amenities";
 export default function BookingInfo({ venue }: { venue: VenueWithExtras }) {
   return (
     <div className="rounded-sm border border-amber-500 p-5 shadow-sm">
-      <h3 className="mb-3 text-center text-lg font-semibold text-amber-600">Info</h3>
+      <h3 className="mb-3 text-center text-lg font-bold text-amber-600">Info</h3>
 
       <div className="flex items-end justify-between">
         <div>
@@ -44,7 +44,7 @@ export default function BookingInfo({ venue }: { venue: VenueWithExtras }) {
 
       <div className="my-5 h-px w-full bg-amber-600/25" />
 
-      <h3 className="mb-2 text-center text-lg font-semibold text-amber-600">Amenities</h3>
+      <h3 className="mb-2 text-center text-lg font-bold text-amber-600">Amenities</h3>
       <Amenities meta={venue.meta} />
     </div>
   );
