@@ -29,6 +29,7 @@ export default function BookingCard({
       <div className="flex flex-wrap justify-between gap-3">
         <Link
           href={v ? `/venues/${v.id}` : "#"}
+          aria-label={`View booking for ${v?.name ?? "venue"}`}
           className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-lg sm:h-28 sm:w-28"
         >
           <SafeImage src={img} alt={alt} className="h-full w-full object-cover" />

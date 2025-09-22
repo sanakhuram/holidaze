@@ -17,21 +17,6 @@ export default function VenuesPage() {
   const { venues, meta, loading, error, q, setQ, setPage, filters, setFilters } =
     useVenueSearch(16);
 
-  const [showLoading, setShowLoading] = useState(false);
-
-  useEffect(() => {
-    let timer: NodeJS.Timeout;
-
-    if (loading) {
-      setShowLoading(true);
-      timer = setTimeout(() => setShowLoading(false), 2000);
-    } else {
-      setShowLoading(false);
-    }
-
-    return () => clearTimeout(timer);
-  }, [loading]);
-
   useEffect(() => {
     getVenues(1, 100)
       .then((res) => {
@@ -59,7 +44,7 @@ export default function VenuesPage() {
 
       <SearchFilters q={q} setQ={setQ} filters={filters} setFilters={setFilters} />
 
-      {showLoading ? (
+      {loading ? (
         <VenueSkeletonGrid />
       ) : (
         <VenueGrid venues={venues} meta={meta} setPage={setPage} />

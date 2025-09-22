@@ -24,12 +24,18 @@ export default function ViewMoreButton({
   return (
     <button
       onClick={handleClick}
-      className="group bg-wine hover:text-coffee flex items-center justify-center rounded-full p-2 text-white shadow transition-colors duration-300 hover:bg-amber-500"
+      className="group bg-wine hover:text-coffee flex items-center gap-2 rounded-full px-3 py-2 text-white shadow transition-colors duration-300 hover:bg-amber-500"
     >
       {expanded ? (
-        <ChevronsUp className="h-6 w-6 transition-transform duration-300 group-hover:-translate-y-1" />
+        <>
+          <ChevronsUp className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1" />
+          <span>Collapse</span>
+        </>
       ) : (
-        <ChevronsDown className="h-6 w-6 transition-transform duration-300 group-hover:translate-y-1" />
+        <>
+          <ChevronsDown className="h-5 w-5 transition-transform duration-300 group-hover:translate-y-1" />
+          <span>View More</span>
+        </>
       )}
     </button>
   );

@@ -8,12 +8,10 @@ import BookingsList from "@/app/components/profile/BookingList";
 import CollapsibleSection from "@/app/components/ui/CollapsibleSection";
 import BackToVenues from "@/app/components/ui/BackToVenues";
 
-type PageProps = {
-  params: { name: string };
-};
+type Params = { name: string };
 
-export default async function ProfileDetailPage({ params }: PageProps) {
-  const { name } = params;
+export default async function ProfileDetailPage({ params }: { params: Promise<Params> }) {
+  const { name } = await params;
 
   const jar = await cookies();
   const token = jar.get("noroff_token")?.value;

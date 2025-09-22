@@ -28,6 +28,7 @@ export default function VenueManageCard({
       <div className="flex flex-wrap justify-between gap-3">
         <Link
           href={`/venues/${String(venue.id)}` as Route}
+          aria-label={`View details for ${venue.name}`}
           className="h-24 w-24 overflow-hidden rounded-lg focus-visible:ring-2 focus-visible:ring-amber-500/60 focus-visible:outline-none sm:h-28 sm:w-28"
         >
           <SafeImage
