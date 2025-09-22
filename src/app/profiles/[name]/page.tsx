@@ -10,7 +10,7 @@ import BackToVenues from "@/app/components/ui/BackToVenues";
 
 type Params = { name: string };
 
-export default async function ProfileDetailPage({ params }: { params: Promise<Params> }) {
+export default async function ProfileDetailPage({ params }: { params: Params }) {
   const { name } = await params;
 
   const jar = await cookies();
