@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { MapPinned, LogIn, LogOut, UserPlus } from "lucide-react";
 import { GiPalmTree } from "react-icons/gi";
@@ -25,9 +25,17 @@ export default function Navbar() {
     router.refresh();
   };
 
-  const initial = (user?.name || user?.email || "").trim().charAt(0).toUpperCase() || "🙂";
+  const initial = (user?.name || user?.email || "").trim().charAt(0).toUpperCase() || "👤";
 
   const isActive = (href: string) => pathname === href;
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   return (
     <nav className="from-coffee to-wine sticky top-0 z-50 bg-gradient-to-r text-amber-600 shadow-md shadow-amber-900/40">
@@ -38,8 +46,7 @@ export default function Navbar() {
             alt="Holidaze Logo"
             width={40}
             height={40}
-            style={{ height: "auto", width: "auto" }}
-            className="rounded-full"
+            className="h-auto w-auto rounded-full"
           />
           <span>Holidaze</span>
           <span className="sr-only">Home</span>
@@ -116,77 +123,82 @@ export default function Navbar() {
         </button>
       </div>
 
-      {open && (
-        <div
-          id="mobile-menu"
-          className="from-coffee/95 to-wine/95 space-y-3 border-t border-white/10 bg-gradient-to-r px-4 py-3 text-base md:hidden"
+      <div
+        id="mobile-menu"
+        role="menu"
+        hidden={!open}
+        className="from-coffee/95 to-wine/95 space-y-3 border-t border-white/10 bg-gradient-to-r px-4 py-3 text-base md:hidden"
+      >
+        <Link
+          role="menuitem"
+          href={"/venues" as Route}
+          aria-current={isActive("/venues") ? "page" : undefined}
+          className="flex items-center gap-2"
+          onClick={() => setOpen(false)}
         >
-          <Link
-            href={"/venues" as Route}
-            aria-current={isActive("/venues") ? "page" : undefined}
-            className="flex items-center gap-2"
-            onClick={() => setOpen(false)}
-          >
-            <MapPinned className="h-5 w-5" />
-            Venues
-          </Link>
+          <MapPinned className="h-5 w-5" />
+          Venues
+        </Link>
 
-          {authenticated ? (
-            <>
-              <Link
-                href={"/profile" as Route}
-                className="flex items-center gap-2 text-sm opacity-95"
-                onClick={() => setOpen(false)}
-              >
-                <div className="grid h-7 w-7 place-items-center rounded-full border border-amber-200/30 bg-amber-200/10">
-                  <span className="font-semibold">{initial}</span>
-                </div>
-                <span className="max-w-[60%] truncate">
-                  {user?.name || user?.email || "Signed in"}
-                </span>
-              </Link>
-              <button
-                onClick={async () => {
-                  setOpen(false);
-                  await logout();
-                }}
-                className="flex items-center gap-2"
-                title="Logout"
-              >
-                <LogOut className="h-5 w-5" />
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <button
-                onClick={() => {
-                  setOpen(false);
-                  openAuth("login");
-                }}
-                className="flex items-center gap-2"
-                aria-haspopup="dialog"
-                title="Login"
-              >
-                <LogIn className="h-5 w-5" />
-                Login
-              </button>
-              <button
-                onClick={() => {
-                  setOpen(false);
-                  openAuth("register");
-                }}
-                className="flex items-center gap-2"
-                aria-haspopup="dialog"
-                title="Register"
-              >
-                <UserPlus className="h-5 w-5" />
-                Register
-              </button>
-            </>
-          )}
-        </div>
-      )}
+        {authenticated ? (
+          <>
+            <Link
+              role="menuitem"
+              href={"/profile" as Route}
+              className="flex items-center gap-2 text-sm opacity-95"
+              onClick={() => setOpen(false)}
+            >
+              <div className="grid h-7 w-7 place-items-center rounded-full border border-amber-200/30 bg-amber-200/10">
+                <span className="font-semibold">{initial}</span>
+              </div>
+              <span className="max-w-[60%] truncate">
+                {user?.name || user?.email || "Signed in"}
+              </span>
+            </Link>
+            <button
+              role="menuitem"
+              onClick={async () => {
+                setOpen(false);
+                await logout();
+              }}
+              className="flex items-center gap-2"
+              title="Logout"
+            >
+              <LogOut className="h-5 w-5" />
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <button
+              role="menuitem"
+              onClick={() => {
+                setOpen(false);
+                openAuth("login");
+              }}
+              className="flex items-center gap-2"
+              aria-haspopup="dialog"
+              title="Login"
+            >
+              <LogIn className="h-5 w-5" />
+              Login
+            </button>
+            <button
+              role="menuitem"
+              onClick={() => {
+                setOpen(false);
+                openAuth("register");
+              }}
+              className="flex items-center gap-2"
+              aria-haspopup="dialog"
+              title="Register"
+            >
+              <UserPlus className="h-5 w-5" />
+              Register
+            </button>
+          </>
+        )}
+      </div>
     </nav>
   );
 }
