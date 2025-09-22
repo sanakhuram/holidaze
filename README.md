@@ -195,6 +195,7 @@ The scope was defined by the official API documentation and included these deliv
 This project was a milestone for me:
 
 - ♻️ I **reused older components** and refined them into production-ready features.
+- 🌅 Visuals and design inspiration were taken from **Unsplash**.
 
 Building Holidaze taught me how to go from **wireframes → style guide → production app**, which was the most valuable lesson.
 
