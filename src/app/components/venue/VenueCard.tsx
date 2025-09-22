@@ -4,7 +4,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { Venue } from "../../lib/types";
-import { Star, Users, CircleDollarSign } from "lucide-react";
+import { Star, Users } from "lucide-react";
 import SafeImage from "../SafeImage";
 import type { Route } from "next";
 
@@ -32,27 +32,26 @@ export default function VenueCard({ venue }: { venue: Venue }) {
       <div className="border-t" />
       <div className="bg-background rounded-md px-4 py-4 sm:px-5 sm:py-5">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-wine truncate text-base font-semibold sm:text-lg">{venue.name}</h3>
+          <h2 className="text-wine truncate text-base font-semibold sm:text-lg">{venue.name}</h2>
           <span
-            className="inline-flex items-center gap-1 text-yellow-700"
+            className="inline-flex items-center gap-1 text-amber-600"
             aria-label={`Rating ${rating}`}
             title={`Rating ${rating}`}
           >
-            <Star className="h-4 w-4 fill-yellow-300/80 stroke-yellow-700" />
-            <span className="text-xs font-medium">{rating.toFixed(1)}</span>
+            <Star className="h-4 w-4 fill-amber-400 stroke-amber-700" aria-hidden="true" />
+            <span className="text-sm font-semibold">{rating.toFixed(1)}</span>
           </span>
         </div>
         <p className="mt-1 line-clamp-2 text-sm text-neutral-700/80">
           {venue.description || "No description provided."}
         </p>
-        <div className="mt-4 flex items-center justify-between text-sm text-neutral-800">
-          <span className="inline-flex items-center gap-1">
-            <Users className="h-4 w-4" />
-            {venue.maxGuests ?? 1}
+        <div className="mt-4 flex items-center justify-between text-sm">
+          <span className="text-wine inline-flex items-center gap-1">
+            <Users className="stroke-wine h-4 w-4" aria-hidden="true" />
+            <span>{venue.maxGuests ?? 1} guests</span>
           </span>
-          <span className="inline-flex items-center gap-1 font-semibold">
-            <CircleDollarSign className="h-4 w-4" />
-            {venue.price}
+          <span className="inline-flex items-center gap-1 font-semibold text-green-700">
+            <span>${venue.price}</span>
           </span>
         </div>
       </div>

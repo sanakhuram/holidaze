@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Route } from "next";
 import { toast } from "react-hot-toast";
+import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -24,6 +25,7 @@ export default function Footer() {
             Escape, Explore, Enjoy. Your next adventure starts here.
           </p>
         </div>
+
         <div>
           <h3 className="mb-4 text-xl font-semibold text-amber-600">Links</h3>
           <ul className="space-y-2">
@@ -57,8 +59,34 @@ export default function Footer() {
             <li>Phone: +123 456 7890</li>
             <li>Location: 123 Seaside Ave, Trondheim</li>
           </ul>
-        </div>
 
+          <div className="mt-4 flex space-x-4 text-2xl text-amber-600">
+            <Link
+              href="https://github.com/sanakhuram"
+              target="_blank"
+              aria-label="GitHub"
+              className="hover:text-white"
+            >
+              <FaGithub />
+            </Link>
+            <Link
+              href="https://skhuram.netlify.app/"
+              target="_blank"
+              aria-label="Portfolio"
+              className="hover:text-white"
+            >
+              <FaGlobe />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/sana-khuram-157ba02b7/"
+              target="_blank"
+              aria-label="LinkedIn"
+              className="hover:text-white"
+            >
+              <FaLinkedin />
+            </Link>
+          </div>
+        </div>
         <div>
           <h3 className="mb-4 text-xl font-semibold text-amber-600">Subscribe</h3>
           <p className="mb-4 text-sm opacity-90">
@@ -88,7 +116,11 @@ export default function Footer() {
       </div>
 
       <div className="mt-12 text-center text-xs opacity-90">
-        © {new Date().getFullYear()} Holidaze 🌴. All rights reserved.
+        © {new Date().getFullYear()} Holidaze 🌴. Build with 🧡 by{" "}
+        <a href="mailto:sana.khuram.baig@gmail.com" className="font-semibold hover:underline">
+          Sana Khuram
+        </a>
+        .
       </div>
     </footer>
   );

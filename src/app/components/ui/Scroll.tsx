@@ -30,6 +30,7 @@ export default function HorizontalScroller({ children }: { children: React.React
     <div className="relative">
       <button
         onClick={() => scroll("left")}
+        aria-label="Scroll left"
         className="absolute top-1/2 left-2 z-10 -translate-y-1/2 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-lg transition hover:scale-110 hover:from-orange-600 hover:to-amber-500"
       >
         <ChevronLeft size={18} />
@@ -44,6 +45,7 @@ export default function HorizontalScroller({ children }: { children: React.React
 
       <button
         onClick={() => scroll("right")}
+        aria-label="Scroll right"
         className="absolute top-1/2 right-2 z-10 -translate-y-1/2 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 text-white shadow-lg transition hover:scale-110 hover:from-orange-600 hover:to-amber-500"
       >
         <ChevronRight size={18} />
