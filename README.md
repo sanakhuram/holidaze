@@ -126,14 +126,23 @@ Open at: [http://localhost:3000](http://localhost:3000)
   <a href="https://react-day-picker.js.org/" target="_blank">
     <img src="https://img.shields.io/badge/React--Day--Picker-9370DB?style=for-the-badge&logo=react&logoColor=white" />
   </a>
-  <a href="https://www.framer.com/motion/" target="_blank">
-    <img src="https://img.shields.io/badge/Framer--Motion-00C4FF?style=for-the-badge&logo=framer&logoColor=black" />
+  <a href="https://github.com/hypeserver/react-date-range" target="_blank">
+    <img src="https://img.shields.io/badge/React--Date--Range-FFA500?style=for-the-badge&logo=react&logoColor=white" />
   </a>
   <a href="https://lucide.dev/" target="_blank">
     <img src="https://img.shields.io/badge/Lucide--React-FF5722?style=for-the-badge&logo=react&logoColor=white" />
   </a>
   <a href="https://react-icons.github.io/react-icons/" target="_blank">
     <img src="https://img.shields.io/badge/React--Icons-009688?style=for-the-badge&logo=react&logoColor=white" />
+  </a>
+  <a href="https://www.framer.com/motion/" target="_blank">
+    <img src="https://img.shields.io/badge/Framer--Motion-00C4FF?style=for-the-badge&logo=framer&logoColor=black" />
+  </a>
+  <a href="https://github.com/lukeed/clsx" target="_blank">
+    <img src="https://img.shields.io/badge/Clsx-Utility-008080?style=for-the-badge&logo=typescript&logoColor=white" />
+  </a>
+  <a href="https://github.com/faker-js/faker" target="_blank">
+    <img src="https://img.shields.io/badge/Faker.js-Mock%20Data-DC143C?style=for-the-badge&logo=javascript&logoColor=white" />
   </a>
   <a href="https://swr.vercel.app/" target="_blank">
     <img src="https://img.shields.io/badge/SWR-1E90FF?style=for-the-badge&logo=vercel&logoColor=white" />
@@ -149,14 +158,17 @@ Open at: [http://localhost:3000](http://localhost:3000)
   </a>
 </p>
 
-- 🔔 **React Hot Toast** → notifications
-- 📅 **React Day Picker** → calendar inputs
-- 🎞️ **Framer Motion** → animations
-- 🖼️ **Lucide & React Icons** → icons
-- 📡 **SWR** → data fetching & revalidation
-- ✅ **Zod** → form validation (login/register)
-- 🌐 **Native Fetch + API Wrapper** → API requests (with env + Noroff API key)
-- 🗺️ **OpenStreetMap + Google Maps Embed** → venue location previews with markers
+- 🔔 **React Hot Toast** → notifications  
+- 📅 **React Day Picker** → date selection for bookings  
+- 📆 **React Date Range** → booking range selection  
+- 🎞️ **Framer Motion** → animations  
+- 🖼️ **Lucide & React Icons** → icons  
+- 🎨 **Clsx** → utility for conditional classNames  
+- 🧪 **Faker.js** → seeded mock data for testing/demo  
+- 📡 **SWR** → data fetching & caching  
+- ✅ **Zod** → form validation  
+- 🌐 **Fetch API + Noroff API wrapper** → all API requests  
+- 🗺️ **OpenStreetMap + Google Maps Embed** → venue maps  
 
 ---
 
