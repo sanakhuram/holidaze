@@ -15,7 +15,6 @@
   
 <img width="999" height="487" alt="Skjermbilde 2025-09-22 142902" src="https://github.com/user-attachments/assets/351a25ec-b61a-45d5-9ec9-12eeaade8c7d" />
 
-
 ---
 
 ### 🚀 Deliverables
@@ -45,7 +44,7 @@
   <a href="https://holidaze-green.vercel.app/" target="_blank">  
     <img src="https://img.shields.io/badge/View-Live%20Demo-7f1d1d?style=for-the-badge&logo=vercel&logoColor=white" />  
   </a>  
-</p>  
+</p>
 
 ---
 
@@ -70,10 +69,9 @@
   <a href="https://www.figma.com/" target="_blank">  
     <img src="https://img.shields.io/badge/Figma-Design%20System-F24E1E?style=for-the-badge&logo=figma&logoColor=white" />  
   </a>  
-</p>  
+</p>
 
 ---
-
 
 ## ✨ Features & User Stories
 
@@ -151,16 +149,14 @@ Open at: [http://localhost:3000](http://localhost:3000)
   </a>
 </p>
 
-
-- 🔔 **React Hot Toast** → notifications  
-- 📅 **React Day Picker** → calendar inputs  
-- 🎞️ **Framer Motion** → animations  
-- 🖼️ **Lucide & React Icons** → icons  
-- 📡 **SWR** → data fetching & revalidation  
-- ✅ **Zod** → form validation (login/register)  
-- 🌐 **Native Fetch + API Wrapper** → API requests (with env + Noroff API key)  
-- 🗺️ **OpenStreetMap + Google Maps Embed** → venue location previews with markers  
-
+- 🔔 **React Hot Toast** → notifications
+- 📅 **React Day Picker** → calendar inputs
+- 🎞️ **Framer Motion** → animations
+- 🖼️ **Lucide & React Icons** → icons
+- 📡 **SWR** → data fetching & revalidation
+- ✅ **Zod** → form validation (login/register)
+- 🌐 **Native Fetch + API Wrapper** → API requests (with env + Noroff API key)
+- 🗺️ **OpenStreetMap + Google Maps Embed** → venue location previews with markers
 
 ---
 
@@ -173,9 +169,7 @@ Open at: [http://localhost:3000](http://localhost:3000)
   <img src="https://img.shields.io/badge/W3C%20HTML%20Validator-Passed-green?style=for-the-badge&logo=w3c&logoColor=white" />
 </p>
 
-
 ---
-
 
 ## 📋 Project Brief
 

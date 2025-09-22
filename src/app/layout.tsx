@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   description:
     "Holidaze is a modern accommodation booking platform where users can find, book, and manage holiday venues. Venue managers can also create and manage their listings with ease.",
   icons: {
-  icon:"/favicon.ico"
-},
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
