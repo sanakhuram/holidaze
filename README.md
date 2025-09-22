@@ -12,7 +12,8 @@
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/24a4b2db-34b7-408d-9483-7fd052ed66af" alt="Hero Screenshot" width="45%" />
+  ![Screenshot_22-9-2025_131447_localhost](https://github.com/user-attachments/assets/dfba8b32-5b0d-41d7-ae9d-6552ea8071c0)
+
   <img src="https://github.com/user-attachments/assets/7a4e5c9e-fc09-4211-9078-98417ec65222" alt="Venues Grid Screenshot" width="45%" />
 </p>
 
