@@ -13,7 +13,7 @@ export default function CreateVenueButton() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="hover:bg-coffee/90 inline-flex items-center gap-2 rounded-md bg-amber-600 px-4 py-2 text-white"
+        className="hover:bg-wine inline-flex items-center gap-2 rounded-md bg-amber-600 px-4 py-2 text-white"
       >
         <Plus className="h-5 w-5" aria-hidden />
         Create venue

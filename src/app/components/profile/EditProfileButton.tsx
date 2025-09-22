@@ -15,7 +15,7 @@ export default function EditProfileButton({ profile }: { profile: Profile }) {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="bg-wine hover:bg-coffee/90 flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium text-white shadow"
+        className="bg-wine hover:bg-amber-600 flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium text-white shadow"
       >
         <Pencil className="h-4 w-4" />
         Edit profile

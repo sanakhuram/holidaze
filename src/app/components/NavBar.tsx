@@ -11,6 +11,7 @@ import { useAuthModal } from "../auth/AuthModalContext";
 import { useSession } from "@/hooks/useSession";
 import clsx from "clsx";
 import type { Route } from "next";
+import toast from "react-hot-toast";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -20,9 +21,17 @@ export default function Navbar() {
   const { authenticated, user, refresh } = useSession();
 
   const logout = async () => {
-    await fetch("/auth/logout", { method: "POST" });
-    await refresh();
-    router.refresh();
+    try {
+      const res = await fetch("/auth/logout", { method: "POST" });
+      if (!res.ok) throw new Error("Logout failed");
+
+      await refresh();
+      router.push("/venues"); 
+      toast.success("👋 Logged out successfully!");
+    } catch (err) {
+      console.error(err);
+      toast.error("Logout failed. Please try again.");
+    }
   };
 
   const initial = (user?.name || user?.email || "").trim().charAt(0).toUpperCase() || "👤";
