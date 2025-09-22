@@ -8,6 +8,7 @@ import { useVenueSearch } from "@/hooks/useVenueSearch";
 import FeaturedVenues from "../components/venue/FeaturedVenues";
 import SearchFilters from "../components/venue/SearchFilters";
 import VenueGrid from "../components/venue/VenueGrid";
+import VenueSkeletonGrid from "../components/venue/VenueSkeletonGrid";
 
 const CONTAINER = "mx-auto w-full max-w-6xl px-4";
 
@@ -59,9 +60,7 @@ export default function VenuesPage() {
       <SearchFilters q={q} setQ={setQ} filters={filters} setFilters={setFilters} />
 
       {showLoading ? (
-        <div className={`${CONTAINER} py-20 text-center text-amber-600`}>
-          Loading venues, please wait…
-        </div>
+        <VenueSkeletonGrid />
       ) : (
         <VenueGrid venues={venues} meta={meta} setPage={setPage} />
       )}
