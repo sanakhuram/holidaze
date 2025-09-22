@@ -12,8 +12,10 @@
 ## 📸 Screenshots
 
 <p align="center">
+  
+<img width="999" height="487" alt="Skjermbilde 2025-09-22 142902" src="https://github.com/user-attachments/assets/351a25ec-b61a-45d5-9ec9-12eeaade8c7d" />
 
-![Screenshot_22-9-2025_142555_uxfol io](https://github.com/user-attachments/assets/b10394a4-be11-4c8e-9c45-a6f85700d825)
+
 
 ---
 
