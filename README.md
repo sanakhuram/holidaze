@@ -13,13 +13,7 @@
 
 <p align="center">
 
-
-
-https://github.com/user-attachments/assets/8591b282-1c87-4ed5-91c9-b6d164952c4f
-
-
-
-
+![Screenshot_22-9-2025_142555_uxfol io](https://github.com/user-attachments/assets/b10394a4-be11-4c8e-9c45-a6f85700d825)
 
 ---
 
