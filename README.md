@@ -11,20 +11,11 @@
 
 ## 📸 Screenshots
 
-<div align="center">
-  <img 
-   ![Screenshot_22-9-2025_13143_localhost](https://github.com/user-attachments/assets/24a4b2db-34b7-408d-9483-7fd052ed66af)
-    alt="Hero Screenshot" 
-    width="45%" 
-    style="margin-right: 10px; border-radius: 12px;" 
-  />
-  <img 
-    ![Screenshot_22-9-2025_13136_localhost](https://github.com/user-attachments/assets/7a4e5c9e-fc09-4211-9078-98417ec65222)
-    alt="Venues Grid Screenshot" 
-    width="45%" 
-    style="margin-right: 10px; border-radius: 12px;" 
-  />
-</div>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/24a4b2db-34b7-408d-9483-7fd052ed66af" alt="Hero Screenshot" width="45%" />
+  <img src="https://github.com/user-attachments/assets/7a4e5c9e-fc09-4211-9078-98417ec65222" alt="Venues Grid Screenshot" width="45%" />
+</p>
+
 
 ---
 
