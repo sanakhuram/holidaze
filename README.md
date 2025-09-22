@@ -155,6 +155,32 @@ Open at: [http://localhost:3000](http://localhost:3000)
 
 ---
 
+## 🧪 Testing & Validation
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Lighthouse-95%2B-green?style=for-the-badge&logo=lighthouse&logoColor=white" />
+  <img src="https://img.shields.io/badge/Axe--Core-No%20critical%20issues-blue?style=for-the-badge&logo=axe&logoColor=white" />
+  <img src="https://img.shields.io/badge/WAVE-Contrast%20%26%20ARIA%20checked-orange?style=for-the-badge&logo=wave&logoColor=white" />
+  <img src="https://img.shields.io/badge/W3C%20HTML%20Validator-Passed-9cf?style=for-the-badge&logo=w3c&logoColor=white" />
+</p>
+
+### ✅ Validation Steps
+
+* **Lighthouse** → Checked performance, accessibility, best practices, and SEO.
+* **Axe DevTools** → Validated WCAG 2.1 AA compliance, fixed issues like invalid `role` usage.
+* **WAVE** → Verified color contrast, alt text, ARIA landmarks.
+* **W3C Validator** → Fixed semantic HTML errors (e.g. replacing `section role="button"` with `<button>`).
+
+### 📊 Results
+
+* Lighthouse Accessibility: **95+** on all main pages.
+* Axe: **No critical issues**, minor warnings addressed.
+* WAVE: No missing alt text or structural landmark errors.
+* W3C Validator: ✅ HTML validation passed.
+
+---
+
+
 ## 📋 Project Brief
 
 **Holidaze** was developed as part of **Noroff FED2 Project Exam 2**.
