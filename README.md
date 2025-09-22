@@ -9,10 +9,6 @@
 
 ---
 
-
-Uploading Spiller inn 2025-09-22 131700.mp4…
-
-
 ## 📸 Screenshots
 
 <div align="center">
