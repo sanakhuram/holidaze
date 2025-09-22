@@ -1,8 +1,12 @@
 <div align="center">
-  <h1 style="color:#7f1d1d;">Holidaze</h1> 
-  <h3 style="color:#4b3832;">Noroff FED2 – Final Project Exam</h3> 
-  <p style="color:#d97706;">A modern accommodation booking platform built with Next.js, React, TypeScript, and TailwindCSS.</p> 
+  <h1 style="color:#7f1d1d;">Holidaze 🌴</h1>
+  <h3>Noroff FED2 – Final Project Exam</h3>
+  <p>A modern accommodation booking platform built with Next.js, React, TypeScript, and TailwindCSS.</p>
+  <a href="https://holidaze-green.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/View%20Live-Demo-7f1d1d?style=for-the-badge&logo=vercel&logoColor=white" alt="View Live Demo" />
+  </a>
 </div>
+
 
 ---
 
