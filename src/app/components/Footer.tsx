@@ -116,7 +116,7 @@ export default function Footer() {
       </div>
 
       <div className="mt-12 text-center text-xs opacity-90">
-        © {new Date().getFullYear()} Holidaze 🌴. Build with 🧡 by{" "}
+        © {new Date().getFullYear()} Holidaze. Build with 🧡 by{" "}
         <a href="mailto:sana.khuram.baig@gmail.com" className="font-semibold hover:underline">
           Sana Khuram
         </a>
