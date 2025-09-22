@@ -21,10 +21,10 @@
 ### 🚀 Deliverables
 
 <p align="center">  
-  <a href="https://github.com/sanakhuram/holidaze/projects" target="_blank">  
+  <a href="https://github.com/users/sanakhuram/projects/6" target="_blank">  
     <img src="https://img.shields.io/badge/Kanban-Board-0A66C2?style=for-the-badge&logo=trello&logoColor=white" />  
   </a>  
-  <a href="https://github.com/sanakhuram/holidaze/blob/main/GanttChart.png" target="_blank">  
+  <a href="https://github.com/users/sanakhuram/projects/6/views/2" target="_blank">  
     <img src="https://img.shields.io/badge/Gantt-Chart-4682B4?style=for-the-badge&logo=clockify&logoColor=white" />  
   </a>  
   <a href="https://www.figma.com/design/4ya7bUgAL0onYXAJuJklb1/Holidaze?node-id=48-3" target="_blank">  
