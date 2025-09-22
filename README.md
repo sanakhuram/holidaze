@@ -16,39 +16,64 @@
 <img width="999" height="487" alt="Skjermbilde 2025-09-22 142902" src="https://github.com/user-attachments/assets/351a25ec-b61a-45d5-9ec9-12eeaade8c7d" />
 
 
+---
+
+### 🚀 Deliverables
+
+<p align="center">  
+  <a href="https://github.com/sanakhuram/holidaze/projects" target="_blank">  
+    <img src="https://img.shields.io/badge/Kanban-Board-0A66C2?style=for-the-badge&logo=trello&logoColor=white" />  
+  </a>  
+  <a href="https://github.com/sanakhuram/holidaze/blob/main/GanttChart.png" target="_blank">  
+    <img src="https://img.shields.io/badge/Gantt-Chart-4682B4?style=for-the-badge&logo=clockify&logoColor=white" />  
+  </a>  
+  <a href="https://www.figma.com/design/4ya7bUgAL0onYXAJuJklb1/Holidaze?node-id=48-3" target="_blank">  
+    <img src="https://img.shields.io/badge/Figma-Style%20Guide-FF4500?style=for-the-badge&logo=figma&logoColor=white" />  
+  </a>  
+  <a href="https://www.figma.com/design/4ya7bUgAL0onYXAJuJklb1/Holidaze?node-id=72-42" target="_blank">  
+    <img src="https://img.shields.io/badge/Figma-Wireframes-FF1493?style=for-the-badge&logo=figma&logoColor=white" />  
+  </a>  
+  <a href="https://www.figma.com/design/4ya7bUgAL0onYXAJuJklb1/Holidaze?node-id=48-2" target="_blank">  
+    <img src="https://img.shields.io/badge/Figma-Mobile%20Prototype-FF8C00?style=for-the-badge&logo=figma&logoColor=white" />  
+  </a>  
+  <a href="https://www.figma.com/design/4ya7bUgAL0onYXAJuJklb1/Holidaze?node-id=0-1" target="_blank">  
+    <img src="https://img.shields.io/badge/Figma-Desktop%20Prototype-DC143C?style=for-the-badge&logo=figma&logoColor=white" />  
+  </a>  
+  <a href="https://github.com/sanakhuram/holidaze" target="_blank">  
+    <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white" />  
+  </a>  
+  <a href="https://holidaze-green.vercel.app/" target="_blank">  
+    <img src="https://img.shields.io/badge/View-Live%20Demo-7f1d1d?style=for-the-badge&logo=vercel&logoColor=white" />  
+  </a>  
+</p>  
 
 ---
 
-## 🛠️ Tech Stack
+### 🛠️ Tech Stack
 
-<p align="center">
-  <a href="https://react.dev/" target="_blank">
-    <img src="https://img.shields.io/badge/React-19-FF61F6?style=for-the-badge&logo=react&logoColor=white" />
-  </a>
-  <a href="https://nextjs.org/" target="_blank">
-    <img src="https://img.shields.io/badge/Next.js-15-8A2BE2?style=for-the-badge&logo=nextdotjs&logoColor=white" />
-  </a>
-  <a href="https://www.typescriptlang.org/" target="_blank">
-    <img src="https://img.shields.io/badge/TypeScript-5-1E90FF?style=for-the-badge&logo=typescript&logoColor=white" />
-  </a>
-  <a href="https://tailwindcss.com/" target="_blank">
-    <img src="https://img.shields.io/badge/TailwindCSS-4-FFD700?style=for-the-badge&logo=tailwindcss&logoColor=black" />
-  </a>
-  <a href="https://www.figma.com/design/4ya7bUgAL0onYXAJuJklb1/Holidaze?node-id=48-3&t=ShOEkJL9FgCr1KEp-1" target="_blank">
-    <img src="https://img.shields.io/badge/Figma-Style%20Guide-FF4500?style=for-the-badge&logo=figma&logoColor=white" />
-  </a>
-  <a href="https://www.figma.com/design/4ya7bUgAL0onYXAJuJklb1/Holidaze?node-id=72-42&t=ShOEkJL9FgCr1KEp-1" target="_blank">
-    <img src="https://img.shields.io/badge/Figma-Wireframes-FF1493?style=for-the-badge&logo=figma&logoColor=white" />
-  </a>
-  <a href="https://www.figma.com/design/4ya7bUgAL0onYXAJuJklb1/Holidaze?node-id=48-2&t=ShOEkJL9FgCr1KEp-1" target="_blank">
-    <img src="https://img.shields.io/badge/Figma-Mobile%20Prototype-FF8C00?style=for-the-badge&logo=figma&logoColor=white" />
-  </a>
-  <a href="https://www.figma.com/design/4ya7bUgAL0onYXAJuJklb1/Holidaze?node-id=0-1&t=ShOEkJL9FgCr1KEp-1" target="_blank">
-    <img src="https://img.shields.io/badge/Figma-Desktop%20Prototype-DC143C?style=for-the-badge&logo=figma&logoColor=white" />
-  </a>
-</p>
+<p align="center">  
+  <a href="https://react.dev/" target="_blank">  
+    <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" />  
+  </a>  
+  <a href="https://nextjs.org/" target="_blank">  
+    <img src="https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />  
+  </a>  
+  <a href="https://www.typescriptlang.org/" target="_blank">  
+    <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />  
+  </a>  
+  <a href="https://tailwindcss.com/" target="_blank">  
+    <img src="https://img.shields.io/badge/TailwindCSS-3-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white" />  
+  </a>  
+  <a href="https://www.canva.com/" target="_blank">  
+    <img src="https://img.shields.io/badge/Canva-Design-00C4CC?style=for-the-badge&logo=canva&logoColor=white" />  
+  </a>  
+  <a href="https://www.figma.com/" target="_blank">  
+    <img src="https://img.shields.io/badge/Figma-Design%20System-F24E1E?style=for-the-badge&logo=figma&logoColor=white" />  
+  </a>  
+</p>  
 
 ---
+
 
 ## ✨ Features & User Stories
 
