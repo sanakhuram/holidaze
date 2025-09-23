@@ -28,12 +28,12 @@ export default async function ProfilePage() {
 
   if (!token || !username) {
     return (
-      <main className="mx-auto max-w-6xl px-4 py-10">
+      <section className="mx-auto max-w-6xl px-4 py-10">
         <h1 className="mb-4 text-2xl font-bold">My Profile</h1>
         <p className="text-coffee">
           You’re not logged in (or we can’t find your username). Please sign in again.
         </p>
-      </main>
+      </section>
     );
   }
 
@@ -43,10 +43,10 @@ export default async function ProfilePage() {
   } catch (e: unknown) {
     const msg = e instanceof Error ? e.message : "unknown error";
     return (
-      <main className="mx-auto max-w-6xl px-4 py-10">
+      <section className="mx-auto max-w-6xl px-4 py-10">
         <h1 className="mb-4 text-2xl font-bold">My Profile</h1>
         <p className="text-red-600">Failed to load profile: {msg}</p>
-      </main>
+      </section>
     );
   }
 
@@ -116,6 +116,7 @@ export default async function ProfilePage() {
       </div>
 
       <section className="border-wine mt-6 border-b-2 p-5">
+
         <div className="grid gap-6 sm:hidden">
           <div>
             <div className="text-xs text-slate-600">Email:</div>
