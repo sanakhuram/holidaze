@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { cookies } from "next/headers";
@@ -14,7 +13,6 @@ type Params = { name: string };
 
 export default async function ProfileDetailPage({ params }: { params: Promise<Params> }) {
   const { name } = await params;
-
 
   const jar = await cookies();
   const token = jar.get("noroff_token")?.value;

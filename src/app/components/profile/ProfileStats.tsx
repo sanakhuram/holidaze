@@ -15,7 +15,6 @@ export default function ProfileStats({
 }: ProfileStatsProps) {
   return (
     <>
-
       <div className="grid gap-6 sm:hidden">
         {email && (
           <div>
