@@ -5,7 +5,6 @@ import { useEffect, useMemo, useState } from "react";
 import { useSession } from "@/hooks/useSession";
 import toast from "react-hot-toast";
 
-
 type ImgObj = { url?: string; alt?: string };
 type Initial = {
   bio?: string;

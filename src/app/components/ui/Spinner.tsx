@@ -7,4 +7,3 @@ export default function Spinner({ size = 48 }: { size?: number }) {
     />
   );
 }
-

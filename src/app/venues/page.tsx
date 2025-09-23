@@ -8,7 +8,7 @@ import { useVenueSearch } from "@/hooks/useVenueSearch";
 import FeaturedVenues from "../components/venue/FeaturedVenues";
 import SearchFilters from "../components/venue/SearchFilters";
 import VenueGrid from "../components/venue/VenueGrid";
-import Spinner from "../components/ui/Spinner"; 
+import Spinner from "../components/ui/Spinner";
 
 const CONTAINER = "mx-auto w-full max-w-6xl px-4";
 

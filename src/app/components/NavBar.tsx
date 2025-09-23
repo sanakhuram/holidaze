@@ -26,7 +26,7 @@ export default function Navbar() {
       if (!res.ok) throw new Error("Logout failed");
 
       await refresh();
-      router.push("/venues"); 
+      router.push("/venues");
       toast.success("👋 Logged out successfully!");
     } catch (err) {
       console.error(err);

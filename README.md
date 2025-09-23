@@ -158,17 +158,17 @@ Open at: [http://localhost:3000](http://localhost:3000)
   </a>
 </p>
 
-- 🔔 **React Hot Toast** → notifications  
-- 📅 **React Day Picker** → date selection for bookings  
-- 📆 **React Date Range** → booking range selection  
-- 🎞️ **Framer Motion** → animations  
-- 🖼️ **Lucide & React Icons** → icons  
-- 🎨 **Clsx** → utility for conditional classNames  
-- 🧪 **Faker.js** → seeded mock data for testing/demo  
-- 📡 **SWR** → data fetching & caching  
-- ✅ **Zod** → form validation  
-- 🌐 **Fetch API + Noroff API wrapper** → all API requests  
-- 🗺️ **OpenStreetMap + Google Maps Embed** → venue maps  
+- 🔔 **React Hot Toast** → notifications
+- 📅 **React Day Picker** → date selection for bookings
+- 📆 **React Date Range** → booking range selection
+- 🎞️ **Framer Motion** → animations
+- 🖼️ **Lucide & React Icons** → icons
+- 🎨 **Clsx** → utility for conditional classNames
+- 🧪 **Faker.js** → seeded mock data for testing/demo
+- 📡 **SWR** → data fetching & caching
+- ✅ **Zod** → form validation
+- 🌐 **Fetch API + Noroff API wrapper** → all API requests
+- 🗺️ **OpenStreetMap + Google Maps Embed** → venue maps
 
 ---
 

@@ -116,9 +116,7 @@ export default async function ProfilePage() {
       </div>
 
       <section className="border-wine mt-6 border-b-2 p-5">
-
         <div className="grid gap-6 sm:hidden">
-
           <div>
             <div className="text-xs text-slate-600">Email:</div>
             <div className="truncate text-sm font-medium break-words">{profile.email ?? "—"}</div>
