@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useSession } from "@/hooks/useSession";
 import toast from "react-hot-toast";
 
+
 type ImgObj = { url?: string; alt?: string };
 type Initial = {
   bio?: string;
@@ -112,7 +113,6 @@ export default function ProfileEditModal({
         aria-modal="true"
         className={`relative max-h-[90vh] w-[95%] overflow-y-auto rounded-2xl border border-slate-200 bg-[var(--background)] p-4 text-slate-900 shadow-xl transition sm:w-[90%] sm:p-6 md:w-[80%] lg:max-w-2xl ${open ? "scale-100 opacity-100" : "scale-95 opacity-0"}`}
       >
-        {/* Header */}
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-base font-semibold sm:text-lg">Edit profile</h2>
           <button

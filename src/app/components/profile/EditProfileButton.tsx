@@ -1,4 +1,3 @@
-// src/app/profile/EditProfileButton.tsx
 "use client";
 
 import { useState } from "react";
@@ -7,7 +6,13 @@ import ProfileEditModal from "./ProfileEditModal";
 import type { Profile } from "@/app/lib/types";
 import { Pencil } from "lucide-react";
 
-export default function EditProfileButton({ profile }: { profile: Profile }) {
+export default function EditProfileButton({
+  profile,
+  iconOnly = false,
+}: {
+  profile: Profile;
+  iconOnly?: boolean;
+}) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
@@ -15,10 +20,15 @@ export default function EditProfileButton({ profile }: { profile: Profile }) {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="bg-wine hover:bg-amber-600 flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium text-white shadow"
+        className={
+          iconOnly
+            ? "rounded-full bg-amber-600 p-2 text-white shadow hover:bg-amber-500"
+            : "bg-wine flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium text-white shadow hover:bg-amber-600"
+        }
+        aria-label="Edit profile"
       >
-        <Pencil className="h-4 w-4" />
-        Edit profile
+        <Pencil className={iconOnly ? "h-5 w-5" : "h-4 w-4"} />
+        {!iconOnly && "Edit profile"}
       </button>
 
       <ProfileEditModal

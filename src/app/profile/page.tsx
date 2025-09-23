@@ -67,7 +67,7 @@ export default async function ProfilePage() {
   return (
     <main className="mx-auto max-w-6xl px-4 pt-2 pb-10">
       <BackToVenues className="m-4 inline-block" />
-      <div className="relative h-52 w-full overflow-hidden rounded-sm shadow-lg">
+      <div className="relative h-56 w-full overflow-hidden rounded-sm shadow-lg sm:h-64 md:h-72 lg:h-80">
         <img
           src={bannerUrl}
           alt={profile.banner?.alt ?? `${profile.name} banner`}
@@ -75,21 +75,35 @@ export default async function ProfilePage() {
         />
       </div>
 
-      <div className="relative -mt-12 flex flex-col items-start gap-3">
-        <div className="flex items-end gap-3">
-          <div className="ring-wine h-24 w-24 overflow-hidden rounded-2xl shadow-lg ring-4">
-            <img
-              src={avatarUrl}
-              alt={profile.avatar?.alt ?? `${profile.name} avatar`}
-              className="h-full w-full object-cover"
-            />
+      <div className="relative -mt-10 flex flex-col gap-3">
+        <div className="mb-4 flex w-full items-end justify-between gap-3">
+          <div className="flex items-end gap-3">
+            <div className="ring-wine h-24 w-24 overflow-hidden rounded-2xl shadow-lg ring-4">
+              <img
+                src={avatarUrl}
+                alt={profile.avatar?.alt ?? `${profile.name} avatar`}
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div className="pb-1">
+              <VenueManagerToggle initial={!!profile.venueManager} />
+            </div>
           </div>
-          <div className="pb-1">
-            <VenueManagerToggle initial={!!profile.venueManager} />
+
+          <div className="flex flex-wrap gap-3">
+            <div className="hidden gap-3 sm:flex">
+              {profile.venueManager && <CreateVenueButton />}
+              <EditProfileButton profile={profile} />
+            </div>
+
+            <div className="flex gap-3 sm:hidden">
+              {profile.venueManager && <CreateVenueButton iconOnly />}
+              <EditProfileButton profile={profile} iconOnly />
+            </div>
           </div>
         </div>
 
-        <h1 className="text-coffee flex items-center gap-2 text-2xl font-bold">
+        <h1 className="text-coffee mb-1 flex items-center gap-2 text-2xl font-bold">
           {profile.name}
           {profile.venueManager && (
             <span className="bg-wine rounded-lg px-2 py-0.5 text-xs font-medium text-white shadow">
@@ -97,16 +111,39 @@ export default async function ProfilePage() {
             </span>
           )}
         </h1>
-        {profile.email && <p className="text-sm text-amber-800">{profile.email}</p>}
 
-        <div className="mt-2 flex flex-wrap gap-3">
-          {profile.venueManager && <CreateVenueButton />}
-          <EditProfileButton profile={profile} />
-        </div>
+        {profile.email && <p className="text-sm text-amber-800">{profile.email}</p>}
       </div>
 
       <section className="border-wine mt-6 border-b-2 p-5">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
+
+        <div className="grid gap-6 sm:hidden">
+
+          <div>
+            <div className="text-xs text-slate-600">Email:</div>
+            <div className="truncate text-sm font-medium break-words">{profile.email ?? "—"}</div>
+          </div>
+
+          <div>
+            <div className="text-xs text-slate-600">Bio:</div>
+            <div className="text-sm font-medium break-words whitespace-pre-wrap">
+              {profile.bio || "—"}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-6">
+            <div>
+              <div className="text-xs text-slate-600">Bookings:</div>
+              <div className="text-sm font-semibold">{upcomingBookings}</div>
+            </div>
+            <div>
+              <div className="text-xs text-slate-600">Venues:</div>
+              <div className="text-sm font-semibold">{profile._count?.venues ?? 0}</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="hidden grid-cols-1 gap-6 sm:grid sm:grid-cols-2 md:grid-cols-4">
           <div>
             <div className="text-xs text-slate-600">Email:</div>
             <div className="truncate text-sm font-medium break-words">{profile.email ?? "—"}</div>
