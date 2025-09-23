@@ -11,6 +11,7 @@ import VenueBookingsCard from "../components/profile/VenueBookingsCard";
 import CollapsibleSection from "../components/ui/CollapsibleSection";
 import HostingGuide from "../components/profile/HostingGuide";
 import BackToVenues from "../components/ui/BackToVenues";
+import ProfileStats from "../components/profile/ProfileStats";
 
 export const dynamic = "force-dynamic";
 
@@ -116,52 +117,12 @@ export default async function ProfilePage() {
       </div>
 
       <section className="border-wine mt-6 border-b-2 p-5">
-
-        <div className="grid gap-6 sm:hidden">
-          <div>
-            <div className="text-xs text-slate-600">Email:</div>
-            <div className="truncate text-sm font-medium break-words">{profile.email ?? "—"}</div>
-          </div>
-
-          <div>
-            <div className="text-xs text-slate-600">Bio:</div>
-            <div className="text-sm font-medium break-words whitespace-pre-wrap">
-              {profile.bio || "—"}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-6">
-            <div>
-              <div className="text-xs text-slate-600">Bookings:</div>
-              <div className="text-sm font-semibold">{upcomingBookings}</div>
-            </div>
-            <div>
-              <div className="text-xs text-slate-600">Venues:</div>
-              <div className="text-sm font-semibold">{profile._count?.venues ?? 0}</div>
-            </div>
-          </div>
-        </div>
-
-        <div className="hidden grid-cols-1 gap-6 sm:grid sm:grid-cols-2 md:grid-cols-4">
-          <div>
-            <div className="text-xs text-slate-600">Email:</div>
-            <div className="truncate text-sm font-medium break-words">{profile.email ?? "—"}</div>
-          </div>
-          <div>
-            <div className="text-xs text-slate-600">Bio:</div>
-            <div className="text-sm font-medium break-words whitespace-pre-wrap">
-              {profile.bio || "—"}
-            </div>
-          </div>
-          <div>
-            <div className="text-xs text-slate-600">Bookings:</div>
-            <div className="text-sm font-semibold">{upcomingBookings}</div>
-          </div>
-          <div>
-            <div className="text-xs text-slate-600">Venues:</div>
-            <div className="text-sm font-semibold">{profile._count?.venues ?? 0}</div>
-          </div>
-        </div>
+        <ProfileStats
+          email={profile.email}
+          bio={profile.bio}
+          upcomingBookings={upcomingBookings}
+          venueCount={profile._count?.venues ?? 0}
+        />
       </section>
 
       <section className="mt-8 space-y-6">
