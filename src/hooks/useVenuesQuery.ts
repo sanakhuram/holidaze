@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { getVenues } from "@/app/lib/api";
 import type { Venue } from "@/app/lib/types";
-import type { PaginationMeta } from "@/app/components/PaginationControls";
+import type { PaginationMeta } from "@/app/components/ui/PaginationControls";
 
 export function useVenuesQuery(page: number, limit: number, searchTerm?: string) {
   const [venues, setVenues] = useState<Venue[]>([]);

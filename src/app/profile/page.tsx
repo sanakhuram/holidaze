@@ -10,7 +10,7 @@ import VenueManagerToggle from "../components/profile/VenueManagerToggle";
 import VenueBookingsCard from "../components/profile/VenueBookingsCard";
 import CollapsibleSection from "../components/ui/CollapsibleSection";
 import HostingGuide from "../components/profile/HostingGuide";
-import BackToVenues from "../components/ui/BackToVenues";
+import BackToVenues from "../components/ui/BackButton";
 import ProfileStats from "../components/profile/ProfileStats";
 
 export const dynamic = "force-dynamic";

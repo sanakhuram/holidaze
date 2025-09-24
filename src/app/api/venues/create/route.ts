@@ -1,9 +1,5 @@
-// src/app/api/venues/create/route.ts
 import { NextResponse } from "next/server";
-import { cookies } from "next/headers";
-
-const BASE = process.env.NOROFF_API_URL ?? "https://v2.api.noroff.dev";
-const API_KEY = process.env.NOROFF_API_KEY;
+import { noroffFetch } from "../../_utils/noroff";
 
 type Media = { url: string; alt?: string };
 type Meta = { wifi?: boolean; parking?: boolean; breakfast?: boolean; pets?: boolean };
@@ -51,10 +47,6 @@ function pickErrors(data: unknown): unknown[] {
 
 export async function POST(req: Request) {
   try {
-    const jar = await cookies();
-    const token = jar.get("noroff_token")?.value;
-    if (!token) return NextResponse.json({ message: "Not authenticated" }, { status: 401 });
-
     let raw: unknown;
     try {
       raw = await req.json();
@@ -92,29 +84,14 @@ export async function POST(req: Request) {
       },
     };
 
-    const up = await fetch(`${BASE}/holidaze/venues`, {
+    const { resp, data } = await noroffFetch("/holidaze/venues", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        ...(API_KEY ? { "X-Noroff-API-Key": API_KEY } : {}),
-        Authorization: `Bearer ${token}`,
-        Accept: "application/json",
-      },
-      body: JSON.stringify(payload),
-      cache: "no-store",
+      json: payload,
     });
 
-    const text = await up.text();
-    let data: unknown;
-    try {
-      data = JSON.parse(text);
-    } catch {
-      data = text;
-    }
-
-    if (!up.ok) {
+    if (!resp.ok) {
       const msg = pickMessage(data) ?? "Create failed";
-      return NextResponse.json({ message: msg, errors: pickErrors(data) }, { status: up.status });
+      return NextResponse.json({ message: msg, errors: pickErrors(data) }, { status: resp.status });
     }
 
     return NextResponse.json(data, { status: 201 });

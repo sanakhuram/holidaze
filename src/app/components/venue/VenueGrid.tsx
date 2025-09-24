@@ -1,8 +1,8 @@
 "use client";
 import VenueCard from "../venue/VenueCard";
-import PaginationControls from "../PaginationControls";
+import PaginationControls from "../ui/PaginationControls";
 import type { Venue } from "@/app/lib/types";
-import type { PaginationMeta } from "../PaginationControls";
+import type { PaginationMeta } from "../ui/PaginationControls";
 
 const CONTAINER = "mx-auto w-full max-w-6xl px-4";
 

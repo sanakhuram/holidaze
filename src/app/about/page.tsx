@@ -1,6 +1,6 @@
 // src/app/components/AboutUs.tsx
 import Image from "next/image";
-import BackToVenues from "../components/ui/BackToVenues";
+import BackToVenues from "../components/ui/BackButton";
 
 type HeadingLevel = "h1" | "h2";
 

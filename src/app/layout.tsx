@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "./components/NavBar";
-import Footer from "./components/Footer";
+import Navbar from "./components/ui/NavBar";
+import Footer from "./components/ui/Footer";
 import { poppins } from "./fonts";
-import ToastProvider from "./components/ToastProvider";
+import ToastProvider from "./components/ui/ToastProvider";
 import { AuthModalProvider } from "./auth/AuthModalContext";
 import BackToTop from "./components/ui/BactToTop";
 

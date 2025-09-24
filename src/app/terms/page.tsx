@@ -2,7 +2,7 @@
 
 import { FormEvent } from "react";
 import { toast } from "react-hot-toast";
-import BackToVenues from "../components/ui/BackToVenues";
+import BackToVenues from "../components/ui/BackButton";
 
 export default function TermsPage() {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {

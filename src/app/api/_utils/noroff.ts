@@ -42,9 +42,7 @@ export async function noroffFetch(
   let data: NoroffResponse = {};
   try {
     if (resp.status !== 204) data = await resp.json();
-  } catch {
-    /* ignore */
-  }
+  } catch {}
   return { resp, data };
 }
 

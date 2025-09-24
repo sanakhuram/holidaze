@@ -7,7 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { MapPinned, LogIn, LogOut, UserPlus } from "lucide-react";
 import { GiPalmTree } from "react-icons/gi";
 import { FaUmbrellaBeach } from "react-icons/fa";
-import { useAuthModal } from "../auth/AuthModalContext";
+import { useAuthModal } from "@/app/auth/AuthModalContext";
 import { useSession } from "@/hooks/useSession";
 import clsx from "clsx";
 import type { Route } from "next";
@@ -27,7 +27,7 @@ export default function Navbar() {
 
       await refresh();
       router.push("/venues");
-      toast.success("👋 Logged out successfully!");
+      toast.success("Logged out successfully!");
     } catch (err) {
       console.error(err);
       toast.error("Logout failed. Please try again.");

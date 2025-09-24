@@ -6,7 +6,7 @@ import type { Profile } from "@/app/lib/types";
 import VenuesList from "@/app/components/profile/VenueList";
 import BookingsList from "@/app/components/profile/BookingList";
 import CollapsibleSection from "@/app/components/ui/CollapsibleSection";
-import BackToVenues from "@/app/components/ui/BackToVenues";
+import BackToVenues from "@/app/components/ui/BackButton";
 import ProfileStats from "@/app/components/profile/ProfileStats";
 
 type Params = { name: string };

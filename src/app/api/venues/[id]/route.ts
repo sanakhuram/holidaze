@@ -1,14 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// src/app/api/venues/[id]/route.ts
 import { NextResponse } from "next/server";
-import { cookies } from "next/headers";
 import { z } from "zod";
-
-const BASE = process.env.NOROFF_API_URL ?? "https://v2.api.noroff.dev";
-const API_KEY = process.env.NOROFF_API_KEY;
-
-const strip = <T extends object>(o: T) =>
-  Object.fromEntries(Object.entries(o).filter(([, v]) => v != null)) as Partial<T>;
+import { noroffFetch, strip } from "../../_utils/noroff";
 
 const s = z.string().trim().optional().nullable();
 const n = z.coerce.number().optional().nullable();
@@ -40,11 +32,8 @@ type RouteCtx = { params: Promise<{ id: string }> };
 
 export async function PUT(req: Request, ctx: RouteCtx) {
   const { id } = await ctx.params;
-  const jar = await cookies();
-  const token = jar.get("noroff_token")?.value;
-  if (!token) return NextResponse.json({ message: "Not authenticated" }, { status: 401 });
-
   const json = (await req.json().catch(() => ({}))) as unknown;
+
   const parsed = UpdateSchema.safeParse(json);
   if (!parsed.success) {
     return NextResponse.json(
@@ -72,50 +61,20 @@ export async function PUT(req: Request, ctx: RouteCtx) {
       : undefined,
   });
 
-  const up = await fetch(`${BASE}/holidaze/venues/${encodeURIComponent(id)}`, {
+  const { resp, data } = await noroffFetch(`/holidaze/venues/${encodeURIComponent(id)}`, {
     method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      ...(API_KEY ? { "X-Noroff-API-Key": API_KEY } : {}),
-      Authorization: `Bearer ${token}`,
-      Accept: "application/json",
-    },
-    body: JSON.stringify(payload),
-    cache: "no-store",
+    json: payload,
   });
 
-  const data = await up.json().catch(() => ({}));
-  if (!up.ok) {
-    return NextResponse.json(
-      { message: (data as any)?.message || "Update failed", errors: (data as any)?.errors ?? [] },
-      { status: up.status }
-    );
-  }
-  return NextResponse.json(data, { status: 200 });
+  return NextResponse.json(data, { status: resp.status });
 }
 
 export async function DELETE(_req: Request, ctx: RouteCtx) {
   const { id } = await ctx.params;
-  const jar = await cookies();
-  const token = jar.get("noroff_token")?.value;
-  if (!token) return NextResponse.json({ message: "Not authenticated" }, { status: 401 });
-
-  const del = await fetch(`${BASE}/holidaze/venues/${encodeURIComponent(id)}`, {
+  const { resp, data } = await noroffFetch(`/holidaze/venues/${encodeURIComponent(id)}`, {
     method: "DELETE",
-    headers: {
-      ...(API_KEY ? { "X-Noroff-API-Key": API_KEY } : {}),
-      Authorization: `Bearer ${token}`,
-      Accept: "application/json",
-    },
-    cache: "no-store",
   });
 
-  if (!del.ok && del.status !== 204) {
-    const data = await del.json().catch(() => ({}));
-    return NextResponse.json(
-      { message: (data as any)?.message || "Delete failed", errors: (data as any)?.errors ?? [] },
-      { status: del.status }
-    );
-  }
-  return new NextResponse(null, { status: 204 });
+  if (resp.status === 204) return new NextResponse(null, { status: 204 });
+  return NextResponse.json(data, { status: resp.status });
 }

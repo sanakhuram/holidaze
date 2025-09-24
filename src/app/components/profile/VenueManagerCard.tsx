@@ -1,6 +1,6 @@
 "use client";
 
-import SafeImage from "@/app/components/SafeImage";
+import SafeImage from "@/app/components/ui/SafeImage";
 import type { Venue } from "@/app/lib/types";
 import { MapPin, DollarSign } from "lucide-react";
 import EditVenueButton from "../venue/EditVenueButton";

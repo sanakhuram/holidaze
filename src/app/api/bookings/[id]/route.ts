@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// src/app/api/bookings/[id]/route.ts
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { noroffFetch } from "../../_utils/noroff";
@@ -25,16 +23,7 @@ export async function DELETE(_req: Request, ctx: RouteCtx) {
     });
 
     if (resp.status === 204) return new NextResponse(null, { status: 204 });
-    return NextResponse.json(
-      {
-        message:
-          data && typeof data === "object" && "message" in data
-            ? (data as any).message
-            : "Cancel failed",
-        errors: data && typeof data === "object" && "errors" in data ? (data as any).errors : [],
-      },
-      { status: resp.status }
-    );
+    return NextResponse.json(data, { status: resp.status });
   } catch (e: unknown) {
     return NextResponse.json(
       { message: e instanceof Error ? e.message : "Unknown error" },

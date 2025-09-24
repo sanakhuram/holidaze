@@ -2,7 +2,7 @@
 
 import { Pencil, Trash2, Users } from "lucide-react";
 import Link from "next/link";
-import SafeImage from "@/app/components/SafeImage";
+import SafeImage from "@/app/components/ui/SafeImage";
 import CancelBookingButton from "../bookings/CancelBookingButton";
 import EditBookingButton from "../bookings/EditBookingButton";
 import type { BookingWithVenue } from "@/app/lib/types";

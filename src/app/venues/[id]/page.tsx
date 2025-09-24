@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 import MediaGallery from "../../components/bookings/MediaGallery";
 import BookingSection from "../../components/bookings/BookingSection";
 import FakeReviews from "@/app/components/reviews/VenueReviews";
-import BackToVenues from "@/app/components/ui/BackToVenues";
+import BackToVenues from "@/app/components/ui/BackButton";
 
 type PageProps = {
   params: Promise<{ id: string }>;
