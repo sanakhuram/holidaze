@@ -19,7 +19,7 @@ export default function VenueCard({ venue }: { venue: Venue }) {
   return (
     <Link
       href={`/venues/${String(venue.id)}` as Route}
-      className="group block rounded-md shadow-xl transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-amber-500/60 focus-visible:outline-none"
+      className="group block rounded-md shadow-2xl transition hover:-translate-y-0.5 hover:shadow-md focus-visible:ring-2 focus-visible:ring-amber-500/60 focus-visible:outline-none"
     >
       <div className="relative h-48 w-full overflow-hidden rounded-t-md">
         <SafeImage

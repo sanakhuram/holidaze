@@ -68,7 +68,7 @@ export default async function ProfilePage() {
   return (
     <main className="mx-auto max-w-6xl px-4 pt-2 pb-10">
       <BackToVenues className="m-4 inline-block" />
-      <div className="relative h-56 w-full overflow-hidden rounded-sm shadow-lg sm:h-64 md:h-72 lg:h-80">
+      <div className="relative h-48 w-full overflow-hidden rounded-sm shadow-lg sm:h-64 md:h-72 lg:h-80">
         <img
           src={bannerUrl}
           alt={profile.banner?.alt ?? `${profile.name} banner`}
@@ -76,7 +76,7 @@ export default async function ProfilePage() {
         />
       </div>
 
-      <div className="relative -mt-10 flex flex-col gap-3">
+      <div className="relative -mt-10 flex flex-col gap-3 pl-4">
         <div className="mb-4 flex w-full items-end justify-between gap-3">
           <div className="flex items-end gap-3">
             <div className="ring-wine h-24 w-24 overflow-hidden rounded-2xl shadow-lg ring-4">

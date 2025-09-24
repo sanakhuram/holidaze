@@ -105,7 +105,7 @@ export default function ProfileEditModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div
         onClick={onClose}
-        className={`absolute inset-0 bg-black/40 transition ${open ? "opacity-100" : "opacity-0"}`}
+        className={`absolute inset-0 bg-black/60 transition ${open ? "opacity-100" : "opacity-0"}`}
       />
       <div
         role="dialog"

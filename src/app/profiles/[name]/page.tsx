@@ -40,7 +40,7 @@ export default async function ProfileDetailPage({ params }: { params: Promise<Pa
     <main className="mx-auto max-w-6xl px-4 pt-2 pb-10">
       <BackToVenues className="m-4 inline-block" />
 
-      <div className="relative h-56 w-full overflow-hidden rounded-sm shadow-lg sm:h-64 md:h-72 lg:h-80">
+      <div className="relative h-48 w-full overflow-hidden rounded-sm shadow-lg sm:h-64 md:h-72 lg:h-80">
         <Image
           src={bannerUrl}
           alt={profile.banner?.alt ?? `${profile.name} banner`}
@@ -51,7 +51,7 @@ export default async function ProfileDetailPage({ params }: { params: Promise<Pa
         />
       </div>
 
-      <div className="relative -mt-12 flex flex-col items-start gap-3">
+      <div className="relative -mt-12 flex flex-col items-start gap-3 pl-4">
         <div className="ring-wine relative h-24 w-24 overflow-hidden rounded-2xl shadow-lg ring-4">
           <Image
             src={avatarUrl}
@@ -63,7 +63,6 @@ export default async function ProfileDetailPage({ params }: { params: Promise<Pa
         </div>
 
         <h1 className="text-coffee flex items-center gap-2 text-2xl font-bold">{profile.name}</h1>
-        {profile.bio && <p className="text-sm text-amber-800">{profile.bio}</p>}
       </div>
 
       <section className="border-wine mt-6 border-b-2 p-5">
