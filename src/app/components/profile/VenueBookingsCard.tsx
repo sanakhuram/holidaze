@@ -13,7 +13,6 @@ export default function VenueBookingsCard({ venue }: { venue: VenueWithExtras })
 
   return (
     <div className="from-coffee to-wine rounded-lg border border-amber-300 bg-gradient-to-b p-4 shadow">
-    
       <h3 className="mb-3 text-lg font-semibold text-amber-200">{venue.name}</h3>
 
       {visibleBookings.length ? (

@@ -10,12 +10,12 @@ export default function BookingsList({
   bookings,
   readonly = false,
   initialCount = 3,
-  filter = "all", 
+  filter = "all",
 }: {
   bookings: BookingWithVenue[];
   readonly?: boolean;
   initialCount?: number;
-  filter?: "all" | "upcoming" | "past"; 
+  filter?: "all" | "upcoming" | "past";
 }) {
   const router = useRouter();
   const now = Date.now();
@@ -55,7 +55,7 @@ export default function BookingsList({
           <div key={b.id} className={filter === "past" ? "opacity-60 hover:opacity-80" : ""}>
             <BookingCard
               b={b}
-              readonly={readonly || filter === "past"} 
+              readonly={readonly || filter === "past"}
               onCancelled={() => router.refresh()}
             />
           </div>
