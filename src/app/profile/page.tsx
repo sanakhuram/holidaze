@@ -132,12 +132,16 @@ export default async function ProfilePage() {
           <VenuesList venues={profile.venues ?? []} isVenueManager={profile.venueManager} />
         </CollapsibleSection>
 
-        <CollapsibleSection title="My Bookings" icon="arrow">
-          <BookingsList bookings={profile.bookings ?? []} />
+        <CollapsibleSection title="My Upcoming Bookings" icon="arrow">
+          <BookingsList bookings={profile.bookings ?? []} filter="upcoming" />
+        </CollapsibleSection>
+
+        <CollapsibleSection title="My Past Bookings" icon="arrow">
+          <BookingsList bookings={profile.bookings ?? []} filter="past" />
         </CollapsibleSection>
 
         {profile.venueManager && (
-          <CollapsibleSection title="Upcoming Bookings" icon="plus">
+          <CollapsibleSection title="Guest Bookings" icon="plus">
             {venuesWithBookings.length ? (
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {venuesWithBookings.map((venue) => (

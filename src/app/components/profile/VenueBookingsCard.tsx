@@ -2,16 +2,23 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import type { VenueWithExtras } from "@/app/lib/types";
 
 export default function VenueBookingsCard({ venue }: { venue: VenueWithExtras }) {
+  const [showAll, setShowAll] = useState(false);
+
+  const bookings = venue.bookings ?? [];
+  const visibleBookings = showAll ? bookings : bookings.slice(0, 1);
+
   return (
     <div className="from-coffee to-wine rounded-lg border border-amber-300 bg-gradient-to-b p-4 shadow">
+    
       <h3 className="mb-3 text-lg font-semibold text-amber-200">{venue.name}</h3>
 
-      {venue.bookings?.length ? (
+      {visibleBookings.length ? (
         <ul className="space-y-3">
-          {venue.bookings.map((b) => (
+          {visibleBookings.map((b) => (
             <li
               key={b.id}
               className="flex items-start gap-3 rounded-md border border-amber-400/50 bg-amber-50 p-3 text-sm"
@@ -44,6 +51,7 @@ export default function VenueBookingsCard({ venue }: { venue: VenueWithExtras })
                     "Unknown"
                   )}
                 </div>
+
                 <div>
                   <span className="font-medium">Dates:</span>{" "}
                   {new Date(b.dateFrom).toLocaleDateString()} →{" "}
@@ -59,6 +67,15 @@ export default function VenueBookingsCard({ venue }: { venue: VenueWithExtras })
         </ul>
       ) : (
         <p className="text-sm text-slate-200">No bookings yet for this venue.</p>
+      )}
+
+      {bookings.length > 1 && (
+        <button
+          onClick={() => setShowAll(!showAll)}
+          className="mt-3 rounded-xl bg-gradient-to-r from-amber-400/30 to-yellow-500/20 px-4 py-1 text-xs text-amber-100 shadow hover:from-amber-300/40 hover:to-orange-400/30"
+        >
+          {showAll ? "Show Less" : "Show All"}
+        </button>
       )}
     </div>
   );

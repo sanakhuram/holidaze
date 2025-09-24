@@ -30,8 +30,11 @@ export default async function ProfileDetailPage({ params }: { params: Promise<Pa
 
   const bannerUrl = profile.banner?.url ?? "/default-banner.jpg";
   const avatarUrl = profile.avatar?.url ?? "/default-avatar.jpg";
-  const now = new Date();
-  const activeBookings = profile.bookings?.filter((b) => new Date(b.dateTo) >= now) ?? [];
+
+  const now = Date.now();
+  const upcomingBookings =
+    profile.bookings?.filter((b) => new Date(b.dateFrom).getTime() >= now) ?? [];
+  const pastBookings = profile.bookings?.filter((b) => new Date(b.dateFrom).getTime() < now) ?? [];
 
   return (
     <main className="mx-auto max-w-6xl px-4 pt-2 pb-10">
@@ -67,7 +70,7 @@ export default async function ProfileDetailPage({ params }: { params: Promise<Pa
         <ProfileStats
           email={profile.email}
           bio={profile.bio}
-          upcomingBookings={activeBookings.length}
+          upcomingBookings={upcomingBookings.length}
           venueCount={profile._count?.venues ?? 0}
         />
       </section>
@@ -77,8 +80,12 @@ export default async function ProfileDetailPage({ params }: { params: Promise<Pa
           <VenuesList venues={profile.venues ?? []} readonly />
         </CollapsibleSection>
 
-        <CollapsibleSection title="Bookings" defaultOpen>
-          <BookingsList bookings={activeBookings} readonly />
+        <CollapsibleSection title="Upcoming Bookings" defaultOpen>
+          <BookingsList bookings={upcomingBookings} readonly />
+        </CollapsibleSection>
+
+        <CollapsibleSection title="Past Bookings">
+          <BookingsList bookings={pastBookings} readonly />
         </CollapsibleSection>
       </div>
     </main>
