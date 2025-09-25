@@ -3,9 +3,6 @@
   <h1 style="color:#7f1d1d;">Holidaze</h1>
   <h3>Noroff FED2 – Final Project Exam</h3>
   <p>A modern accommodation booking platform built with Next.js, React, TypeScript, and TailwindCSS.</p>
-  <a href="https://holidaze-green.vercel.app/" target="_blank">
-    <img src="https://img.shields.io/badge/View%20Live-Demo-7f1d1d?style=flat-square&logo=vercel&logoColor=white" alt="View Live Demo" />
-  </a>
 </div>
 
 ---
@@ -121,8 +118,8 @@ Open at: [http://localhost:3000](http://localhost:3000)
 
 ## 📋 Project Brief
 
-**Holidaze** was developed as part of **Noroff FED2 Project Exam 2**.
-The scope was defined by the official API documentation and included:
+**Holidaze** is developed as part of **Noroff FED2 Project Exam 2**.
+The scope is defined by the official API documentation and included:
 
 * 📌 **Kanban board** (GitHub Projects/Trello)
 * 🎨 **Figma style guide & prototypes** (desktop + mobile)
@@ -147,5 +144,5 @@ The scope was defined by the official API documentation and included:
 * 💼 [LinkedIn](https://www.linkedin.com/in/sana-khuram-157ba02b7/)
 * 📧 [sana.khuram.baig@gmail.com](mailto:sana.khuram.baig@gmail.com)
 
-```
+
 
