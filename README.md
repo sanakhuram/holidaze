@@ -105,6 +105,14 @@ Open at: [http://localhost:3000](http://localhost:3000)
 
 ---
 
+## 🛠️ Developer Tools
+
+* ✨ **Prettier** – automated code formatting  
+* 🔍 **ESLint** – linting & code quality  
+* 🧑‍💻 **TypeScript** – static typing  
+
+---
+
 ## 🧪 Testing & Validation
 
 <p align="center">
@@ -114,13 +122,6 @@ Open at: [http://localhost:3000](http://localhost:3000)
   <img src="https://img.shields.io/badge/W3C%20Validator-Passed-green?style=flat-square&logo=w3c&logoColor=white" />
 </p>
 
----
-
-## 🛠️ Developer Tools
-
-* ✨ **Prettier** – automated code formatting  
-* 🔍 **ESLint** – linting & code quality  
-* 🧑‍💻 **TypeScript** – static typing  
 
 ---
 
