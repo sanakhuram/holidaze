@@ -102,6 +102,7 @@ Open at: [http://localhost:3000](http://localhost:3000)
 * ✅ **Zod** – form validation
 * 🌐 **Noroff API wrapper** – API requests
 * 🗺️ **OpenStreetMap + Google Maps Embed** – venue maps
+* 🛣️ **Next.js Router** – file-based routing & navigation
 
 
 ---
