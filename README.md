@@ -113,6 +113,7 @@ Open at: [http://localhost:3000](http://localhost:3000)
   <img src="https://img.shields.io/badge/WAVE-ARIA%20checked-purple?style=flat-square&logo=wave&logoColor=white" />
   <img src="https://img.shields.io/badge/W3C%20Validator-Passed-green?style=flat-square&logo=w3c&logoColor=white" />
 </p>
+
 ---
 
 ## 🛠️ Developer Tools
