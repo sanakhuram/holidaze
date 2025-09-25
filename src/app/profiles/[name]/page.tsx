@@ -84,7 +84,7 @@ export default async function ProfileDetailPage({ params }: { params: Promise<Pa
         </CollapsibleSection>
 
         <CollapsibleSection title="Past Bookings">
-          <BookingsList bookings={pastBookings} readonly />
+          <BookingsList bookings={pastBookings} readonly filter="past" />
         </CollapsibleSection>
       </div>
     </main>
