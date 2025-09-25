@@ -1,9 +1,10 @@
+
 <div align="center">
   <h1 style="color:#7f1d1d;">Holidaze</h1>
   <h3>Noroff FED2 – Final Project Exam</h3>
   <p>A modern accommodation booking platform built with Next.js, React, TypeScript, and TailwindCSS.</p>
   <a href="https://holidaze-green.vercel.app/" target="_blank">
-    <img src="https://img.shields.io/badge/View%20Live-Demo-7f1d1d?style=for-the-badge&logo=vercel&logoColor=white" alt="View Live Demo" />
+    <img src="https://img.shields.io/badge/View%20Live-Demo-7f1d1d?style=flat-square&logo=vercel&logoColor=white" alt="View Live Demo" />
   </a>
 </div>
 
@@ -12,8 +13,8 @@
 ## 📸 Screenshots
 
 <p align="center">
-  
-<img width="999" height="487" alt="Skjermbilde 2025-09-22 142902" src="https://github.com/user-attachments/assets/351a25ec-b61a-45d5-9ec9-12eeaade8c7d" />
+  <img width="999" height="487" alt="Holidaze Screenshot" src="https://github.com/user-attachments/assets/351a25ec-b61a-45d5-9ec9-12eeaade8c7d" />
+</p>
 
 ---
 
@@ -21,28 +22,28 @@
 
 <p align="center">  
   <a href="https://github.com/users/sanakhuram/projects/6" target="_blank">  
-    <img src="https://img.shields.io/badge/Kanban-Board-0A66C2?style=for-the-badge&logo=trello&logoColor=white" />  
+    <img src="https://img.shields.io/badge/Kanban-Board-0A66C2?style=flat-square&logo=trello&logoColor=white" />  
   </a>  
   <a href="https://github.com/users/sanakhuram/projects/6/views/2" target="_blank">  
-    <img src="https://img.shields.io/badge/Gantt-Chart-4682B4?style=for-the-badge&logo=clockify&logoColor=white" />  
+    <img src="https://img.shields.io/badge/Gantt-Chart-4682B4?style=flat-square&logo=clockify&logoColor=white" />  
   </a>  
   <a href="https://www.figma.com/design/4ya7bUgAL0onYXAJuJklb1/Holidaze?node-id=48-3" target="_blank">  
-    <img src="https://img.shields.io/badge/Figma-Style%20Guide-FF4500?style=for-the-badge&logo=figma&logoColor=white" />  
+    <img src="https://img.shields.io/badge/Figma-Style%20Guide-FF4500?style=flat-square&logo=figma&logoColor=white" />  
   </a>  
   <a href="https://www.figma.com/design/4ya7bUgAL0onYXAJuJklb1/Holidaze?node-id=72-42" target="_blank">  
-    <img src="https://img.shields.io/badge/Figma-Wireframes-FF1493?style=for-the-badge&logo=figma&logoColor=white" />  
+    <img src="https://img.shields.io/badge/Figma-Wireframes-FF1493?style=flat-square&logo=figma&logoColor=white" />  
   </a>  
   <a href="https://www.figma.com/design/4ya7bUgAL0onYXAJuJklb1/Holidaze?node-id=48-2" target="_blank">  
-    <img src="https://img.shields.io/badge/Figma-Mobile%20Prototype-FF8C00?style=for-the-badge&logo=figma&logoColor=white" />  
+    <img src="https://img.shields.io/badge/Figma-Mobile%20Prototype-FF8C00?style=flat-square&logo=figma&logoColor=white" />  
   </a>  
   <a href="https://www.figma.com/design/4ya7bUgAL0onYXAJuJklb1/Holidaze?node-id=0-1" target="_blank">  
-    <img src="https://img.shields.io/badge/Figma-Desktop%20Prototype-DC143C?style=for-the-badge&logo=figma&logoColor=white" />  
+    <img src="https://img.shields.io/badge/Figma-Desktop%20Prototype-DC143C?style=flat-square&logo=figma&logoColor=white" />  
   </a>  
   <a href="https://github.com/sanakhuram/holidaze" target="_blank">  
-    <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white" />  
+    <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=flat-square&logo=github&logoColor=white" />  
   </a>  
   <a href="https://holidaze-green.vercel.app/" target="_blank">  
-    <img src="https://img.shields.io/badge/View-Live%20Demo-7f1d1d?style=for-the-badge&logo=vercel&logoColor=white" />  
+    <img src="https://img.shields.io/badge/View-Live%20Demo-7f1d1d?style=flat-square&logo=vercel&logoColor=white" />  
   </a>  
 </p>
 
@@ -51,37 +52,25 @@
 ### 🛠️ Tech Stack
 
 <p align="center">  
-  <a href="https://react.dev/" target="_blank">  
-    <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" />  
-  </a>  
-  <a href="https://nextjs.org/" target="_blank">  
-    <img src="https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />  
-  </a>  
-  <a href="https://www.typescriptlang.org/" target="_blank">  
-    <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />  
-  </a>  
-  <a href="https://tailwindcss.com/" target="_blank">  
-    <img src="https://img.shields.io/badge/TailwindCSS-3-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white" />  
-  </a>  
-  <a href="https://www.canva.com/" target="_blank">  
-    <img src="https://img.shields.io/badge/Canva-Design-00C4CC?style=for-the-badge&logo=canva&logoColor=white" />  
-  </a>  
-  <a href="https://www.figma.com/" target="_blank">  
-    <img src="https://img.shields.io/badge/Figma-Design%20System-F24E1E?style=for-the-badge&logo=figma&logoColor=white" />  
-  </a>  
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black" />  
+  <img src="https://img.shields.io/badge/Next.js-15-000000?style=flat-square&logo=nextdotjs&logoColor=white" />  
+  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white" />  
+  <img src="https://img.shields.io/badge/TailwindCSS-3-38B2AC?style=flat-square&logo=tailwindcss&logoColor=white" />  
+  <img src="https://img.shields.io/badge/Figma-Design%20System-F24E1E?style=flat-square&logo=figma&logoColor=white" />  
+  <img src="https://img.shields.io/badge/Canva-Design-00C4CC?style=flat-square&logo=canva&logoColor=white" />  
 </p>
 
 ---
 
 ## ✨ Features & User Stories
 
-- 🔑 **Auth:** Register/Login (Noroff `@stud.noroff.no` email restriction)
-- 🌍 **Explore:** View/search venues, filter by rating, guests, or location
-- 📅 **Bookings:** Create, edit, cancel, with calendar of available dates
-- 👤 **Profiles:** Customers see bookings; venue managers manage venues
-- 🏡 **Venue Management:** Create, edit, delete venues, view upcoming bookings
-- 🎨 **Design System:** Responsive, WCAG-compliant, Figma-driven theme
-- 💬 **Feedback:** Toast notifications for all key actions
+- 🔑 **Auth:** Register/Login (Noroff `@stud.noroff.no` restriction)  
+- 🌍 **Explore:** Search venues, filter by rating, guests, or location  
+- 📅 **Bookings:** Create, edit, cancel, with calendar of available dates  
+- 👤 **Profiles:** Customers view bookings; venue managers manage venues  
+- 🏡 **Venue Management:** Create, edit, delete venues, view bookings  
+- 🎨 **Design System:** Responsive, WCAG-compliant, Figma-driven theme  
+- 💬 **Feedback:** Toast notifications for all key actions  
 
 ---
 
@@ -97,88 +86,35 @@ npm install
 
 # Run dev server
 npm run dev
-```
+````
 
 Open at: [http://localhost:3000](http://localhost:3000)
-
-**Branching:**
-
-- `master` → stable release
-- `feature/*` → feature-specific work
 
 ---
 
 ## 📦 Key Packages
 
-<p align="center">
-  <a href="https://nextjs.org/" target="_blank">
-    <img src="https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
-  </a>
-  <a href="https://react.dev/" target="_blank">
-    <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
-  </a>
-  <a href="https://tailwindcss.com/" target="_blank">
-    <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white" />
-  </a>
-  <a href="https://react-hot-toast.com/" target="_blank">
-    <img src="https://img.shields.io/badge/React--Hot--Toast-FF69B4?style=for-the-badge&logo=react&logoColor=white" />
-  </a>
-  <a href="https://react-day-picker.js.org/" target="_blank">
-    <img src="https://img.shields.io/badge/React--Day--Picker-9370DB?style=for-the-badge&logo=react&logoColor=white" />
-  </a>
-  <a href="https://github.com/hypeserver/react-date-range" target="_blank">
-    <img src="https://img.shields.io/badge/React--Date--Range-FFA500?style=for-the-badge&logo=react&logoColor=white" />
-  </a>
-  <a href="https://lucide.dev/" target="_blank">
-    <img src="https://img.shields.io/badge/Lucide--React-FF5722?style=for-the-badge&logo=react&logoColor=white" />
-  </a>
-  <a href="https://react-icons.github.io/react-icons/" target="_blank">
-    <img src="https://img.shields.io/badge/React--Icons-009688?style=for-the-badge&logo=react&logoColor=white" />
-  </a>
-  <a href="https://www.framer.com/motion/" target="_blank">
-    <img src="https://img.shields.io/badge/Framer--Motion-00C4FF?style=for-the-badge&logo=framer&logoColor=black" />
-  </a>
-  <a href="https://github.com/lukeed/clsx" target="_blank">
-    <img src="https://img.shields.io/badge/Clsx-Utility-008080?style=for-the-badge&logo=typescript&logoColor=white" />
-  </a>
-  <a href="https://github.com/faker-js/faker" target="_blank">
-    <img src="https://img.shields.io/badge/Faker.js-Mock%20Data-DC143C?style=for-the-badge&logo=javascript&logoColor=white" />
-  </a>
-  <a href="https://swr.vercel.app/" target="_blank">
-    <img src="https://img.shields.io/badge/SWR-1E90FF?style=for-the-badge&logo=vercel&logoColor=white" />
-  </a>
-  <a href="https://zod.dev/" target="_blank">
-    <img src="https://img.shields.io/badge/Zod-4CAF50?style=for-the-badge&logo=zod&logoColor=white" />
-  </a>
-  <a href="https://www.openstreetmap.org/" target="_blank">
-    <img src="https://img.shields.io/badge/OpenStreetMap-Map%20Embed-6DA55F?style=for-the-badge&logo=openstreetmap&logoColor=white" />
-  </a>
-  <a href="https://www.google.com/maps" target="_blank">
-    <img src="https://img.shields.io/badge/Google%20Maps-Embed-4285F4?style=for-the-badge&logo=googlemaps&logoColor=white" />
-  </a>
-</p>
-
-- 🔔 **React Hot Toast** → notifications
-- 📅 **React Day Picker** → date selection for bookings
-- 📆 **React Date Range** → booking range selection
-- 🎞️ **Framer Motion** → animations
-- 🖼️ **Lucide & React Icons** → icons
-- 🎨 **Clsx** → utility for conditional classNames
-- 🧪 **Faker.js** → seeded mock data for testing/demo
-- 📡 **SWR** → data fetching & caching
-- ✅ **Zod** → form validation
-- 🌐 **Fetch API + Noroff API wrapper** → all API requests
-- 🗺️ **OpenStreetMap + Google Maps Embed** → venue maps
+* 🔔 **React Hot Toast** – notifications
+* 📅 **React Day Picker** – date selection for bookings
+* 📆 **React Date Range** – booking range selection
+* 🎞️ **Framer Motion** – animations
+* 🖼️ **Lucide & React Icons** – icons
+* 🎨 **Clsx** – conditional classNames
+* 🧪 **Faker.js** – mock data
+* 📡 **SWR** – data fetching & caching
+* ✅ **Zod** – form validation
+* 🌐 **Noroff API wrapper** – API requests
+* 🗺️ **OpenStreetMap + Google Maps Embed** – venue maps
 
 ---
 
 ## 🧪 Testing & Validation
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Lighthouse-95%2B-red?style=for-the-badge&logo=lighthouse&logoColor=white" />
-  <img src="https://img.shields.io/badge/Axe--Core-No%20critical%20issues-pink?style=for-the-badge&logo=axe&logoColor=white" />
-  <img src="https://img.shields.io/badge/WAVE-Contrast%20%26%20ARIA%20checked-purple?style=for-the-badge&logo=wave&logoColor=white" />
-  <img src="https://img.shields.io/badge/W3C%20HTML%20Validator-Passed-green?style=for-the-badge&logo=w3c&logoColor=white" />
+  <img src="https://img.shields.io/badge/Lighthouse-95%2B-red?style=flat-square&logo=lighthouse&logoColor=white" />
+  <img src="https://img.shields.io/badge/Axe--Core-No%20critical%20issues-pink?style=flat-square&logo=axe&logoColor=white" />
+  <img src="https://img.shields.io/badge/WAVE-ARIA%20checked-purple?style=flat-square&logo=wave&logoColor=white" />
+  <img src="https://img.shields.io/badge/W3C%20Validator-Passed-green?style=flat-square&logo=w3c&logoColor=white" />
 </p>
 
 ---
@@ -186,38 +122,30 @@ Open at: [http://localhost:3000](http://localhost:3000)
 ## 📋 Project Brief
 
 **Holidaze** was developed as part of **Noroff FED2 Project Exam 2**.
-The scope was defined by the official API documentation and included these deliverables:
+The scope was defined by the official API documentation and included:
 
-- 📌 **Kanban board** (GitHub Projects/Trello with Roadmap)
-- 🎨 **Figma style guide & prototypes** (desktop + mobile)
-- 🖥️ **Error-free, modular front-end** (Next.js + TypeScript + TailwindCSS)
-- ✅ **Manual testing** of user stories + accessibility validation (Lighthouse, WAVE)
-- 🚀 **Deployment** on Vercel
+* 📌 **Kanban board** (GitHub Projects/Trello)
+* 🎨 **Figma style guide & prototypes** (desktop + mobile)
+* 🖥️ **Error-free, modular front-end** (Next.js + TypeScript + TailwindCSS)
+* ✅ **Testing** of user stories + accessibility validation (Lighthouse, WAVE)
+* 🚀 **Deployment** on Vercel
 
-**User Roles & Stories**
+**User Roles**
 
-- _Visitor:_ can browse/search venues.
-- _Customer:_ can register/login, book venues, view/update profile.
-- _Venue Manager:_ can register/login, manage venues & view bookings.
-
----
-
-## 📝 Developer’s Note
-
-This project was a milestone for me:
-
-- ♻️ I **reused older components** and refined them into production-ready features.
-- 🌅 Visuals and design inspiration were taken from **Unsplash**.
-
-Building Holidaze taught me how to go from **wireframes → style guide → production app**, which was the most valuable lesson.
+* *Visitor:* Browse/search venues
+* *Customer:* Register, login, book venues, update profile
+* *Venue Manager:* Manage venues & view bookings
 
 ---
 
-## 👤 Developer
+## 👤 Project by
 
-Made with ❤️ by **Sana Khuram**
+**Sana Khuram** – Noroff FED2 Student
 
-- 🌐 [Portfolio](https://skhuram.netlify.app/)
-- 💼 [LinkedIn](https://www.linkedin.com/in/sana-khuram-157ba02b7/)
-- 🐙 [GitHub](https://github.com/sanakhuram)
-- 📧 [sana.khuram.baig@gmail.com](mailto:sana.khuram.baig@gmail.com)
+* 🌐 [Portfolio](https://skhuram.netlify.app/)
+* 🐙 [GitHub](https://github.com/sanakhuram)
+* 💼 [LinkedIn](https://www.linkedin.com/in/sana-khuram-157ba02b7/)
+* 📧 [sana.khuram.baig@gmail.com](mailto:sana.khuram.baig@gmail.com)
+
+```
+
