@@ -103,13 +103,6 @@ Open at: [http://localhost:3000](http://localhost:3000)
 * 🌐 **Noroff API wrapper** – API requests
 * 🗺️ **OpenStreetMap + Google Maps Embed** – venue maps
 
----
-
-## 🛠️ Developer Tools
-
-* ✨ **Prettier** – automated code formatting  
-* 🔍 **ESLint** – linting & code quality  
-* 🧑‍💻 **TypeScript** – static typing  
 
 ---
 
