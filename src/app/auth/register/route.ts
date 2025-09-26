@@ -1,3 +1,4 @@
+// src/app/api/auth/register/route.ts
 import { NextResponse } from "next/server";
 import { z, ZodError } from "zod";
 import { API_BASE, API_KEY } from "@/app/lib/config";
@@ -9,28 +10,19 @@ const RegisterSchema = z.object({
     .email("Invalid email")
     .regex(/@stud\.noroff\.no$/i, "Use your stud.noroff.no email"),
   password: z.string().min(8, "Password must be at least 8 characters"),
-  avatar: z
-    .object({
-      url: z.string().url().optional(),
-      alt: z.string().optional(),
-    })
-    .optional(),
+  avatar: z.object({ url: z.string().url().optional(), alt: z.string().optional() }).optional(),
   venueManager: z.boolean().optional(),
 });
 
-type Upstream = { errors?: { message?: string }[]; message?: string };
-
-function errorResponse(message: string, status = 400) {
-  return NextResponse.json({ error: message }, { status });
-}
-
 async function readJsonSafe(res: Response) {
-  if (!res.headers.get("content-type")?.includes("application/json")) return null;
   try {
-    return await res.json();
+    return res.headers.get("content-type")?.includes("application/json") ? await res.json() : null;
   } catch {
     return null;
   }
+}
+function errorResponse(message: string, status = 400) {
+  return NextResponse.json({ error: message }, { status });
 }
 
 export async function POST(req: Request) {
@@ -47,7 +39,8 @@ export async function POST(req: Request) {
       cache: "no-store",
     });
 
-    const payload = (await readJsonSafe(upstream)) as Upstream | null;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const payload = (await readJsonSafe(upstream)) as any;
 
     if (!upstream.ok) {
       const msg = payload?.errors?.[0]?.message ?? payload?.message ?? "Registration failed";
@@ -58,7 +51,6 @@ export async function POST(req: Request) {
   } catch (err) {
     if (err instanceof ZodError)
       return errorResponse(err.issues[0]?.message ?? "Invalid input", 400);
-    if (err instanceof Error) return errorResponse(err.message, 400);
-    return errorResponse("Unexpected error", 400);
+    return errorResponse(err instanceof Error ? err.message : "Unexpected error", 400);
   }
 }

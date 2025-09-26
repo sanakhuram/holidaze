@@ -1,4 +1,3 @@
-
 <div align="center">
   <h1 style="color:#7f1d1d;">Holidaze</h1>
   <h3>Noroff FED2 – Final Project Exam</h3>
@@ -61,13 +60,13 @@
 
 ## ✨ Features & User Stories
 
-- 🔑 **Auth:** Register/Login (Noroff `@stud.noroff.no` restriction)  
-- 🌍 **Explore:** Search venues, filter by rating, guests, or location  
-- 📅 **Bookings:** Create, edit, cancel, with calendar of available dates  
-- 👤 **Profiles:** Customers view bookings; venue managers manage venues  
-- 🏡 **Venue Management:** Create, edit, delete venues, view bookings  
-- 🎨 **Design System:** Responsive, WCAG-compliant, Figma-driven theme  
-- 💬 **Feedback:** Toast notifications for all key actions  
+- 🔑 **Auth:** Register/Login (Noroff `@stud.noroff.no` restriction)
+- 🌍 **Explore:** Search venues, filter by rating, guests, or location
+- 📅 **Bookings:** Create, edit, cancel, with calendar of available dates
+- 👤 **Profiles:** Customers view bookings; venue managers manage venues
+- 🏡 **Venue Management:** Create, edit, delete venues, view bookings
+- 🎨 **Design System:** Responsive, WCAG-compliant, Figma-driven theme
+- 💬 **Feedback:** Toast notifications for all key actions
 
 ---
 
@@ -83,7 +82,7 @@ npm install
 
 # Run dev server
 npm run dev
-````
+```
 
 Open at: [http://localhost:3000](http://localhost:3000)
 
@@ -91,19 +90,18 @@ Open at: [http://localhost:3000](http://localhost:3000)
 
 ## 📦 Key Packages
 
-* 🔔 **React Hot Toast** – notifications
-* 📅 **React Day Picker** – date selection for bookings
-* 📆 **React Date Range** – booking range selection
-* 🎞️ **Framer Motion** – animations
-* 🖼️ **Lucide & React Icons** – icons
-* 🎨 **Clsx** – conditional classNames
-* 🧪 **Faker.js** – mock data
-* 📡 **SWR** – data fetching & caching
-* ✅ **Zod** – form validation
-* 🌐 **Noroff API wrapper** – API requests
-* 🗺️ **OpenStreetMap + Google Maps Embed** – venue maps
-* 🛣️ **Next.js Router** – file-based routing & navigation
-
+- 🔔 **React Hot Toast** – notifications
+- 📅 **React Day Picker** – date selection for bookings
+- 📆 **React Date Range** – booking range selection
+- 🎞️ **Framer Motion** – animations
+- 🖼️ **Lucide & React Icons** – icons
+- 🎨 **Clsx** – conditional classNames
+- 🧪 **Faker.js** – mock data
+- 📡 **SWR** – data fetching & caching
+- ✅ **Zod** – form validation
+- 🌐 **Noroff API wrapper** – API requests
+- 🗺️ **OpenStreetMap + Google Maps Embed** – venue maps
+- 🛣️ **Next.js Router** – file-based routing & navigation
 
 ---
 
@@ -116,7 +114,6 @@ Open at: [http://localhost:3000](http://localhost:3000)
   <img src="https://img.shields.io/badge/W3C%20Validator-Passed-green?style=flat-square&logo=w3c&logoColor=white" />
 </p>
 
-
 ---
 
 ## 📋 Project Brief
@@ -124,17 +121,17 @@ Open at: [http://localhost:3000](http://localhost:3000)
 **Holidaze** is developed as part of **Noroff FED2 Project Exam 2**.
 The scope is defined by the official API documentation and included:
 
-* 📌 **Kanban board** (GitHub Projects/Trello)
-* 🎨 **Figma style guide & prototypes** (desktop + mobile)
-* 🖥️ **Error-free, modular front-end** (Next.js + TypeScript + TailwindCSS)
-* ✅ **Testing** of user stories + accessibility validation (Lighthouse, WAVE)
-* 🚀 **Deployment** on Vercel
+- 📌 **Kanban board** (GitHub Projects/Trello)
+- 🎨 **Figma style guide & prototypes** (desktop + mobile)
+- 🖥️ **Error-free, modular front-end** (Next.js + TypeScript + TailwindCSS)
+- ✅ **Testing** of user stories + accessibility validation (Lighthouse, WAVE)
+- 🚀 **Deployment** on Vercel
 
 **User Roles**
 
-* *Visitor:* Browse/search venues
-* *Customer:* Register, login, book venues, update profile
-* *Venue Manager:* Manage venues & view bookings
+- _Visitor:_ Browse/search venues
+- _Customer:_ Register, login, book venues, update profile
+- _Venue Manager:_ Manage venues & view bookings
 
 ---
 
@@ -142,10 +139,7 @@ The scope is defined by the official API documentation and included:
 
 **Sana Khuram** – Noroff FED2 Student
 
-* 🌐 [Portfolio](https://skhuram.netlify.app/)
-* 🐙 [GitHub](https://github.com/sanakhuram)
-* 💼 [LinkedIn](https://www.linkedin.com/in/sana-khuram-157ba02b7/)
-* 📧 [sana.khuram.baig@gmail.com](mailto:sana.khuram.baig@gmail.com)
-
-
-
+- 🌐 [Portfolio](https://skhuram.netlify.app/)
+- 🐙 [GitHub](https://github.com/sanakhuram)
+- 💼 [LinkedIn](https://www.linkedin.com/in/sana-khuram-157ba02b7/)
+- 📧 [sana.khuram.baig@gmail.com](mailto:sana.khuram.baig@gmail.com)
