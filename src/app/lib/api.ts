@@ -83,6 +83,13 @@ export const getVenueById = (id: string) =>
     `/holidaze/venues/${encodeURIComponent(id)}?_owner=true&_bookings=true`
   );
 
+/**
+ *
+ * @param name - The profile name to fetch
+ * @param token - Bearer token for authentication
+ * @returns - The profile data including venues and bookings
+ */
+
 export async function getProfileByName(name: string, token: string) {
   return api<{ data: Profile }>(
     `/holidaze/profiles/${encodeURIComponent(name)}?_venues=true&_bookings=true&_venueBookings=true`,

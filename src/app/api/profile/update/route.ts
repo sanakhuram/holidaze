@@ -25,12 +25,20 @@ export async function PATCH(req: Request) {
 
     const body = await req.json();
 
+    /**
+     * * @param req - The incoming request object containing JSON body
+     */
+
     const payload = strip({
       bio: body.bio,
       avatar: body.avatar ? { url: body.avatar.url || "", alt: body.avatar.alt || "" } : undefined,
       banner: body.banner ? { url: body.banner.url || "", alt: body.banner.alt || "" } : undefined,
       venueManager: typeof body.venueManager === "boolean" ? body.venueManager : undefined,
     });
+
+    /**
+     * * @returns - JSON response from Noroff API with updated profile details or error message
+     */
 
     const { resp, data } = await noroffFetch(`/holidaze/profiles/${encodeURIComponent(username)}`, {
       method: "PUT",

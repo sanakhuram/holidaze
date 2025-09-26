@@ -21,6 +21,12 @@ async function readJsonSafe(res: Response) {
   }
 }
 
+/**
+ *
+ * @param req -Incoming request containing JSON body with email and password
+ * @returns - JSON response with success status or error message
+ */
+
 export async function POST(req: Request) {
   try {
     const { email, password } = LoginSchema.parse(await req.json());

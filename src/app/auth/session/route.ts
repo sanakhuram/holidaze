@@ -3,6 +3,11 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { COOKIE_TOKEN, COOKIE_USER } from "@/app/lib/config";
 
+/**
+ *
+ * @returns - JSON response with authentication status and user info if available
+ */
+
 export async function GET() {
   const jar = await cookies();
   const token = jar.get(COOKIE_TOKEN)?.value ?? null;

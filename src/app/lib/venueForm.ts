@@ -54,6 +54,12 @@ export function toCreatePayload(v: VenueFormValues) {
   };
 }
 
+/**
+ *
+ * @param v - Venue form values
+ * @returns - Payload formatted for venue update API
+ */
+
 export function toUpdatePayload(v: VenueFormValues) {
   return {
     ...v,

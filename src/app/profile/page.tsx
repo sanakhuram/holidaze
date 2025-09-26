@@ -15,6 +15,11 @@ import ProfileStats from "../components/profile/ProfileStats";
 
 export const dynamic = "force-dynamic";
 
+/**
+ *
+ * @returns - The profile page component displaying the user's profile information, venues, and bookings
+ */
+
 export default async function ProfilePage() {
   const jar = await cookies();
   const token = jar.get("noroff_token")?.value;

@@ -11,6 +11,12 @@ import ProfileStats from "@/app/components/profile/ProfileStats";
 
 type Params = { name: string };
 
+/**
+ *
+ * @param param0 - Object containing params promise which resolves to Params type
+ * @returns - The profile detail page component displaying user info, venues, and bookings
+ */
+
 export default async function ProfileDetailPage({ params }: { params: Promise<Params> }) {
   const { name } = await params;
 

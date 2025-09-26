@@ -25,6 +25,12 @@ function errorResponse(message: string, status = 400) {
   return NextResponse.json({ error: message }, { status });
 }
 
+/**
+ *
+ * @param req -Incoming request containing JSON body of type `RegisterSchema`
+ * @returns - JSON response with success status or error message
+ */
+
 export async function POST(req: Request) {
   try {
     const parsed = RegisterSchema.parse(await req.json());

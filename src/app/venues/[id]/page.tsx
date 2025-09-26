@@ -13,6 +13,12 @@ type PageProps = {
   searchParams?: Promise<Record<string, string | string[] | undefined>>;
 };
 
+/**
+ *
+ * @param props - Props containing params promise which resolves to venue ID
+ * @returns - The venue detail page component displaying venue info, media gallery, and booking section
+ */
+
 export default async function VenueDetailPage(props: PageProps) {
   const { id } = await props.params;
   const jar = await cookies();
@@ -43,6 +49,12 @@ export default async function VenueDetailPage(props: PageProps) {
     </section>
   );
 }
+
+/**
+ *
+ * @param props - Props containing params promise which resolves to venue ID
+ * @returns - Metadata object for the venue detail page
+ */
 
 export async function generateMetadata(props: Pick<PageProps, "params">) {
   const { id } = await props.params;

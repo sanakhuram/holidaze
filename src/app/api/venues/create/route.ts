@@ -3,6 +3,12 @@
 import { NextResponse } from "next/server";
 import { noroffFetch } from "../../_utils/noroff";
 
+/**
+ *
+ * @param req -Incoming request containing JSON body of type `Partial<CreateVenuePayload>`
+ * @returns -JSON response with created venue data or validation / server errors
+ */
+
 export async function POST(req: Request) {
   try {
     const body = (await req.json()) as Partial<{

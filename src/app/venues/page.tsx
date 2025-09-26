@@ -12,6 +12,11 @@ import Spinner from "../components/ui/Spinner";
 
 const CONTAINER = "mx-auto w-full max-w-6xl px-4";
 
+/**
+ *
+ * @returns - The main venues page component displaying featured venues, search filters, and a grid of venues
+ */
+
 export default function VenuesPage() {
   const [pinned, setPinned] = useState<Venue[]>([]);
   const { venues, meta, loading, error, q, setQ, setPage, filters, setFilters } =

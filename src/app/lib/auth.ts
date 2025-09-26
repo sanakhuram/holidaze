@@ -6,6 +6,12 @@ export type User = {
   venueManager: boolean;
 };
 
+/**
+ *
+ * @param payload - Object containing email and password for login
+ * @returns - Resolves to true if login is successful, otherwise throws an error
+ */
+
 export async function login(payload: { email: string; password: string }) {
   const r = await fetch("/auth/login", {
     method: "POST",
@@ -20,6 +26,11 @@ export async function login(payload: { email: string; password: string }) {
 export async function logout() {
   await fetch("/auth/logout", { method: "POST" });
 }
+
+/**
+ *
+ * @returns - Resolves to an object indicating if the user is authenticated and their user details if available
+ */
 
 export async function getSession() {
   const r = await fetch("/auth/session", { method: "GET", cache: "no-store" });

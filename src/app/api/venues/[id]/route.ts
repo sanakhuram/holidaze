@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { noroffFetch, strip } from "../../_utils/noroff";
 
-// Zod schema
 const s = z.string().trim().optional().nullable();
 const n = z.coerce.number().optional().nullable();
 const b = z.boolean().optional();
@@ -23,6 +22,13 @@ const UpdateSchema = z.object({
 });
 
 type RouteCtx = { params: Promise<{ id: string }> };
+
+/**
+ *
+ * @param req - The incoming request object containing JSON body
+ * @param ctx - Context containing route parameters
+ * @returns - JSON response from Noroff API with updated venue details or error message
+ */
 
 export async function PUT(req: Request, ctx: RouteCtx) {
   const { id } = await ctx.params;
@@ -58,6 +64,13 @@ export async function PUT(req: Request, ctx: RouteCtx) {
 
   return NextResponse.json(data, { status: resp.status });
 }
+
+/**
+ *
+ * @param _req - The incoming request object
+ * @param ctx - Context containing route parameters
+ * @returns - 204 No Content on successful deletion, or error JSON from Noroff API
+ */
 
 export async function DELETE(_req: Request, ctx: RouteCtx) {
   const { id } = await ctx.params;

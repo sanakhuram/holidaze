@@ -22,6 +22,13 @@ export type NoroffResponse = {
   [key: string]: unknown;
 };
 
+/**
+ *
+ * @param path - The API endpoint path
+ * @param options - Request initialization options, including method, headers, and body
+ * @returns - An object containing the response and parsed JSON data (if applicable)
+ */
+
 export async function noroffFetch(
   path: string,
   options: RequestInit & { json?: unknown } = {}
