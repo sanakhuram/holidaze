@@ -88,6 +88,31 @@ Open at: [http://localhost:3000](http://localhost:3000)
 
 ---
 
+## 📝 Environment Setup & Noroff API Key
+
+1. **Copy the example file to create your local environment file:**
+
+```bash
+cp .env.example .env.local
+```
+
+2. **Open `.env.local` and fill in your actual values:**
+
+```env
+# .env.local
+
+# Noroff API
+NOROFF_API_KEY=your_api_key_here
+NOROFF_API_URL=https://v2.api.noroff.dev
+```
+
+3. **Get your API key:**
+   Follow the [Noroff API Key Documentation](https://docs.noroff.dev/docs/v2/auth/api-key) to generate your key.
+
+> 🔑 This API key is required to authenticate requests and access all Holidaze API endpoints.
+
+---
+
 ## 📦 Key Packages
 
 - 🔔 **React Hot Toast** – notifications
