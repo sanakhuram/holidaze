@@ -10,6 +10,23 @@ import toast from "react-hot-toast";
 
 const EMPTY_RANGE: DateRange = { from: undefined, to: undefined };
 
+
+/**
+ * Modal for editing an existing booking.
+ *
+ * @param open - Whether the modal is visible.
+ * @param onClose - Callback to close the modal.
+ * @param booking - Booking object with venue information to edit.
+ * @param onSaved - Optional callback invoked after a successful save.
+ *
+ * @remarks
+ * - Pre-fills the form with the current booking dates and guest count.
+ * - Validates date range and number of guests before submitting.
+ * - Shows toast notifications for loading, success, and error states.
+ * - Disabled dates include past dates and other bookings for the same venue.
+ * - Uses `CalendarRange` for date selection and `GuestsRow` for guest input.
+ */
+
 export default function EditBookingModal({
   open,
   onClose,

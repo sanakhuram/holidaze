@@ -16,6 +16,20 @@ import {
 
 type IconVariant = "circleChevron" | "arrow" | "plus" | "chevron";
 
+/**
+ * A collapsible section component with customizable icon indicators.
+ *
+ * @param title - The title displayed in the header of the section.
+ * @param children - Content rendered inside the collapsible area.
+ * @param defaultOpen - Whether the section is initially open. Defaults to false.
+ * @param icon - Icon style to indicate expansion state. Options: "circleChevron", "arrow", "plus", "chevron". Defaults to "circleChevron".
+ *
+ * @remarks
+ * - Toggles visibility of `children` when the header button is clicked.
+ * - Adds ARIA attributes for accessibility (`aria-expanded` and `aria-controls`).
+ * - Smoothly animates height and opacity transitions when opening/closing.
+ */
+
 export default function CollapsibleSection({
   title,
   children,

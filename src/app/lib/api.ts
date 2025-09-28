@@ -35,6 +35,15 @@ function buildHeaders(init?: HeadersInit): Headers {
   return headers;
 }
 
+/**
+ * Fetch data from the API.
+ *
+ * @param path - Relative API path, e.g., '/holidaze/venues'.
+ * @param init - Optional fetch initialization options.
+ * @returns Parsed JSON response of type T.
+ * @throws Error if the response is not OK, with message including HTTP status and upstream error.
+ */
+
 export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
   const headers = buildHeaders(init.headers);
 
@@ -64,6 +73,14 @@ function qs(params: Record<string, string | number | boolean | null | undefined>
 
 const DEFAULT_SORT = { sort: "created", sortOrder: "desc" } as const;
 
+/**
+ * Fetch a profile by name.
+ *
+ * @param name - Profile name to fetch.
+ * @param token - Bearer token for authentication.
+ * @returns Profile data including venues and bookings.
+ */
+
 export function getVenues(page = 1, limit = 24, search?: string) {
   const hasQ = !!search?.trim();
   const path = hasQ ? "/holidaze/venues/search" : "/holidaze/venues";
@@ -84,10 +101,11 @@ export const getVenueById = (id: string) =>
   );
 
 /**
+ * Fetch a profile by name.
  *
- * @param name - The profile name to fetch
- * @param token - Bearer token for authentication
- * @returns - The profile data including venues and bookings
+ * @param name - Profile name to fetch.
+ * @param token - Bearer token for authentication.
+ * @returns Profile data including venues and bookings.
  */
 
 export async function getProfileByName(name: string, token: string) {

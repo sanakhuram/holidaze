@@ -5,6 +5,17 @@ import BrandGradientPanel from "@/app/components/ui/BrandGradientPanel";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 
+/**
+ * Authentication modal component for login/register forms.
+ *
+ * @param open - Whether the modal is visible.
+ * @param onClose - Callback to close the modal.
+ * @param mode - Initial mode: "login" or "register". Defaults to "login".
+ *
+ * @remarks
+ * Locks scroll when open and closes on Escape key or clicking outside.
+ */
+
 export default function AuthModal({
   open,
   onClose,

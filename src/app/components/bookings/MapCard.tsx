@@ -1,5 +1,20 @@
 import { MapPin } from "lucide-react";
 
+/**
+ * Displays a map for a location using coordinates or a query string.
+ *
+ * @param hasCoords - Whether latitude and longitude are provided.
+ * @param lat - Latitude of the location (required if `hasCoords` is true).
+ * @param lng - Longitude of the location (required if `hasCoords` is true).
+ * @param query - Text query for the location (used if coordinates are not provided).
+ * @param label - Label displayed above the map.
+ *
+ * @remarks
+ * - If `hasCoords` is true, generates an OpenStreetMap iframe centered on the coordinates.
+ * - Otherwise, falls back to Google Maps iframe using the `query`.
+ * - Includes basic styling with border and rounded corners.
+ */
+
 export default function MapCard({
   hasCoords,
   lat,

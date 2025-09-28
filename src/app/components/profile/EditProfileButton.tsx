@@ -6,6 +6,18 @@ import ProfileEditModal from "./ProfileEditModal";
 import type { Profile } from "@/app/lib/types";
 import { Pencil } from "lucide-react";
 
+/**
+ * Button to edit a user profile.
+ *
+ * @param profile - The profile object containing bio, avatar, banner, and venueManager flag.
+ * @param iconOnly - If true, renders only the icon without text. Defaults to false.
+ *
+ * @remarks
+ * - Opens `ProfileEditModal` when clicked.
+ * - Refreshes the router after saving changes.
+ * - Supports two visual variants: icon-only or full text+icon button.
+ */
+
 export default function EditProfileButton({
   profile,
   iconOnly = false,

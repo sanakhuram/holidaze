@@ -7,6 +7,22 @@ import type { Venue } from "@/app/lib/types";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
+/**
+ * Modal for editing an existing venue.
+ *
+ * @param open - Whether the modal is visible.
+ * @param onClose - Callback triggered when the modal is closed.
+ * @param venue - The venue object to edit.
+ * @param onSaved - Optional callback invoked after successful update.
+ *
+ * @remarks
+ * - Pre-fills `VenueForm` with the current venue data.
+ * - Converts form values to API payload via `toUpdatePayload`.
+ * - Sends a PUT request to `/api/venues/:id`.
+ * - Displays toast notifications for loading, success, and errors.
+ * - Closes the modal and invokes `onSaved` after successful update.
+ */
+
 export default function VenueEditModal({
   open,
   onClose,

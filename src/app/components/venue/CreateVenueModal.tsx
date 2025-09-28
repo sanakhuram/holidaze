@@ -8,6 +8,22 @@ import { toCreatePayload, type VenueFormValues } from "@/app/lib/venueForm";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
+/**
+ * Modal for creating a new venue.
+ *
+ * @param open - Whether the modal is visible.
+ * @param onClose - Callback triggered when the modal is closed.
+ * @param onCreated - Optional callback invoked with the new venue ID after successful creation.
+ *
+ * @remarks
+ * - Uses `VenueForm` to collect venue data.
+ * - Converts form values to API payload via `toCreatePayload`.
+ * - Sends a POST request to `/api/venues/create`.
+ * - Displays toast notifications for loading, success, and error states.
+ * - Navigates to the newly created venue or refreshes the page after creation.
+ */
+
+
 export default function CreateVenueModal({
   open,
   onClose,

@@ -7,6 +7,19 @@ import { useSession } from "@/hooks/useSession";
 import toast from "react-hot-toast";
 import { auth } from "@/app/services/authService";
 
+/**
+ * Registration form component.
+ *
+ * @param onSuccess - Callback invoked when registration succeeds.
+ *
+ * @remarks
+ * - Focuses the username input on mount.
+ * - Validates username, email, and password fields.
+ * - Handles registration via `auth.register` and logs the user in automatically.
+ * - Shows success/error toast messages.
+ * - Optionally allows the user to enable "Venue Manager" status.
+ */
+
 export default function RegisterForm({ onSuccess }: { onSuccess: () => void }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

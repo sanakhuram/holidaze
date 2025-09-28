@@ -6,6 +6,22 @@ import { Pencil } from "lucide-react";
 import type { BookingWithVenue } from "@/app/lib/types";
 import EditBookingModal from "./EditBookingModal";
 
+/**
+ * Button to edit an existing booking.
+ *
+ * @param booking - Booking object with venue information.
+ * @param onEdited - Optional callback invoked after a successful edit.
+ * @param className - Optional CSS classes for styling the button.
+ * @param variant - Button style variant, either "text" or "icon". Defaults to "icon".
+ * @param ariaLabel - Accessibility label for the button. Defaults to "Edit booking".
+ * @param children - Optional custom content for the button.
+ *
+ * @remarks
+ * - Opens an `EditBookingModal` when clicked.
+ * - Calls `onEdited` callback after the booking is saved.
+ * - Supports fallback UI for text or icon buttons.
+ */
+
 export default function EditBookingButton({
   booking,
   onEdited,

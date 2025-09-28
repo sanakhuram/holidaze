@@ -7,6 +7,18 @@ import { useSession } from "@/hooks/useSession";
 import toast from "react-hot-toast";
 import { auth } from "@/app/services/authService";
 
+/**
+ * Login form component.
+ *
+ * @param onSuccess - Callback invoked when login succeeds.
+ *
+ * @remarks
+ * - Focuses the email input on mount.
+ * - Displays validation errors.
+ * - Handles login via `auth.login` and refreshes session.
+ * - Shows success/error toast messages.
+ */
+
 export default function LoginForm({ onSuccess }: { onSuccess: () => void }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

@@ -1,3 +1,17 @@
+/**
+ * Row for selecting the number of guests in a booking form.
+ *
+ * @param maxGuests - Maximum allowed guests for the venue.
+ * @param guests - Current number of selected guests.
+ * @param onChange - Callback invoked when the number of guests changes.
+ * @param summary - A string summarizing the selection (e.g., number of nights).
+ *
+ * @remarks
+ * - Renders an input for the number of guests, constrained by `1` and `maxGuests`.
+ * - Displays the `summary` on the right side.
+ * - Designed to be used inside booking or edit booking forms.
+ */
+
 export default function GuestsRow({
   maxGuests,
   guests,

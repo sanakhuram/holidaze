@@ -5,6 +5,15 @@ import { getVenues } from "@/app/lib/api";
 import type { Venue } from "@/app/lib/types";
 import type { PaginationMeta } from "@/app/components/ui/PaginationControls";
 
+/**
+ * Custom React hook to fetch venues with pagination and optional search.
+ * @param page - Current page number
+ * @param limit - Number of venues per page
+ * @param searchTerm - Optional search string
+ * @returns venues, pagination metadata, loading state, and error message
+ */
+
+
 export function useVenuesQuery(page: number, limit: number, searchTerm?: string) {
   const [venues, setVenues] = useState<Venue[]>([]);
   const [meta, setMeta] = useState<PaginationMeta | null>(null);

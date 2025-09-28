@@ -6,6 +6,22 @@ import type { BookingWithVenue } from "@/app/lib/types";
 import BookingCard from "./BookingCard";
 import ViewMoreButton from "../ui/ViewMoreButton";
 
+/**
+ * Displays a list of bookings with optional filtering and expandable view.
+ *
+ * @param bookings - Array of booking objects with venue information.
+ * @param readonly - If true, disables editing and cancellation for all bookings. Defaults to false.
+ * @param initialCount - Number of bookings to display initially before showing "View More". Defaults to 3.
+ * @param filter - Which bookings to show: "all", "upcoming", or "past". Defaults to "all".
+ *
+ * @remarks
+ * - Bookings are sorted by check-in date.
+ * - Past bookings are shown with reduced opacity and hover effect.
+ * - Uses `BookingCard` for each booking.
+ * - Supports "View More" / "Collapse" functionality via `ViewMoreButton`.
+ * - Refreshes the list after a booking is cancelled.
+ */
+
 export default function BookingsList({
   bookings,
   readonly = false,

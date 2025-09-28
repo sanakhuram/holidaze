@@ -9,6 +9,20 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import type { Route } from "next";
 
+/**
+ * Card displaying a venue with details and optional management actions.
+ *
+ * @param venue - Venue object including media, location, description, price, and max guests.
+ * @param readonly - If true, disables editing/deletion. Defaults to false.
+ * @param isVenueManager - If true, shows edit/delete buttons when not readonly. Defaults to false.
+ *
+ * @remarks
+ * - Links to the venue page when clicking the image or name.
+ * - Uses `EditVenueButton` and `DeleteVenueButton` if allowed.
+ * - Purely visual; no API calls inside this component (except `router.refresh()` on delete).
+ */
+
+
 export default function VenueManageCard({
   venue,
   readonly = false,

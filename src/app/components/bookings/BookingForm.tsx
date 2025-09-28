@@ -11,6 +11,20 @@ import toast from "react-hot-toast";
 
 const EMPTY_RANGE: DateRange = { from: undefined, to: undefined };
 
+/**
+ * Booking form for a venue.
+ *
+ * @param venue - Venue information including price, maxGuests, and existing bookings.
+ * @param authenticated - Whether the current user is signed in.
+ *
+ * @remarks
+ * - Calculates total nights and price based on selected date range.
+ * - Prevents booking on unavailable dates.
+ * - Validates number of guests against `venue.maxGuests`.
+ * - Displays toast notifications for errors, loading, and success.
+ * - Clears selection after successful booking.
+ */
+
 export default function BookingForm({
   venue,
   authenticated,

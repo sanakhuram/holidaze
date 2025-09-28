@@ -3,6 +3,19 @@
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 
+/**
+ * Button to navigate back to the previous page or a fallback route.
+ *
+ * @param label - Text displayed on the button. Defaults to "Back".
+ * @param className - Optional additional CSS classes for styling.
+ * @param fallback - Fallback route if there is no history. Defaults to "/venues".
+ *
+ * @remarks
+ * - Uses Next.js `router.back()` if possible, otherwise navigates to `fallback`.
+ * - Displays an arrow icon with a simple hover animation.
+ */
+
+
 export default function BackToVenues({
   label = "Back",
   className = "",

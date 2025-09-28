@@ -5,6 +5,18 @@ import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
+/**
+ * Hero section for the landing page with interactive click and keyboard navigation.
+ *
+ * @remarks
+ * - Displays two overlapping images with motion effects.
+ * - Handles click or "Enter"/"Space" key to navigate to `/venues`.
+ * - Uses Framer Motion for animations; respects user's reduced motion preferences.
+ * - Prefetches the `/venues` route on mount for performance.
+ * - Handles animation completion to trigger navigation after motion.
+ */
+
+
 export default function HeroIntro() {
   const [closing, setClosing] = useState(false);
   const router = useRouter();

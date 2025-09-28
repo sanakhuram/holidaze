@@ -5,6 +5,19 @@ import { MapPin, Star, User } from "lucide-react";
 import type { VenueWithExtras } from "@/app/lib/types";
 import Amenities from "./Amenities";
 
+/**
+ * Displays booking-related information for a venue.
+ *
+ * @param venue - Venue data including price, rating, owner, location, maxGuests, and amenities.
+ *
+ * @remarks
+ * - Shows price per night and rating.
+ * - Displays location with fallback to address/city/country.
+ * - Shows the venue owner's name with link to their profile.
+ * - Shows maximum allowed guests.
+ * - Renders a list of amenities via the `Amenities` component.
+ */
+
 export default function BookingInfo({ venue }: { venue: VenueWithExtras }) {
   return (
     <div className="rounded-sm border border-amber-500 p-5 shadow-sm">

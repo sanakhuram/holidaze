@@ -17,6 +17,22 @@ import {
   PawPrint,
 } from "lucide-react";
 
+/**
+ * Form component for creating or editing a venue.
+ *
+ * @param initial - Optional initial values for the form fields.
+ * @param submitLabel - Optional text for the submit button. Defaults to "Save".
+ * @param loading - Optional loading state to disable the submit button.
+ * @param onSubmit - Callback invoked with form values on submission.
+ * @param onCancel - Callback invoked when canceling the form.
+ *
+ * @remarks
+ * - Uses `useVenueForm` hook for state management and validation.
+ * - Handles amenities, location, and media fields.
+ * - Displays errors if validation fails.
+ * - Fully controlled form; UI elements reflect internal state.
+ */
+
 export default function VenueForm({
   initial,
   submitLabel = "Save",

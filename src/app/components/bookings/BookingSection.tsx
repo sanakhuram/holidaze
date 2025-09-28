@@ -5,6 +5,19 @@ import BookingInfo from "./BookingInfo";
 import BookingForm from "./BookingForm";
 import BookingMap from "./BookingMap";
 
+/**
+ * Booking section for a venue, combining info, booking form, and map.
+ *
+ * @param venue - Venue data including price, amenities, location, owner, and other details.
+ * @param authenticated - Whether the current user is signed in.
+ *
+ * @remarks
+ * - Displays `BookingInfo` with price, rating, location, max guests, and amenities.
+ * - Displays `BookingForm` for selecting dates, number of guests, and submitting bookings.
+ * - Displays `BookingMap` showing the venue location.
+ * - Designed to be placed on a single venue page.
+ */
+
 export default function BookingSection({
   venue,
   authenticated,

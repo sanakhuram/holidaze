@@ -5,6 +5,18 @@ import { Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 import { confirmToast } from "../ui/ConfirmToast";
 
+/**
+ * Button to delete a venue with confirmation.
+ *
+ * @param id - The ID of the venue to delete.
+ * @param onDeleted - Optional callback invoked after successful deletion.
+ *
+ * @remarks
+ * - Displays a confirmation toast before sending the DELETE request.
+ * - Shows toast notifications for loading, success, and error states.
+ * - Handles loading state and disables the button while processing.
+ */
+
 export default function DeleteVenueButton({
   id,
   onDeleted,

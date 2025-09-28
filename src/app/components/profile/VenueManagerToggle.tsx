@@ -4,6 +4,19 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
+/**
+ * Toggle button for enabling or disabling the Venue Manager role.
+ *
+ * @param initial - Initial enabled state of the toggle.
+ *
+ * @remarks
+ * - Sends a PATCH request to `/api/profile/update` to update the role.
+ * - Displays toast notifications for success or failure.
+ * - Refreshes the router after updating.
+ * - Shows a sliding toggle UI and handles loading state.
+ */
+
+
 export default function VenueManagerToggle({ initial }: { initial: boolean }) {
   const [enabled, setEnabled] = useState(initial);
   const [loading, setLoading] = useState(false);

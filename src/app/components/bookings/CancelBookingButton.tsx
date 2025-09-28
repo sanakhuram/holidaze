@@ -5,6 +5,24 @@ import { Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
 import { confirmToast } from "../ui/ConfirmToast";
 
+
+/**
+ * Button to cancel a booking.
+ *
+ * @param bookingId - ID of the booking to cancel.
+ * @param onCancelled - Optional callback invoked after successful cancellation.
+ * @param className - Optional additional CSS classes.
+ * @param variant - Button style variant, either "text" or "icon". Defaults to "text".
+ * @param ariaLabel - Accessibility label for the button. Defaults to "Cancel booking".
+ * @param confirm - Whether to show a confirmation toast before cancelling. Defaults to true.
+ * @param children - Optional custom content for the button.
+ *
+ * @remarks
+ * - Shows a loading state while the cancellation request is in progress.
+ * - Displays toast notifications for loading, success, and error states.
+ * - Can render either a text button or an icon button.
+ */
+
 export default function CancelBookingButton({
   bookingId,
   onCancelled,

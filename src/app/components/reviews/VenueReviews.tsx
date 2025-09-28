@@ -32,6 +32,20 @@ function shuffle<T>(arr: T[]): T[] {
     .map(({ value }) => value);
 }
 
+/**
+ * Displays reviews for a specific venue and a set of featured venues.
+ *
+ * @param venueId - The ID of the venue for which reviews are displayed.
+ *
+ * @remarks
+ * - Generates fake reviews using `faker-js` for demonstration purposes.
+ * - Loads featured venues via `getVenues` and prioritizes pinned owners.
+ * - Filters out the current venue from featured picks and shuffles others.
+ * - Renders a list of reviews and a grid of featured venue cards.
+ * - Handles errors in fetching featured venues by logging to the console.
+ */
+
+
 export default function VenueReviews({ venueId }: { venueId: string }) {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [featured, setFeatured] = useState<Venue[]>([]);

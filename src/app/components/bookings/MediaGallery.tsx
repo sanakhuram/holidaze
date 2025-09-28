@@ -6,6 +6,21 @@ import type { Media } from "@/app/lib/types";
 
 const PLACEHOLDER = "/placeholder.jpg";
 
+
+/**
+ * Displays a media gallery with thumbnails and a lightbox view.
+ *
+ * @param media - Array of media items with `url` and `alt` text.
+ * @param name - Name of the venue/item, used for alt text and placeholder fallback.
+ *
+ * @remarks
+ * - Shows thumbnails on larger screens and a horizontal scroll on smaller screens.
+ * - Clicking the main image opens a lightbox modal.
+ * - Supports keyboard `Escape` to close the lightbox.
+ * - Uses a placeholder image if `media` is empty.
+ * - Highlights the currently active thumbnail.
+ */
+
 export default function MediaGallery({ media, name }: { media: Media[]; name: string }) {
   const items = (media?.length ? media : [{ url: PLACEHOLDER, alt: name }]) as Media[];
   const [active, setActive] = useState(0);

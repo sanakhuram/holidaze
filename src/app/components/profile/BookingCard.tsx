@@ -7,6 +7,21 @@ import CancelBookingButton from "../bookings/CancelBookingButton";
 import EditBookingButton from "../bookings/EditBookingButton";
 import type { BookingWithVenue } from "@/app/lib/types";
 
+/**
+ * Displays a card for a single booking with venue information.
+ *
+ * @param b - Booking object including venue, dates, and guest count.
+ * @param onCancelled - Optional callback invoked after a booking is cancelled.
+ * @param onEdited - Optional callback invoked after a booking is edited.
+ * @param readonly - If true, disables editing and cancellation buttons.
+ *
+ * @remarks
+ * - Shows the venue image, name, city, check-in/out dates, guest count, and total price.
+ * - Includes `EditBookingButton` and `CancelBookingButton` if not readonly.
+ * - Links to the venue page when clicking the image or venue name.
+ * - Displays a booking reference ID.
+ */
+
 export default function BookingCard({
   b,
   onCancelled,

@@ -4,6 +4,17 @@ import IconCircle from "../ui/IconCircle";
 
 type Meta = { wifi?: boolean; parking?: boolean; breakfast?: boolean; pets?: boolean } | undefined;
 
+
+/**
+ * Displays icons for a venue's amenities.
+ *
+ * @param meta - Object specifying which amenities are available.
+ *
+ * @remarks
+ * - Uses `IconCircle` for each amenity.
+ * - Icons are highlighted if the corresponding property is `true`.
+ */
+
 export default function Amenities({ meta }: { meta: Meta }) {
   const A = meta || {};
   return (

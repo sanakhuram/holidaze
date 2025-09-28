@@ -8,6 +8,23 @@ import VenueEditModal from "./VenueEditModal";
 
 type Props = { venue: Venue; venueId?: never } | { venue?: never; venueId: string };
 
+/**
+ * Button to edit a venue, opens a modal with venue details.
+ *
+ * @param venue - Optional preloaded venue object.
+ * @param venueId - Optional venue ID to fetch venue data if `venue` is not provided.
+ * @param onEdited - Optional callback invoked after the venue is edited.
+ * @param className - Optional additional CSS classes for the button.
+ * @param ariaLabel - Optional aria-label for accessibility. Defaults to "Edit venue".
+ * @param children - Optional custom button content; defaults to a pencil icon.
+ *
+ * @remarks
+ * - Fetches venue data if `venueId` is provided and `venue` is not preloaded.
+ * - Displays a loading overlay while fetching.
+ * - Opens `VenueEditModal` to edit venue details.
+ * - Calls `onEdited` after saving changes in the modal.
+ */
+
 export default function EditVenueButton({
   venue,
   venueId,
